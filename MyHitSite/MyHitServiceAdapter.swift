@@ -16,7 +16,7 @@ class MyHitServiceAdapter: ServiceAdapter {
   var tracks: [JSON]?
 
   init() {
-    super.init(configName: NSHomeDirectory() + "/Library/Caches/settings.json")
+    super.init(configName: NSHomeDirectory() + "/Library/Caches/myhit-settings.json")
     
     bookmarks.load()
     history.load()
