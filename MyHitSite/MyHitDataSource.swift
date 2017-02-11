@@ -8,7 +8,7 @@ class MyHitDataSource: DataSource {
   func load(_ requestType: String, params: RequestParams, pageSize: Int, currentPage: Int) throws -> [MediaItem] {
     var result: Items = [:]
 
-    let identifier = params.identifier!
+    let identifier = params.identifier
     let bookmarks = params.bookmarks!
     let history = params.history!
     let selectedItem = params.selectedItem as? MyHitMediaItem
@@ -67,7 +67,7 @@ class MyHitDataSource: DataSource {
         result = try service.getPopularSeries(page: currentPage)
 
       case "SEASONS":
-        result = service.getSeasons(identifier)
+        result = service.getSeasons(identifier!)
 
         let seasons = result["movies"] as! [Any]
 
@@ -80,7 +80,7 @@ class MyHitDataSource: DataSource {
       case "EPISODES":
         let seasonNumber = selectedItem?.seasonNumber ?? ""
 
-        result = service.getEpisodes(identifier, seasonNumber: seasonNumber, pageSize: pageSize, page: currentPage)
+        result = service.getEpisodes(identifier!, seasonNumber: seasonNumber, pageSize: pageSize, page: currentPage)
 
       case "SELECTIONS":
         result = try service.getSelections(page: currentPage)
@@ -129,7 +129,7 @@ class MyHitDataSource: DataSource {
         result = try service.getSoundtracks(page: currentPage)
 
       case "SEARCH":
-        result = try service.search(identifier, page: currentPage)
+        result = try service.search(identifier!, page: currentPage)
 
       default:
         result = [:]
