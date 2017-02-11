@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tVE-qx-oel">
+    <device id="appleTV" orientation="landscape">
+        <adaptation id="light"/>
+    </device>
+    <dependencies>
+        <deployment identifier="tvOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--My Hit Controller-->
+        <scene sceneID="gm5-Vb-zJc">
+            <objects>
+                <collectionViewController storyboardIdentifier="MyHitController" id="tVE-qx-oel" customClass="MyHitController" customModule="MyHitSite" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="MyHitController" dataMode="prototypes" id="aTO-jt-QfO">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hO9-MW-jhO">
+                            <size key="itemSize" width="450" height="150"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="MyHitCell" reuseIdentifier="MyHitCell" id="huY-5Y-zFi" customClass="MediaNameCell" customModule="TVSetKit">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="450" height="150"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jT8-6h-Mw9">
+                                            <rect key="frame" x="0.0" y="0.0" width="450" height="150"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <connections>
+                                    <outlet property="thumb" destination="jT8-6h-Mw9" id="taA-IG-lh6"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="tVE-qx-oel" id="uBB-vN-ezD"/>
+                            <outlet property="delegate" destination="tVE-qx-oel" id="P1I-z4-wKw"/>
+                        </connections>
+                    </collectionView>
+                    <connections>
+                        <segue destination="vvt-w6-3JF" kind="show" identifier="FilterByMovies" animates="NO" id="xtk-0v-y6p"/>
+                        <segue destination="czT-8U-VTJ" kind="show" identifier="FilterBySeries" animates="NO" id="1Du-So-sCS"/>
+                        <segue destination="zFz-qq-FGQ" kind="show" identifier="Settings" id="58b-80-cc5"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ziR-ps-42b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-934" y="-3697"/>
+        </scene>
+        <!--Movies Sub Filter Controller-->
+        <scene sceneID="mj0-AX-dXd">
+            <objects>
+                <collectionViewController id="lV5-NN-nzf" customClass="MoviesSubFilterController" customModule="EtvnetApp" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="hrU-Fu-OeL">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="S6c-Yo-p42">
+                            <size key="itemSize" width="450" height="150"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieSubFilterCell" id="G4g-iD-wRf" customClass="MovieSubFilterCell" customModule="EtvnetApp">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="450" height="150"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yhp-J3-IGE">
+                                            <rect key="frame" x="0.0" y="0.0" width="450" height="150"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <connections>
+                                    <outlet property="thumb" destination="yhp-J3-IGE" id="29B-48-WRO"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="lV5-NN-nzf" id="heV-Ct-MMM"/>
+                            <outlet property="delegate" destination="lV5-NN-nzf" id="xIJ-hY-lxc"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ujG-Q8-ceT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2347" y="3023"/>
+        </scene>
+        <!--Movies Filter Controller-->
+        <scene sceneID="upL-w6-ENo">
+            <objects>
+                <collectionViewController id="vvt-w6-3JF" customClass="MoviesFilterController" customModule="EtvnetApp" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="rE9-uX-BEU">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jy1-ay-ZzD">
+                            <size key="itemSize" width="450" height="150"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="MovieFilterCell" reuseIdentifier="MovieFilterCell" id="fQz-GC-7tT" customClass="MovieFilterCell" customModule="EtvnetApp">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="450" height="150"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mn9-BW-z2r">
+                                            <rect key="frame" x="0.0" y="0.0" width="450" height="150"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <connections>
+                                    <outlet property="thumb" destination="mn9-BW-z2r" id="CuJ-H6-8LM"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="vvt-w6-3JF" id="7LR-m9-31x"/>
+                            <outlet property="delegate" destination="vvt-w6-3JF" id="miP-TK-WW9"/>
+                        </connections>
+                    </collectionView>
+                    <connections>
+                        <segue destination="lV5-NN-nzf" kind="show" identifier="FilterByMovie" animates="NO" id="GXN-XM-UcV"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q5Y-jK-5ar" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2347" y="31"/>
+        </scene>
+        <!--Series Sub Filter Controller-->
+        <scene sceneID="M6O-P8-LVf">
+            <objects>
+                <collectionViewController id="bWK-lf-06G" customClass="SeriesSubFilterController" customModule="EtvnetApp" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="YLR-bp-9sS">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zvv-21-aFT">
+                            <size key="itemSize" width="450" height="150"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="SerieSubFilterCell" reuseIdentifier="SerieSubFilterCell" id="9st-Nt-UaE" customClass="SerieSubFilterCell" customModule="EtvnetApp">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="450" height="150"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HbK-sg-Ggn">
+                                            <rect key="frame" x="0.0" y="0.0" width="450" height="150"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <connections>
+                                    <outlet property="thumb" destination="HbK-sg-Ggn" id="q9l-9m-LhB"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="bWK-lf-06G" id="Cuw-89-xAx"/>
+                            <outlet property="delegate" destination="bWK-lf-06G" id="yx6-xE-iHK"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tv1-u4-Em3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="539" y="3023"/>
+        </scene>
+        <!--Series Filter Controller-->
+        <scene sceneID="KaI-1V-HxH">
+            <objects>
+                <collectionViewController id="czT-8U-VTJ" customClass="SeriesFilterController" customModule="EtvnetApp" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="03f-Bi-CCJ">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mGc-D2-SSS">
+                            <size key="itemSize" width="450" height="150"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SerieFilterCell" id="y2V-92-BMh" customClass="SerieFilterCell" customModule="EtvnetApp">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="450" height="150"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hni-XM-kH4">
+                                            <rect key="frame" x="0.0" y="0.0" width="450" height="150"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <connections>
+                                    <outlet property="thumb" destination="Hni-XM-kH4" id="KCG-zm-JYA"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="czT-8U-VTJ" id="zrD-Cf-zer"/>
+                            <outlet property="delegate" destination="czT-8U-VTJ" id="7Gx-bg-4GZ"/>
+                        </connections>
+                    </collectionView>
+                    <connections>
+                        <segue destination="bWK-lf-06G" kind="show" identifier="FilterBySerie" animates="NO" id="sld-2U-QgY"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FiU-lA-s5N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="539" y="31"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="fOZ-hi-Nbb">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6iL-eO-xkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <collectionViewController title="Settings" id="zFz-qq-FGQ" customClass="MyHitSettingsController" customModule="MyHitSite" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Eud-wG-pqH">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ESz-e1-VOe">
+                            <size key="itemSize" width="450" height="150"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MyHitSettingCell" id="GJ5-6J-g7Q" customClass="MediaNameCell" customModule="TVSetKit">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="450" height="150"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aG4-jy-Byl">
+                                            <rect key="frame" x="0.0" y="0.0" width="450" height="150"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <connections>
+                                    <outlet property="thumb" destination="aG4-jy-Byl" id="wgD-mf-MUq"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="zFz-qq-FGQ" id="JDI-o8-f0l"/>
+                            <outlet property="delegate" destination="zFz-qq-FGQ" id="4Vj-tU-ECW"/>
+                        </connections>
+                    </collectionView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <tabBarItem key="tabBarItem" title="Collection" id="rtd-M4-RFh"/>
+                    <navigationItem key="navigationItem" title="Movies" id="sbx-x5-JjN"/>
+                </collectionViewController>
+            </objects>
+            <point key="canvasLocation" x="3440" y="31"/>
+        </scene>
+    </scenes>
+</document>
