@@ -67,7 +67,7 @@ class MyHitDataSource: DataSource {
         result = try service.getPopularSeries(page: currentPage)
 
       case "SEASONS":
-        result = service.getSeasons(identifier!)
+        result = service.getSeasons(identifier!, parentName: selectedItem!.name!)
 
         let seasons = result["movies"] as! [Any]
 
@@ -80,7 +80,9 @@ class MyHitDataSource: DataSource {
       case "EPISODES":
         let seasonNumber = selectedItem?.seasonNumber ?? ""
 
-        result = service.getEpisodes(identifier!, seasonNumber: seasonNumber, pageSize: pageSize, page: currentPage)
+        let parentName = "\(selectedItem!.parentName!) (\(selectedItem!.name!))"
+
+        result = service.getEpisodes(identifier!, parentName: parentName, seasonNumber: seasonNumber, pageSize: pageSize, page: currentPage)
 
       case "SELECTIONS":
         result = try service.getSelections(page: currentPage)
