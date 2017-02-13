@@ -23,7 +23,7 @@
 		FAA2268A1E4F7E9D00269BDE /* MyHitMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA226801E4F7E9D00269BDE /* MyHitMediaItem.swift */; };
 		FAA2268B1E4F7E9D00269BDE /* MyHitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA226811E4F7E9D00269BDE /* MyHitService.swift */; };
 		FAA2268C1E4F7E9D00269BDE /* MyHitServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA226821E4F7E9D00269BDE /* MyHitServiceAdapter.swift */; };
-		FAA2268D1E4F7E9D00269BDE /* MyHitSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA226831E4F7E9D00269BDE /* MyHitSettingsController.swift */; };
+		FAA2268D1E4F7E9D00269BDE /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA226831E4F7E9D00269BDE /* SettingsController.swift */; };
 		FAA226B71E4F7F3200269BDE /* Just.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA226AE1E4F7EF900269BDE /* Just.framework */; };
 		FAA226B81E4F7F3200269BDE /* SwiftSoup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA226B21E4F7EF900269BDE /* SwiftSoup.framework */; };
 		FAA226B91E4F7F3200269BDE /* TVSetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA226A21E4F7EEF00269BDE /* TVSetKit.framework */; };
@@ -103,7 +103,7 @@
 		FAA226801E4F7E9D00269BDE /* MyHitMediaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHitMediaItem.swift; sourceTree = "<group>"; };
 		FAA226811E4F7E9D00269BDE /* MyHitService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHitService.swift; sourceTree = "<group>"; };
 		FAA226821E4F7E9D00269BDE /* MyHitServiceAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHitServiceAdapter.swift; sourceTree = "<group>"; };
-		FAA226831E4F7E9D00269BDE /* MyHitSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHitSettingsController.swift; sourceTree = "<group>"; };
+		FAA226831E4F7E9D00269BDE /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		FAA2269A1E4F7EEF00269BDE /* TVSetKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TVSetKit.xcodeproj; path = ../TVSetKit/TVSetKit.xcodeproj; sourceTree = "<group>"; };
 		FAA226A51E4F7EF900269BDE /* WebAPI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WebAPI.xcodeproj; path = ../WebAPI/WebAPI.xcodeproj; sourceTree = "<group>"; };
 		FAA226BC1E4F7F3200269BDE /* Runglish.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Runglish.framework; path = ../Runglish/build/Debug/Runglish.framework; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 				FAA226801E4F7E9D00269BDE /* MyHitMediaItem.swift */,
 				FAA226811E4F7E9D00269BDE /* MyHitService.swift */,
 				FAA226821E4F7E9D00269BDE /* MyHitServiceAdapter.swift */,
-				FAA226831E4F7E9D00269BDE /* MyHitSettingsController.swift */,
+				FAA226831E4F7E9D00269BDE /* SettingsController.swift */,
 				FAA226731E4F7E5800269BDE /* MyHitSite.h */,
 				FAA226741E4F7E5800269BDE /* Info.plist */,
 			);
@@ -354,7 +354,7 @@
 				FA9230591E4FD14600BD4013 /* SeriesFilterController.swift in Sources */,
 				FAA226881E4F7E9D00269BDE /* MyHitController.swift in Sources */,
 				FA9230551E4FD14600BD4013 /* MoviesFilterController.swift in Sources */,
-				FAA2268D1E4F7E9D00269BDE /* MyHitSettingsController.swift in Sources */,
+				FAA2268D1E4F7E9D00269BDE /* SettingsController.swift in Sources */,
 				FAA2268B1E4F7E9D00269BDE /* MyHitService.swift in Sources */,
 				FAA2268C1E4F7E9D00269BDE /* MyHitServiceAdapter.swift in Sources */,
 				FA9230571E4FD14600BD4013 /* MovieSubFilterCell.swift in Sources */,

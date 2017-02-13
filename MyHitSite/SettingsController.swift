@@ -1,8 +1,8 @@
 import UIKit
 import TVSetKit
 
-class MyHitSettingsController: UICollectionViewController {
-  let CELL_IDENTIFIER = "MyHitSettingCell"
+class SettingsController: UICollectionViewController {
+  let CELL_IDENTIFIER = "SettingCell"
 
   public var adapter: ServiceAdapter!
 
