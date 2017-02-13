@@ -134,7 +134,7 @@
 			children = (
 				FAA226A51E4F7EF900269BDE /* WebAPI.xcodeproj */,
 				FAA2269A1E4F7EEF00269BDE /* TVSetKit.xcodeproj */,
-				FAA226721E4F7E5800269BDE /* MyHitSite */,
+				FAA226721E4F7E5800269BDE /* Sources */,
 				FAA226711E4F7E5800269BDE /* Products */,
 				FAA226BB1E4F7F3200269BDE /* Frameworks */,
 			);
@@ -148,7 +148,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FAA226721E4F7E5800269BDE /* MyHitSite */ = {
+		FAA226721E4F7E5800269BDE /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				FA92304C1E4FD14600BD4013 /* MovieFilterCell.swift */,
@@ -171,6 +171,7 @@
 				FAA226741E4F7E5800269BDE /* Info.plist */,
 				2DBA113DA4D8886B542986BE /* SearchController.swift */,
 			);
+			name = Sources;
 			path = MyHitSite;
 			sourceTree = "<group>";
 		};
