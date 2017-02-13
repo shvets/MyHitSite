@@ -6,7 +6,7 @@ class MyHitDataSource: DataSource {
   let service = MyHitService.shared
 
   func load(_ requestType: String, params: RequestParams, pageSize: Int, currentPage: Int) throws -> [MediaItem] {
-    var result: Items = ["movies": []]
+    var result: [String: Any] = ["movies": []]
 
     let identifier = params.identifier
     let bookmarks = params.bookmarks!
