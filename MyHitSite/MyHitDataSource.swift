@@ -6,7 +6,7 @@ class MyHitDataSource: DataSource {
   let service = MyHitService.shared
 
   func load(_ requestType: String, params: RequestParams, pageSize: Int, currentPage: Int) throws -> [MediaItem] {
-    var result: Items = [:]
+    var result: Items = ["movies": []]
 
     let identifier = params.identifier
     let bookmarks = params.bookmarks!
@@ -131,10 +131,12 @@ class MyHitDataSource: DataSource {
         result = try service.getSoundtracks(page: currentPage)
 
       case "SEARCH":
-        result = try service.search(identifier!, page: currentPage)
+        if !identifier!.isEmpty {
+          result = try service.search(identifier!, page: currentPage)
+        }
 
       default:
-        result = [:]
+        result = ["movies": []]
     }
 
     var newItems = [MediaItem]()

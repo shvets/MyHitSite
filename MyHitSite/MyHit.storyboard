@@ -273,7 +273,72 @@
                     <navigationItem key="navigationItem" title="Movies" id="sbx-x5-JjN"/>
                 </collectionViewController>
             </objects>
-            <point key="canvasLocation" x="3375" y="31"/>
+            <point key="canvasLocation" x="3404" y="31"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="Bak-Rk-xdZ">
+            <objects>
+                <viewController storyboardIdentifier="SearchController" id="hvV-HZ-yux" customClass="SearchController" customModule="MyHitSite" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="22V-D5-9KS"/>
+                        <viewControllerLayoutGuide type="bottom" id="544-3O-d40"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="E21-Zk-9Dw">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Query" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="QeB-xd-8rI">
+                                <rect key="frame" x="590" y="318" width="1200" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goW-lj-atn">
+                                <rect key="frame" x="590" y="683" width="400" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="onSearchAction:" destination="hvV-HZ-yux" eventType="primaryActionTriggered" id="nxA-ja-qr1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J2X-FD-oc8">
+                                <rect key="frame" x="590" y="533" width="164" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <connections>
+                                    <action selector="onUseRunglish:" destination="hvV-HZ-yux" eventType="primaryActionTriggered" id="1FY-eX-pW3"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATv-gs-Rmf">
+                                <rect key="frame" x="590" y="422" width="1200" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Use Runglish?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EfU-vS-X0o">
+                                <rect key="frame" x="60" y="533" width="522" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Search" id="hcc-Zp-RZP"/>
+                    <connections>
+                        <outlet property="query" destination="QeB-xd-8rI" id="ctl-g4-8VR"/>
+                        <outlet property="searchButton" destination="goW-lj-atn" id="zKd-BR-K0N"/>
+                        <outlet property="transcodedQuery" destination="ATv-gs-Rmf" id="XfP-En-ghK"/>
+                        <outlet property="useRunglish" destination="J2X-FD-oc8" id="rob-CZ-WV6"/>
+                        <outlet property="useRunglishLabel" destination="EfU-vS-X0o" id="CEw-gx-Mhi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xWq-68-bwd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3225" y="-3697"/>
         </scene>
     </scenes>
 </document>

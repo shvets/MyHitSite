@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DBA1EF3D8385F4D34E19AF6 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA113DA4D8886B542986BE /* SearchController.swift */; };
 		FA9230541E4FD14600BD4013 /* MovieFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA92304C1E4FD14600BD4013 /* MovieFilterCell.swift */; };
 		FA9230551E4FD14600BD4013 /* MoviesFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA92304D1E4FD14600BD4013 /* MoviesFilterController.swift */; };
 		FA9230561E4FD14600BD4013 /* MoviesSubFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA92304E1E4FD14600BD4013 /* MoviesSubFilterController.swift */; };
@@ -85,6 +86,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2DBA113DA4D8886B542986BE /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		FA92304C1E4FD14600BD4013 /* MovieFilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieFilterCell.swift; path = filter/MovieFilterCell.swift; sourceTree = "<group>"; };
 		FA92304D1E4FD14600BD4013 /* MoviesFilterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoviesFilterController.swift; path = filter/MoviesFilterController.swift; sourceTree = "<group>"; };
 		FA92304E1E4FD14600BD4013 /* MoviesSubFilterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoviesSubFilterController.swift; path = filter/MoviesSubFilterController.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				FAA226831E4F7E9D00269BDE /* SettingsController.swift */,
 				FAA226731E4F7E5800269BDE /* MyHitSite.h */,
 				FAA226741E4F7E5800269BDE /* Info.plist */,
+				2DBA113DA4D8886B542986BE /* SearchController.swift */,
 			);
 			path = MyHitSite;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				FA9230571E4FD14600BD4013 /* MovieSubFilterCell.swift in Sources */,
 				FA9230581E4FD14600BD4013 /* SerieFilterCell.swift in Sources */,
 				FA92305B1E4FD14600BD4013 /* SerieSubFilterCell.swift in Sources */,
+				2DBA1EF3D8385F4D34E19AF6 /* SearchController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
