@@ -76,7 +76,7 @@ open class MyHitController: BaseCollectionViewController {
   func tapped(_ gesture: UITapGestureRecognizer) {
     let selectedCell = gesture.view as! MediaNameCell
 
-    let requestType = selectedCell.item!.name
+    let requestType = getItem(for: selectedCell).name
 
     if requestType == "FILTER_BY_MOVIES" {
       performSegue(withIdentifier: "FilterByMovies", sender: gesture.view)
