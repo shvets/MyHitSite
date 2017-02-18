@@ -40,7 +40,9 @@ class SeriesSubFilterController: InfiniteCollectionViewController {
 
     let item = items[indexPath.row]
 
-    let localizedName = adapter?.languageManager?.localize(item.name!) ?? "Unknown"
+    let bundle = Bundle(identifier: "com.rubikon.MyHitSite")!
+
+    let localizedName = adapter?.languageManager?.localize(item.name!, bundle: bundle) ?? "Unknown"
 
     cell.configureCell(item: item, localizedName: localizedName, target: self, action: #selector(self.tapped(_:)))
 

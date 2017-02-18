@@ -1,0 +1,22 @@
+BOOKMARKS="Очередь";
+HISTORY="История Просмотров";
+SEARCH="Поиск";
+SETTINGS="Настройки";
+RESET_HISTORY="Очистить Историю";
+RESET_BOOKMARKS="Очистить Очередь";
+HISTORY_WILL_BE_RESET="История Просмотров Будет Очищена";
+BOOKMARKS_WILL_BE_RESET="Очередь Будет Очищена";
+CONFIRM_YOUR_CHOICE="Пожалуйста Подтвердите Ваш Выбор";
+
+ALL_MOVIES="Все Фильмы";
+POPULAR_MOVIES="Популярные Фильмы";
+ALL_SERIES="Все Сериалы";
+POPULAR_SERIES="Популярные Сериалы";
+SELECTIONS="Избранное";
+SOUNDTRACKS="Саундтреки";
+FILTER_BY_MOVIES="Фильтр по Фильмам";
+FILTER_BY_SERIES="Фильтр по Сериалам";
+
+"Use Runglish?" = "Использовать Runglish?";
+"Enter Query" = "Введите Запрос";
+"Search" = "Поиск";
