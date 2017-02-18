@@ -2,8 +2,8 @@ import UIKit
 import TVSetKit
 
 class MoviesSubFilterController: InfiniteCollectionViewController {
-  static let SEGUE_IDENTIFIER = "FilterByMovie"
-  let CELL_IDENTIFIER = "MovieSubFilterCell"
+  static let SegueIdentifier = "FilterByMovie"
+  let CellIdentifier = "MovieSubFilterCell"
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -36,7 +36,7 @@ class MoviesSubFilterController: InfiniteCollectionViewController {
   }
 
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CELL_IDENTIFIER, for: indexPath) as! MovieSubFilterCell
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier, for: indexPath) as! MovieSubFilterCell
 
     if adapter.nextPageAvailable(dataCount: items.count, index: indexPath.row) {
       loadMoreData(indexPath.row)

@@ -2,8 +2,8 @@ import UIKit
 import TVSetKit
 
 class MoviesFilterController: InfiniteCollectionViewController {
-  static let SEGUE_IDENTIFIER = "FilterByMovies"
-  let CELL_IDENTIFIER = "MovieFilterCell"
+  static let SegueIdentifier = "FilterByMovies"
+  let CellIdentifier = "MovieFilterCell"
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -39,7 +39,7 @@ class MoviesFilterController: InfiniteCollectionViewController {
   }
 
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CELL_IDENTIFIER, for: indexPath) as! MovieFilterCell
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier, for: indexPath) as! MovieFilterCell
 
     if adapter.nextPageAvailable(dataCount: items.count, index: indexPath.row) {
       loadMoreData(indexPath.row)
@@ -55,7 +55,7 @@ class MoviesFilterController: InfiniteCollectionViewController {
   }
 
   func tapped(_ gesture: UITapGestureRecognizer) {
-    performSegue(withIdentifier: MoviesSubFilterController.SEGUE_IDENTIFIER, sender: gesture.view)
+    performSegue(withIdentifier: MoviesSubFilterController.SegueIdentifier, sender: gesture.view)
   }
 
   // MARK: - Navigation
@@ -63,7 +63,7 @@ class MoviesFilterController: InfiniteCollectionViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let identifier = segue.identifier {
       switch identifier {
-        case MoviesSubFilterController.SEGUE_IDENTIFIER:
+        case MoviesSubFilterController.SegueIdentifier:
           if let destination = segue.destination as? MoviesSubFilterController,
              let selectedCell = sender as? MovieFilterCell {
             adapter.clear()

@@ -3,9 +3,9 @@ import SwiftyJSON
 import TVSetKit
 
 open class MyHitController: BaseCollectionViewController {
-  let CELL_IDENTIFIER = "MyHitCell"
+  let CellIdentifier = "MyHitCell"
 
-  let MAIN_MENU_ITEMS = [
+  let MainMenuItems = [
     "BOOKMARKS",
     "HISTORY",
     "ALL_MOVIES",
@@ -44,7 +44,7 @@ open class MyHitController: BaseCollectionViewController {
 
     self.clearsSelectionOnViewWillAppear = false
 
-    for name in MAIN_MENU_ITEMS {
+    for name in MainMenuItems {
       let item = MediaItem(name: name)
 
       items.append(item)
@@ -62,7 +62,7 @@ open class MyHitController: BaseCollectionViewController {
   }
   
   override open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CELL_IDENTIFIER, for: indexPath) as! MediaNameCell
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier, for: indexPath) as! MediaNameCell
 
     let item = items[indexPath.row]
 

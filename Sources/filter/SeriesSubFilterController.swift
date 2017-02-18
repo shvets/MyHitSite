@@ -2,8 +2,8 @@ import UIKit
 import TVSetKit
 
 class SeriesSubFilterController: InfiniteCollectionViewController {
-  static let SEGUE_IDENTIFIER = "FilterBySerie"
-  let CELL_IDENTIFIER = "SerieSubFilterCell"
+  static let SegueIdentifier = "FilterBySerie"
+  let CellIdentifier = "SerieSubFilterCell"
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -36,7 +36,7 @@ class SeriesSubFilterController: InfiniteCollectionViewController {
   }
 
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CELL_IDENTIFIER, for: indexPath) as! SerieSubFilterCell
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier, for: indexPath) as! SerieSubFilterCell
 
     let item = items[indexPath.row]
 

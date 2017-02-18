@@ -2,8 +2,8 @@ import UIKit
 import TVSetKit
 
 class SeriesFilterController: InfiniteCollectionViewController {
-  static let SEGUE_IDENTIFIER = "FilterBySeries"
-  let CELL_IDENTIFIER = "SerieFilterCell"
+  static let SegueIdentifier = "FilterBySeries"
+  let CellIdentifier = "SerieFilterCell"
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -39,7 +39,7 @@ class SeriesFilterController: InfiniteCollectionViewController {
   }
 
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CELL_IDENTIFIER, for: indexPath) as! SerieFilterCell
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier, for: indexPath) as! SerieFilterCell
 
     if adapter.nextPageAvailable(dataCount: items.count, index: indexPath.row) {
       loadMoreData(indexPath.row)
@@ -55,7 +55,7 @@ class SeriesFilterController: InfiniteCollectionViewController {
   }
 
   func tapped(_ gesture: UITapGestureRecognizer) {
-    performSegue(withIdentifier: SeriesSubFilterController.SEGUE_IDENTIFIER, sender: gesture.view)
+    performSegue(withIdentifier: SeriesSubFilterController.SegueIdentifier, sender: gesture.view)
   }
 
   // MARK: - Navigation
@@ -63,7 +63,7 @@ class SeriesFilterController: InfiniteCollectionViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let identifier = segue.identifier {
       switch identifier {
-      case SeriesSubFilterController.SEGUE_IDENTIFIER:
+      case SeriesSubFilterController.SegueIdentifier:
         if let destination = segue.destination as? SeriesSubFilterController,
            let selectedCell = sender as? SerieFilterCell {
           adapter.requestType = "SERIES_SUB_FILTER"
