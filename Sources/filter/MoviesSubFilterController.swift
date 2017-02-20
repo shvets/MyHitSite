@@ -24,7 +24,11 @@ class MoviesSubFilterController: InfiniteCollectionViewController {
     collectionView?.backgroundView = activityIndicatorView
     adapter.spinner = PlainSpinner(activityIndicatorView)
 
-    loadInitialData()
+    loadInitialData() { result in
+      for item in result {
+        item.name = self.localizer.localize(item.name!)
+      }
+    }
   }
 
   // MARK: UICollectionViewDataSource
@@ -39,10 +43,6 @@ class MoviesSubFilterController: InfiniteCollectionViewController {
 
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier, for: indexPath) as! MovieSubFilterCell
-
-    if adapter.nextPageAvailable(dataCount: items.count, index: indexPath.row) {
-      loadMoreData(indexPath.row)
-    }
 
     let item = items[indexPath.row]
 

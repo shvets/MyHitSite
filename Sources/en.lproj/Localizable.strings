@@ -17,3 +17,76 @@ FILTER_BY_SERIES="Filters by Series";
 "Use Runglish?" = "Use Runglish?";
 "Enter Query" = "Enter Query";
 "Search" = "Search";
+
+"Жанр" = "Genre";
+"Год" = "Year";
+"Качество" = "Quality";
+"Страна" = "Country";
+"MPAA" = "Rating";
+"Бюджет" = "Budget";
+"Кассовые сборы" = "Box Office";
+
+"Биография" = "Biography";
+"Боевик" = "Action";
+"Вестерн" = "Vestern";
+"Военный" = "Military";
+"Детектив" = "Detective";
+"Детский" = "Kids";
+"Документальный" = "Documentary";
+"Драма" = "Drama";
+"Исторический" = "Historical";
+"Комедия" = "Comedy";
+"Криминал" = "Crime";
+"Мелодрама" = "Melodrama";
+"Мистика" = "Mystical";
+"Музыка" = "Music";
+"Мультфильм" = "Animation";
+"Мюзикл" = "Musical";
+"Приключения" = "Adventure";
+"Психологический" = "Psycology";
+"Разное" = "Other";
+"Романтический" = "Romantic";
+"Семейный" = "Family";
+"Спорт" = "Sport";
+"Триллер" = "Thriller";
+"Ужасы" = "Horror";
+"Фантастика" = "Science Fiction";
+"Фэнтези" = "Fantasy";
+
+"Высокое" = "High";
+"Среднее" = "Medium";
+"Низкое" = "Low";
+
+"США" = "USA";
+"Россия" = "Russia";
+"СССР" = "USSR";
+"Индия" = "India";
+"Франция" = "France";
+"Япония" = "Japan";
+"Китай" = "China";
+"Великобритания" = "Great Britain";
+"Испания" = "Spain";
+"Италия" = "Italy";
+"Канада" = "Canada ";
+"Швеция" = "Sweden";
+"Дания" = "Denmark";
+"Германия" = "Germany";
+"Корея" = "Korea";
+"Южная Корея" = "South Korea";
+"Мексика" = "Mexico";
+"Украина" = "Ukraine";
+"Турция" = "Turkey";
+"Польша" = "Poland";
+
+"от 200 млн." = "> 200 mln";
+"150 - 200 млн." = "150 - 200 mln";
+"100 - 150 млн." = "100 - 150 mln";
+"50 - 100 млн." = "50 - 100 mln";
+"до 50 млн." = "< 50 mln";
+
+"от 750 млн." = "> 750 mln";
+"500 - 750 млн." = "500 - 750 mln";
+"250 - 500 млн." = "250 - 500 mln";
+"до 250 млн." = "< 250 mln";
+
+

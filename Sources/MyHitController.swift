@@ -104,7 +104,7 @@ open class MyHitController: BaseCollectionViewController {
 
       adapter.clear()
       adapter.requestType = requestType
-      adapter.parentName = requestType
+      adapter.parentName = localizer.localize(requestType!)
 
       destination.adapter = adapter
 

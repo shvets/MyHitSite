@@ -27,7 +27,11 @@ class MoviesFilterController: InfiniteCollectionViewController {
     collectionView?.backgroundView = activityIndicatorView
     adapter.spinner = PlainSpinner(activityIndicatorView)
 
-    loadInitialData()
+    loadInitialData() { result in
+      for item in result {
+        item.name = self.localizer.localize(item.name!)
+      }
+    }
   }
 
   // MARK: UICollectionViewDataSource
