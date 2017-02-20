@@ -53,7 +53,7 @@ class SeriesFilterController: InfiniteCollectionViewController {
 
     let item = items[indexPath.row]
 
-    let localizedName = localizer.localize(item.name!) ?? "Unknown"
+    let localizedName = localizer.localize(item.name!)
 
     cell.configureCell(item: item, localizedName: localizedName, target: self, action: #selector(self.tapped(_:)))
 
@@ -73,7 +73,7 @@ class SeriesFilterController: InfiniteCollectionViewController {
         if let destination = segue.destination as? SeriesSubFilterController,
            let selectedCell = sender as? SerieFilterCell {
           adapter.requestType = "SERIES_SUB_FILTER"
-          adapter.selectedItem = selectedCell.item
+          adapter.selectedItem = getItem(for: selectedCell)
 
           destination.adapter = adapter
         }

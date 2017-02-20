@@ -53,7 +53,7 @@ class MoviesFilterController: InfiniteCollectionViewController {
 
     let item = items[indexPath.row]
 
-    let localizedName = localizer.localize(item.name!) ?? "Unknown"
+    let localizedName = localizer.localize(item.name!)
 
     cell.configureCell(item: item, localizedName: localizedName, target: self, action: #selector(self.tapped(_:)))
 
@@ -74,7 +74,7 @@ class MoviesFilterController: InfiniteCollectionViewController {
              let selectedCell = sender as? MovieFilterCell {
             adapter.clear()
             adapter.requestType = "MOVIES_SUB_FILTER"
-            adapter.selectedItem = selectedCell.item
+            adapter.selectedItem = getItem(for: selectedCell)
 
             destination.adapter = adapter
           }

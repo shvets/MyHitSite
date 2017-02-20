@@ -2,15 +2,11 @@ import UIKit
 import TVSetKit
 
 class MovieSubFilterCell: UICollectionViewCell {
-  var item: MediaItem?
-
   var name: String?
 
   @IBOutlet weak var thumb: UIImageView!
 
   func configureCell(item: MediaItem, localizedName: String, target: Any?, action: Selector?) {
-    self.item = item
-
     name = item.name
 
     thumb.backgroundColor = UIColor(rgb: 0x00BFFF)
