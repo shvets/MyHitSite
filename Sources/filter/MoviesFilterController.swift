@@ -45,7 +45,7 @@ class MoviesFilterController: InfiniteCollectionViewController {
   }
 
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier, for: indexPath) as! MovieFilterCell
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier, for: indexPath) as! MediaNameCell
 
     if adapter.nextPageAvailable(dataCount: items.count, index: indexPath.row) {
       loadMoreData(indexPath.row)
@@ -71,7 +71,7 @@ class MoviesFilterController: InfiniteCollectionViewController {
       switch identifier {
         case MoviesSubFilterController.SegueIdentifier:
           if let destination = segue.destination as? MoviesSubFilterController,
-             let selectedCell = sender as? MovieFilterCell {
+             let selectedCell = sender as? MediaNameCell {
             adapter.clear()
             adapter.requestType = "MOVIES_SUB_FILTER"
             adapter.selectedItem = getItem(for: selectedCell)

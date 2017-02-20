@@ -42,7 +42,7 @@ class SeriesSubFilterController: InfiniteCollectionViewController {
   }
 
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier, for: indexPath) as! SerieSubFilterCell
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier, for: indexPath) as! MediaNameCell
 
     let item = items[indexPath.row]
 
@@ -54,7 +54,7 @@ class SeriesSubFilterController: InfiniteCollectionViewController {
   }
 
   func tapped(_ gesture: UITapGestureRecognizer) {
-    let selectedCell = gesture.view as! SerieSubFilterCell
+    let selectedCell = gesture.view as! MediaNameCell
 
     let destination = MediaItemsController.instantiate()
 

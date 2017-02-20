@@ -45,7 +45,7 @@ class SeriesFilterController: InfiniteCollectionViewController {
   }
 
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier, for: indexPath) as! SerieFilterCell
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier, for: indexPath) as! MediaNameCell
 
     if adapter.nextPageAvailable(dataCount: items.count, index: indexPath.row) {
       loadMoreData(indexPath.row)
@@ -71,7 +71,7 @@ class SeriesFilterController: InfiniteCollectionViewController {
       switch identifier {
       case SeriesSubFilterController.SegueIdentifier:
         if let destination = segue.destination as? SeriesSubFilterController,
-           let selectedCell = sender as? SerieFilterCell {
+           let selectedCell = sender as? MediaNameCell {
           adapter.requestType = "SERIES_SUB_FILTER"
           adapter.selectedItem = getItem(for: selectedCell)
 

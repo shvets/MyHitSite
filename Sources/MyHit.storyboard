@@ -70,7 +70,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieSubFilterCell" id="G4g-iD-wRf" customClass="MovieSubFilterCell" customModule="MyHitSite">
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieSubFilterCell" id="G4g-iD-wRf" customClass="MediaNameCell" customModule="TVSetKit">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -112,7 +112,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="MovieFilterCell" reuseIdentifier="MovieFilterCell" id="fQz-GC-7tT" customClass="MovieFilterCell" customModule="MyHitSite">
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="MovieFilterCell" reuseIdentifier="MovieFilterCell" id="fQz-GC-7tT" customClass="MediaNameCell" customModule="TVSetKit">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -157,7 +157,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="SerieSubFilterCell" reuseIdentifier="SerieSubFilterCell" id="9st-Nt-UaE" customClass="SerieSubFilterCell" customModule="MyHitSite">
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="SerieSubFilterCell" reuseIdentifier="SerieSubFilterCell" id="9st-Nt-UaE" customClass="MediaNameCell" customModule="TVSetKit">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -199,7 +199,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SerieFilterCell" id="y2V-92-BMh" customClass="SerieFilterCell" customModule="MyHitSite">
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SerieFilterCell" id="y2V-92-BMh" customClass="MediaNameCell" customModule="TVSetKit">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
