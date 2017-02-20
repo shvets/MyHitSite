@@ -5,6 +5,8 @@ class SeriesFilterController: InfiniteCollectionViewController {
   static let SegueIdentifier = "FilterBySeries"
   let CellIdentifier = "SerieFilterCell"
 
+  var localizer = Localizer("com.rubikon.MyHitSite")
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -47,9 +49,7 @@ class SeriesFilterController: InfiniteCollectionViewController {
 
     let item = items[indexPath.row]
 
-    let bundle = Bundle(identifier: "com.rubikon.MyHitSite")!
-
-    let localizedName = adapter?.languageManager?.localize(item.name!, bundle: bundle) ?? "Unknown"
+    let localizedName = localizer.localize(item.name!) ?? "Unknown"
 
     cell.configureCell(item: item, localizedName: localizedName, target: self, action: #selector(self.tapped(_:)))
 

@@ -20,6 +20,8 @@ open class MyHitController: BaseCollectionViewController {
     "SETTINGS"
   ]
 
+  var localizer = Localizer("com.rubikon.MyHitSite")
+
   static public func instantiate() -> Self {
     let bundle = Bundle(identifier: "com.rubikon.MyHitSite")!
 
@@ -66,9 +68,7 @@ open class MyHitController: BaseCollectionViewController {
 
     let item = items[indexPath.row]
 
-    let bundle = Bundle(identifier: "com.rubikon.MyHitSite")!
-
-    let localizedName = adapter?.languageManager?.localize(item.name!, bundle: bundle) ?? "Unknown"
+    let localizedName = localizer.localize(item.name!) ?? "Unknown"
 
     cell.configureCell(item: item, localizedName: localizedName, target: self, action: #selector(self.tapped(_:)))
 
