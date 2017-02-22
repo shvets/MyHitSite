@@ -22,12 +22,12 @@
 		2DBA1AABC35AEAAF35CEBC76 /* MyHit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DBA1E22DDB2477B661704D5 /* MyHit.storyboard */; };
 		2DBA1BAE5FFCC64AE1AE3D8C /* MyHitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1C31F0D7FAE41B7A6DA1 /* MyHitController.swift */; };
 		2DBA1E06FF80DD41D8E53237 /* MyHitDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA14B9B18174C6481EDCE0 /* MyHitDataSource.swift */; };
+		FA7574041E5D2B0E00C705C6 /* Runglish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF9D2441E520B5F007B18BB /* Runglish.framework */; };
+		FA7574051E5D2B0E00C705C6 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA226B01E4F7EF900269BDE /* SwiftyJSON.framework */; };
 		FAA226B71E4F7F3200269BDE /* Just.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA226AE1E4F7EF900269BDE /* Just.framework */; };
 		FAA226B81E4F7F3200269BDE /* SwiftSoup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA226B21E4F7EF900269BDE /* SwiftSoup.framework */; };
 		FAA226B91E4F7F3200269BDE /* TVSetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA226A21E4F7EEF00269BDE /* TVSetKit.framework */; };
 		FAA226BA1E4F7F3200269BDE /* WebAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA226B41E4F7EF900269BDE /* WebAPI.framework */; };
-		FAA226BE1E4F7F3200269BDE /* Runglish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA226BC1E4F7F3200269BDE /* Runglish.framework */; };
-		FAA226BF1E4F7F3200269BDE /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA226BD1E4F7F3200269BDE /* SwiftyJSON.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,8 +127,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAA226BE1E4F7F3200269BDE /* Runglish.framework in Frameworks */,
-				FAA226BF1E4F7F3200269BDE /* SwiftyJSON.framework in Frameworks */,
+				FA7574041E5D2B0E00C705C6 /* Runglish.framework in Frameworks */,
+				FA7574051E5D2B0E00C705C6 /* SwiftyJSON.framework in Frameworks */,
 				FAA226B71E4F7F3200269BDE /* Just.framework in Frameworks */,
 				FAA226B81E4F7F3200269BDE /* SwiftSoup.framework in Frameworks */,
 				FAA226B91E4F7F3200269BDE /* TVSetKit.framework in Frameworks */,
