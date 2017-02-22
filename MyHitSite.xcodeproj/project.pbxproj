@@ -22,79 +22,7 @@
 		2DBA1AABC35AEAAF35CEBC76 /* MyHit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DBA1E22DDB2477B661704D5 /* MyHit.storyboard */; };
 		2DBA1BAE5FFCC64AE1AE3D8C /* MyHitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1C31F0D7FAE41B7A6DA1 /* MyHitController.swift */; };
 		2DBA1E06FF80DD41D8E53237 /* MyHitDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA14B9B18174C6481EDCE0 /* MyHitDataSource.swift */; };
-		FA7574041E5D2B0E00C705C6 /* Runglish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF9D2441E520B5F007B18BB /* Runglish.framework */; };
-		FA7574051E5D2B0E00C705C6 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA226B01E4F7EF900269BDE /* SwiftyJSON.framework */; };
-		FAA226B71E4F7F3200269BDE /* Just.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA226AE1E4F7EF900269BDE /* Just.framework */; };
-		FAA226B81E4F7F3200269BDE /* SwiftSoup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA226B21E4F7EF900269BDE /* SwiftSoup.framework */; };
-		FAA226B91E4F7F3200269BDE /* TVSetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA226A21E4F7EEF00269BDE /* TVSetKit.framework */; };
-		FAA226BA1E4F7F3200269BDE /* WebAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA226B41E4F7EF900269BDE /* WebAPI.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		FAA226A11E4F7EEF00269BDE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAA2269A1E4F7EEF00269BDE /* TVSetKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = FA3505251E4663B3009BB40E;
-			remoteInfo = TVSetKit;
-		};
-		FAA226A31E4F7EEF00269BDE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAA2269A1E4F7EEF00269BDE /* TVSetKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = FA35052E1E4663B4009BB40E;
-			remoteInfo = TVSetKitTests;
-		};
-		FAA226AD1E4F7EF900269BDE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAA226A51E4F7EF900269BDE /* WebAPI.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = OBJ_100;
-			remoteInfo = Just;
-		};
-		FAA226AF1E4F7EF900269BDE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAA226A51E4F7EF900269BDE /* WebAPI.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = OBJ_101;
-			remoteInfo = SwiftyJSON;
-		};
-		FAA226B11E4F7EF900269BDE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAA226A51E4F7EF900269BDE /* WebAPI.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = OBJ_102;
-			remoteInfo = SwiftSoup;
-		};
-		FAA226B31E4F7EF900269BDE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAA226A51E4F7EF900269BDE /* WebAPI.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = OBJ_103;
-			remoteInfo = WebAPI;
-		};
-		FAA226B51E4F7EF900269BDE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAA226A51E4F7EF900269BDE /* WebAPI.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = OBJ_104;
-			remoteInfo = WebAPITests;
-		};
-		FAF9D2431E520B5F007B18BB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAF9D23E1E520B5F007B18BB /* Runglish.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = OBJ_17;
-			remoteInfo = Runglish;
-		};
-		FAF9D2451E520B5F007B18BB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAF9D23E1E520B5F007B18BB /* Runglish.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = OBJ_18;
-			remoteInfo = RunglishTests;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2DBA109F780B6DF1EB659690 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -115,11 +43,8 @@
 		2DBA1E22DDB2477B661704D5 /* MyHit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyHit.storyboard; sourceTree = "<group>"; };
 		2DBA1EE705E32D9E82FE90DB /* MyHitService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHitService.swift; sourceTree = "<group>"; };
 		FAA226701E4F7E5800269BDE /* MyHitSite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MyHitSite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAA2269A1E4F7EEF00269BDE /* TVSetKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TVSetKit.xcodeproj; path = ../TVSetKit/TVSetKit.xcodeproj; sourceTree = "<group>"; };
-		FAA226A51E4F7EF900269BDE /* WebAPI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WebAPI.xcodeproj; path = ../WebAPI/WebAPI.xcodeproj; sourceTree = "<group>"; };
 		FAA226BC1E4F7F3200269BDE /* Runglish.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Runglish.framework; path = ../Runglish/build/Debug/Runglish.framework; sourceTree = "<group>"; };
 		FAA226BD1E4F7F3200269BDE /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../WebAPI/Packages/SwiftyJSON-3.1.3/build/Debug-appletvos/SwiftyJSON.framework"; sourceTree = "<group>"; };
-		FAF9D23E1E520B5F007B18BB /* Runglish.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Runglish.xcodeproj; path = ../Runglish/Runglish.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,12 +52,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA7574041E5D2B0E00C705C6 /* Runglish.framework in Frameworks */,
-				FA7574051E5D2B0E00C705C6 /* SwiftyJSON.framework in Frameworks */,
-				FAA226B71E4F7F3200269BDE /* Just.framework in Frameworks */,
-				FAA226B81E4F7F3200269BDE /* SwiftSoup.framework in Frameworks */,
-				FAA226B91E4F7F3200269BDE /* TVSetKit.framework in Frameworks */,
-				FAA226BA1E4F7F3200269BDE /* WebAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,9 +84,6 @@
 		FAA226661E4F7E5800269BDE = {
 			isa = PBXGroup;
 			children = (
-				FAA226A51E4F7EF900269BDE /* WebAPI.xcodeproj */,
-				FAF9D23E1E520B5F007B18BB /* Runglish.xcodeproj */,
-				FAA2269A1E4F7EEF00269BDE /* TVSetKit.xcodeproj */,
 				FAA226711E4F7E5800269BDE /* Products */,
 				FAA226BB1E4F7F3200269BDE /* Frameworks */,
 				2DBA15DCDBC3B9757D99F770 /* Sources */,
@@ -182,27 +98,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FAA2269B1E4F7EEF00269BDE /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FAA226A21E4F7EEF00269BDE /* TVSetKit.framework */,
-				FAA226A41E4F7EEF00269BDE /* TVSetKitTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		FAA226A61E4F7EF900269BDE /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FAA226AE1E4F7EF900269BDE /* Just.framework */,
-				FAA226B01E4F7EF900269BDE /* SwiftyJSON.framework */,
-				FAA226B21E4F7EF900269BDE /* SwiftSoup.framework */,
-				FAA226B41E4F7EF900269BDE /* WebAPI.framework */,
-				FAA226B61E4F7EF900269BDE /* WebAPITests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		FAA226BB1E4F7F3200269BDE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,15 +105,6 @@
 				FAA226BD1E4F7F3200269BDE /* SwiftyJSON.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		FAF9D23F1E520B5F007B18BB /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FAF9D2441E520B5F007B18BB /* Runglish.framework */,
-				FAF9D2461E520B5F007B18BB /* RunglishTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,92 +167,12 @@
 			mainGroup = FAA226661E4F7E5800269BDE;
 			productRefGroup = FAA226711E4F7E5800269BDE /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = FAF9D23F1E520B5F007B18BB /* Products */;
-					ProjectRef = FAF9D23E1E520B5F007B18BB /* Runglish.xcodeproj */;
-				},
-				{
-					ProductGroup = FAA2269B1E4F7EEF00269BDE /* Products */;
-					ProjectRef = FAA2269A1E4F7EEF00269BDE /* TVSetKit.xcodeproj */;
-				},
-				{
-					ProductGroup = FAA226A61E4F7EF900269BDE /* Products */;
-					ProjectRef = FAA226A51E4F7EF900269BDE /* WebAPI.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				FAA2266F1E4F7E5800269BDE /* MyHitSite */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		FAA226A21E4F7EEF00269BDE /* TVSetKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = TVSetKit.framework;
-			remoteRef = FAA226A11E4F7EEF00269BDE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FAA226A41E4F7EEF00269BDE /* TVSetKitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = TVSetKitTests.xctest;
-			remoteRef = FAA226A31E4F7EEF00269BDE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FAA226AE1E4F7EF900269BDE /* Just.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Just.framework;
-			remoteRef = FAA226AD1E4F7EF900269BDE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FAA226B01E4F7EF900269BDE /* SwiftyJSON.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SwiftyJSON.framework;
-			remoteRef = FAA226AF1E4F7EF900269BDE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FAA226B21E4F7EF900269BDE /* SwiftSoup.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SwiftSoup.framework;
-			remoteRef = FAA226B11E4F7EF900269BDE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FAA226B41E4F7EF900269BDE /* WebAPI.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = WebAPI.framework;
-			remoteRef = FAA226B31E4F7EF900269BDE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FAA226B61E4F7EF900269BDE /* WebAPITests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = file;
-			path = WebAPITests.xctest;
-			remoteRef = FAA226B51E4F7EF900269BDE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FAF9D2441E520B5F007B18BB /* Runglish.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Runglish.framework;
-			remoteRef = FAF9D2431E520B5F007B18BB /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FAF9D2461E520B5F007B18BB /* RunglishTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = file;
-			path = RunglishTests.xctest;
-			remoteRef = FAF9D2451E520B5F007B18BB /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		FAA2266E1E4F7E5800269BDE /* Resources */ = {
