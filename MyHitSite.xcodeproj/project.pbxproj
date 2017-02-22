@@ -22,6 +22,12 @@
 		2DBA1AABC35AEAAF35CEBC76 /* MyHit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DBA1E22DDB2477B661704D5 /* MyHit.storyboard */; };
 		2DBA1BAE5FFCC64AE1AE3D8C /* MyHitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1C31F0D7FAE41B7A6DA1 /* MyHitController.swift */; };
 		2DBA1E06FF80DD41D8E53237 /* MyHitDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA14B9B18174C6481EDCE0 /* MyHitDataSource.swift */; };
+		FA75749A1E5D32EA00C705C6 /* Runglish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA7574991E5D32EA00C705C6 /* Runglish.framework */; };
+		FA75749F1E5D32EE00C705C6 /* Just.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA75749B1E5D32EE00C705C6 /* Just.framework */; };
+		FA7574A01E5D32EE00C705C6 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA75749C1E5D32EE00C705C6 /* SwiftyJSON.framework */; };
+		FA7574A11E5D32EE00C705C6 /* SwiftSoup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA75749D1E5D32EE00C705C6 /* SwiftSoup.framework */; };
+		FA7574A21E5D32EE00C705C6 /* WebAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA75749E1E5D32EE00C705C6 /* WebAPI.framework */; };
+		FA7574A41E5D32F400C705C6 /* TVSetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA7574A31E5D32F400C705C6 /* TVSetKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +48,12 @@
 		2DBA1E0716DAC95053BC500D /* MoviesSubFilterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoviesSubFilterController.swift; path = filter/MoviesSubFilterController.swift; sourceTree = "<group>"; };
 		2DBA1E22DDB2477B661704D5 /* MyHit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyHit.storyboard; sourceTree = "<group>"; };
 		2DBA1EE705E32D9E82FE90DB /* MyHitService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHitService.swift; sourceTree = "<group>"; };
+		FA7574991E5D32EA00C705C6 /* Runglish.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Runglish.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/EtvnetApp-gdyhsaliqubivtfjullxnayrebpq/Build/Products/Debug-appletvos/Runglish.framework"; sourceTree = "<group>"; };
+		FA75749B1E5D32EE00C705C6 /* Just.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Just.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/EtvnetApp-gdyhsaliqubivtfjullxnayrebpq/Build/Products/Debug-appletvos/Just.framework"; sourceTree = "<group>"; };
+		FA75749C1E5D32EE00C705C6 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/EtvnetApp-gdyhsaliqubivtfjullxnayrebpq/Build/Products/Debug-appletvos/SwiftyJSON.framework"; sourceTree = "<group>"; };
+		FA75749D1E5D32EE00C705C6 /* SwiftSoup.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftSoup.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/EtvnetApp-gdyhsaliqubivtfjullxnayrebpq/Build/Products/Debug-appletvos/SwiftSoup.framework"; sourceTree = "<group>"; };
+		FA75749E1E5D32EE00C705C6 /* WebAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebAPI.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/EtvnetApp-gdyhsaliqubivtfjullxnayrebpq/Build/Products/Debug-appletvos/WebAPI.framework"; sourceTree = "<group>"; };
+		FA7574A31E5D32F400C705C6 /* TVSetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVSetKit.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/EtvnetApp-gdyhsaliqubivtfjullxnayrebpq/Build/Products/Debug-appletvos/TVSetKit.framework"; sourceTree = "<group>"; };
 		FAA226701E4F7E5800269BDE /* MyHitSite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MyHitSite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA226BC1E4F7F3200269BDE /* Runglish.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Runglish.framework; path = ../Runglish/build/Debug/Runglish.framework; sourceTree = "<group>"; };
 		FAA226BD1E4F7F3200269BDE /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../WebAPI/Packages/SwiftyJSON-3.1.3/build/Debug-appletvos/SwiftyJSON.framework"; sourceTree = "<group>"; };
@@ -52,6 +64,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA75749A1E5D32EA00C705C6 /* Runglish.framework in Frameworks */,
+				FA75749F1E5D32EE00C705C6 /* Just.framework in Frameworks */,
+				FA7574A01E5D32EE00C705C6 /* SwiftyJSON.framework in Frameworks */,
+				FA7574A11E5D32EE00C705C6 /* SwiftSoup.framework in Frameworks */,
+				FA7574A21E5D32EE00C705C6 /* WebAPI.framework in Frameworks */,
+				FA7574A41E5D32F400C705C6 /* TVSetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +119,12 @@
 		FAA226BB1E4F7F3200269BDE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA7574A31E5D32F400C705C6 /* TVSetKit.framework */,
+				FA75749B1E5D32EE00C705C6 /* Just.framework */,
+				FA75749C1E5D32EE00C705C6 /* SwiftyJSON.framework */,
+				FA75749D1E5D32EE00C705C6 /* SwiftSoup.framework */,
+				FA75749E1E5D32EE00C705C6 /* WebAPI.framework */,
+				FA7574991E5D32EA00C705C6 /* Runglish.framework */,
 				FAA226BC1E4F7F3200269BDE /* Runglish.framework */,
 				FAA226BD1E4F7F3200269BDE /* SwiftyJSON.framework */,
 			);
