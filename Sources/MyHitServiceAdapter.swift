@@ -15,13 +15,11 @@ class MyHitServiceAdapter: ServiceAdapter {
   var episodes: [JSON]?
   var tracks: [JSON]?
 
-  init() {
-    super.init(configName: NSHomeDirectory() + "/Library/Caches/myhit-settings.json")
+  public override init() {
+    super.init()
     
     bookmarks.load()
     history.load()
-
-    provider = "MY_HIT"
 
     if requestType == "SOUNDTRACKS" || requestType == "SEARCH" {
       pageSize = 25
@@ -51,7 +49,7 @@ class MyHitServiceAdapter: ServiceAdapter {
     params.history = history
     params.selectedItem = selectedItem
 
-    return try dataSource.load(requestType!, params: params, pageSize: pageSize, currentPage: currentPage)
+    return try dataSource.load(requestType!, params: params, pageSize: pageSize!, currentPage: currentPage)
   }
 
   override func buildLayout() -> UICollectionViewFlowLayout? {
