@@ -15,8 +15,8 @@ class MyHitServiceAdapter: ServiceAdapter {
   var episodes: [JSON]?
   var tracks: [JSON]?
 
-  public override init() {
-    super.init()
+  public override init(mobile: Bool=false) {
+    super.init(mobile: mobile)
     
     bookmarks.load()
     history.load()
