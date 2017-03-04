@@ -101,7 +101,8 @@ open class MyHitController: BaseCollectionViewController {
       self.present(destination, animated: false, completion: nil)
     }
     else {
-      let destination = MediaItemsController.instantiate()
+      let controller = MediaItemsController.instantiate().getActionController()
+      let destination = controller as! MediaItemsController
 
       adapter.clear()
       adapter.requestType = requestType
@@ -111,7 +112,7 @@ open class MyHitController: BaseCollectionViewController {
 
       destination.collectionView?.collectionViewLayout = adapter.buildLayout()!
 
-      self.show(destination, sender: destination)
+      self.show(controller!, sender: destination)
     }
   }
 

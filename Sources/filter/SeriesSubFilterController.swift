@@ -57,7 +57,8 @@ class SeriesSubFilterController: InfiniteCollectionViewController {
   func tapped(_ gesture: UITapGestureRecognizer) {
     let selectedCell = gesture.view as! MediaNameCell
 
-    let destination = MediaItemsController.instantiate()
+    let controller = MediaItemsController.instantiate().getActionController()
+    let destination = controller as! MediaItemsController
 
     adapter.requestType = "SERIES"
     adapter.selectedItem = getItem(for: selectedCell)
@@ -66,7 +67,7 @@ class SeriesSubFilterController: InfiniteCollectionViewController {
 
     destination.collectionView?.collectionViewLayout = adapter.buildLayout()!
 
-    self.show(destination, sender: destination)
+    self.show(controller!, sender: destination)
   }
 
 }
