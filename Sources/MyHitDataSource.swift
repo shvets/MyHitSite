@@ -92,8 +92,8 @@ class MyHitDataSource: DataSource {
 
         result = try service.getSelection(path: selectionId, page: currentPage)
 
-      case "SOUNDTRACKS":
-        result = try service.getSoundtracks(page: currentPage)
+//      case "SOUNDTRACKS":
+//        result = try service.getSoundtracks(page: currentPage)
 
       case "ALBUMS":
         let soundtrackId = selectedItem!.id!

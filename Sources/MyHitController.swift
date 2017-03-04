@@ -13,7 +13,7 @@ open class MyHitController: BaseCollectionViewController {
     "ALL_SERIES",
     "POPULAR_SERIES",
     "SELECTIONS",
-    "SOUNDTRACKS",
+//    "SOUNDTRACKS",
     "FILTER_BY_MOVIES",
     "FILTER_BY_SERIES",
     "SEARCH",
