@@ -20,13 +20,7 @@ open class MyHitController: BaseCollectionViewController {
     "SETTINGS"
   ]
 
-  var localizer = Localizer("com.rubikon.MyHitSite")
-
-  static public func instantiate() -> Self {
-    let bundle = Bundle(identifier: "com.rubikon.MyHitSite")!
-
-    return AppStoryboard.instantiateController("MyHit", bundle: bundle, viewControllerClass: self)
-  }
+  var localizer = Localizer(MyHitServiceAdapter.Identifiers.BundleId)
 
   override open func viewDidLoad() {
     super.viewDidLoad()
@@ -91,7 +85,8 @@ open class MyHitController: BaseCollectionViewController {
       performSegue(withIdentifier: "Settings", sender: gesture.view)
     }
     else if requestType == "SEARCH" {
-      let destination = SearchController.instantiate()
+      let destination = adapter.instantiateController(controllerId: "SearchController",
+        storyboardId: "MyHit", bundleId: "com.rubikon.MyHitSite") as! SearchController
 
       adapter.requestType = "SEARCH"
       adapter.parentName = "SEARCH"
