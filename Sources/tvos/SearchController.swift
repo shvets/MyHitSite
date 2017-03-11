@@ -9,8 +9,10 @@ class SearchController: UIViewController {
   @IBOutlet weak var useRunglishLabel: UILabel!
   @IBOutlet weak var searchButton: UIButton!
 
+  public class var SegueIdentifier: String { return  "search" }
+
   public var adapter: ServiceAdapter!
-  var localizer = Localizer(MyHitServiceAdapter.Identifiers.BundleId)
+  var localizer = Localizer("com.rubikon.MyHitSite")
 
   var params = [String: Any]()
 

@@ -4,11 +4,6 @@ import WebAPI
 import TVSetKit
 
 class MyHitServiceAdapter: ServiceAdapter {
-  public struct Identifiers {
-    static let StoryboardId = "MyHit"
-    static let BundleId = "com.rubikon.MyHitSite"
-  }
-
   let service = MyHitService.shared
 
   static let bookmarksFileName = NSHomeDirectory() + "/Library/Caches/myhit-bookmarks.json"
@@ -50,8 +45,8 @@ class MyHitServiceAdapter: ServiceAdapter {
   open func instantiateController(controllerId: String) -> UIViewController {
     return UIViewController.instantiate(
       controllerId: controllerId,
-      storyboardId: Identifiers.StoryboardId,
-      bundleId: Identifiers.BundleId)
+      storyboardId: "MyHit",
+      bundleId: "com.rubikon.MyHitSite")
   }
 
   override func load() throws -> [MediaItem] {

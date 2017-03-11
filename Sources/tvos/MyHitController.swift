@@ -47,45 +47,58 @@ open class MyHitController: MyHitCollectionViewController {
     }
   }
 
-  override open func tapped(_ gesture: UITapGestureRecognizer) {
-    let selectedCell = gesture.view as! MediaNameCell
+  override open func navigate(from view: UICollectionViewCell, playImmediately: Bool=false) {
+    let mediaItem = getItem(for: view)
 
-    let requestType = getItem(for: selectedCell).name
+    switch mediaItem.name! {
+      case "FILTER_BY_MOVIES":
+        performSegue(withIdentifier: "FilterByMovies", sender: view)
 
-    if requestType == "FILTER_BY_MOVIES" {
-      performSegue(withIdentifier: "FilterByMovies", sender: gesture.view)
-    }
-    else if requestType == "FILTER_BY_SERIES" {
-      performSegue(withIdentifier: "FilterBySeries", sender: gesture.view)
-    }
-    else if requestType == "SETTINGS" {
-      performSegue(withIdentifier: "Settings", sender: gesture.view)
-    }
-    else if requestType == "SEARCH" {
-      let destination = adapter.instantiateController(controllerId: "SearchController",
-        storyboardId: "MyHit", bundleId: "com.rubikon.MyHitSite") as! SearchController
+      case "FILTER_BY_SERIES":
+        performSegue(withIdentifier: "FilterBySeries", sender: view)
 
-      adapter.requestType = "SEARCH"
-      adapter.parentName = "SEARCH"
+      case "SETTINGS":
+        performSegue(withIdentifier: "Settings", sender: view)
 
-      destination.adapter = adapter
+      case "SEARCH":
+        performSegue(withIdentifier: SearchController.SegueIdentifier, sender: view)
 
-      self.present(destination, animated: false, completion: nil)
-    }
-    else {
-      let controller = MediaItemsController.instantiate(adapter).getActionController()
-      let destination = controller as! MediaItemsController
-
-      adapter.clear()
-      adapter.requestType = requestType
-      adapter.parentName = localizer?.localize(requestType!)
-
-      destination.adapter = adapter
-
-      destination.collectionView?.collectionViewLayout = adapter.buildLayout()!
-
-      self.show(controller!, sender: destination)
+      default:
+        performSegue(withIdentifier: MediaItemsController.SegueIdentifier, sender: view)
     }
   }
 
+  override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if let identifier = segue.identifier {
+      switch identifier {
+        case MediaItemsController.SegueIdentifier:
+          if let destination = segue.destination.getActionController() as? MediaItemsController,
+             let view = sender as? MediaNameCell {
+
+            let mediaItem = getItem(for: view)
+
+            let adapter = MyHitServiceAdapter()
+
+            adapter.requestType = mediaItem.name
+            adapter.parentName = localizer?.localize(mediaItem.name!)
+
+            destination.adapter = adapter
+            destination.collectionView?.collectionViewLayout = adapter.buildLayout()!
+          }
+
+        case SearchController.SegueIdentifier:
+          if let destination = segue.destination.getActionController() as? SearchController {
+
+            let adapter = MyHitServiceAdapter()
+
+            adapter.requestType = "SEARCH"
+            adapter.parentName = localizer?.localize("SEARCH_RESULTS")
+
+            destination.adapter = adapter
+          }
+
+        default: break
+      }
+    }
+  }
 }
