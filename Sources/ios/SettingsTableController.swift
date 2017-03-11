@@ -1,22 +1,13 @@
 import UIKit
 import TVSetKit
 
-class SettingsController: MyHitBaseCollectionViewController {
+class SettingsTableController: MyHitBaseTableViewController {
   override open var CellIdentifier: String { return "SettingCell" }
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
     self.clearsSelectionOnViewWillAppear = false
-
-    let layout = UICollectionViewFlowLayout()
-
-    layout.itemSize = CGSize(width: 450, height: 150)
-    layout.sectionInset = UIEdgeInsets(top: 150.0, left: 20.0, bottom: 50.0, right: 20.0)
-    layout.minimumInteritemSpacing = 20.0
-    layout.minimumLineSpacing = 100.0
-
-    collectionView?.collectionViewLayout = layout
 
     adapter = MyHitServiceAdapter()
 
@@ -32,18 +23,18 @@ class SettingsController: MyHitBaseCollectionViewController {
     ]
   }
 
-  override public func tapped(_ gesture: UITapGestureRecognizer) {
-    let selectedCell = gesture.view as! MediaNameCell
-
-    let settingsMode = getItem(for: selectedCell).name
-
-    if settingsMode == "RESET_HISTORY" {
-      self.present(buildResetHistoryController(), animated: false, completion: nil)
-    }
-    else if settingsMode == "RESET_BOOKMARKS" {
-      self.present(buildResetQueueController(), animated: false, completion: nil)
-    }
-  }
+//  override public func tapped(_ gesture: UITapGestureRecognizer) {
+//    let selectedCell = gesture.view as! MediaNameCell
+//
+//    let settingsMode = getItem(for: selectedCell).name
+//
+//    if settingsMode == "RESET_HISTORY" {
+//      self.present(buildResetHistoryController(), animated: false, completion: nil)
+//    }
+//    else if settingsMode == "RESET_BOOKMARKS" {
+//      self.present(buildResetQueueController(), animated: false, completion: nil)
+//    }
+//  }
 
   func buildResetHistoryController() -> UIAlertController {
     let title = localizer.localize("HISTORY_WILL_BE_RESET")

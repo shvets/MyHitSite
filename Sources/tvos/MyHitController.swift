@@ -2,7 +2,7 @@ import UIKit
 import SwiftyJSON
 import TVSetKit
 
-open class MyHitController: MyHitCollectionViewController {
+open class MyHitController: MyHitBaseCollectionViewController {
   override open var CellIdentifier: String { return "MyHitCell" }
 
   let MainMenuItems = [
@@ -22,8 +22,6 @@ open class MyHitController: MyHitCollectionViewController {
 
   override open func viewDidLoad() {
     super.viewDidLoad()
-
-    localizer = Localizer("com.rubikon.MyHitSite")
 
     self.clearsSelectionOnViewWillAppear = false
 

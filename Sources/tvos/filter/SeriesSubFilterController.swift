@@ -1,15 +1,13 @@
 import UIKit
 import TVSetKit
 
-class SeriesSubFilterController: MyHitCollectionViewController {
+class SeriesSubFilterController: MyHitBaseCollectionViewController {
   static let SegueIdentifier = "FilterBySerie"
 
   override open var CellIdentifier: String { return "SerieSubFilterCell" }
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    localizer = Localizer("com.rubikon.MyHitSite")
 
     self.clearsSelectionOnViewWillAppear = false
 
