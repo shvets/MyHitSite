@@ -7,21 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2DBA1069A10893DBE9543745 /* SeriesSubFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1CAAB881CA3354897C6E /* SeriesSubFilterController.swift */; };
 		2DBA10D2D5C0A2CBD9F2D814 /* MyHitMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1CADE61812C39B20B113 /* MyHitMediaItem.swift */; };
-		2DBA1113B7718B2AEA619CE1 /* MoviesSubFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1E0716DAC95053BC500D /* MoviesSubFilterController.swift */; };
-		2DBA133875C9E59D989E7F0C /* SeriesFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA19E62354E51BC06C8DDD /* SeriesFilterController.swift */; };
+		2DBA112360F4D8BEFD79710B /* MyHitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA10420D7B21AB52A3987A /* MyHitController.swift */; };
+		2DBA1319790C7181BAEFE3FA /* MoviesSubFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA193DA6C812D4F1E32E89 /* MoviesSubFilterController.swift */; };
 		2DBA147EF07E35D70432D827 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2DBA1F128983908D879A693F /* Localizable.strings */; };
-		2DBA15217C66F503758709E9 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA11DA6A23E1EB868C871C /* SearchController.swift */; };
-		2DBA15CA693715C293454E50 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA19C4C6C0ADA387B7D985 /* SettingsController.swift */; };
 		2DBA165CEBADA69144B80ED1 /* MyHitSite.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DBA16ECE4CC1A6F6816E11B /* MyHitSite.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2DBA168D97B4ED21276D9CF7 /* MoviesFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA13298A8AD5D71A3E2BDD /* MoviesFilterController.swift */; };
+		2DBA17439688989E3F0F6206 /* SeriesSubFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA14FBB2464BCA2C767260 /* SeriesSubFilterController.swift */; };
 		2DBA18CEC8471A5D12E4AAFA /* MyHitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1EE705E32D9E82FE90DB /* MyHitService.swift */; };
 		2DBA18FABCFEBF141DD3B496 /* MyHitServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1736298AE8897B8290ED /* MyHitServiceAdapter.swift */; };
-		2DBA198FC957EE7BE4C618BA /* MoviesFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1A1ABE076B26B9EDE097 /* MoviesFilterController.swift */; };
-		2DBA1A6EFEC747AEEA5BA2D5 /* filter in Resources */ = {isa = PBXBuildFile; fileRef = 2DBA10B467A5A789C8A77A1F /* filter */; };
-		2DBA1AABC35AEAAF35CEBC76 /* MyHit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DBA1E22DDB2477B661704D5 /* MyHit.storyboard */; };
-		2DBA1BAE5FFCC64AE1AE3D8C /* MyHitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1C31F0D7FAE41B7A6DA1 /* MyHitController.swift */; };
+		2DBA1AFEABD2158571FB81B0 /* SeriesFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA178501577C884433ECA8 /* SeriesFilterController.swift */; };
+		2DBA1CB6B761DC1867E99CC2 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1A0DDB5B943D0913BADC /* SettingsController.swift */; };
 		2DBA1E06FF80DD41D8E53237 /* MyHitDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA14B9B18174C6481EDCE0 /* MyHitDataSource.swift */; };
+		2DBA1FC46690E845823FDD91 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1749CEA76615D3EBE789 /* SearchController.swift */; };
 		FA75749A1E5D32EA00C705C6 /* Runglish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA7574991E5D32EA00C705C6 /* Runglish.framework */; };
 		FA75749F1E5D32EE00C705C6 /* Just.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA75749B1E5D32EE00C705C6 /* Just.framework */; };
 		FA7574A01E5D32EE00C705C6 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA75749C1E5D32EE00C705C6 /* SwiftyJSON.framework */; };
@@ -31,22 +29,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2DBA10420D7B21AB52A3987A /* MyHitController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHitController.swift; sourceTree = "<group>"; };
 		2DBA109F780B6DF1EB659690 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2DBA10B467A5A789C8A77A1F /* filter */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; path = filter; sourceTree = "<group>"; };
-		2DBA11DA6A23E1EB868C871C /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		2DBA13298A8AD5D71A3E2BDD /* MoviesFilterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoviesFilterController.swift; path = ../tvos/filter/MoviesFilterController.swift; sourceTree = "<group>"; };
 		2DBA14B9B18174C6481EDCE0 /* MyHitDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHitDataSource.swift; sourceTree = "<group>"; };
+		2DBA14FBB2464BCA2C767260 /* SeriesSubFilterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SeriesSubFilterController.swift; path = ../tvos/filter/SeriesSubFilterController.swift; sourceTree = "<group>"; };
 		2DBA16ECE4CC1A6F6816E11B /* MyHitSite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyHitSite.h; sourceTree = "<group>"; };
 		2DBA1736298AE8897B8290ED /* MyHitServiceAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHitServiceAdapter.swift; sourceTree = "<group>"; };
-		2DBA19C4C6C0ADA387B7D985 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
-		2DBA19E62354E51BC06C8DDD /* SeriesFilterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SeriesFilterController.swift; path = filter/SeriesFilterController.swift; sourceTree = "<group>"; };
-		2DBA1A1ABE076B26B9EDE097 /* MoviesFilterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoviesFilterController.swift; path = filter/MoviesFilterController.swift; sourceTree = "<group>"; };
+		2DBA1749CEA76615D3EBE789 /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		2DBA178501577C884433ECA8 /* SeriesFilterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SeriesFilterController.swift; path = ../tvos/filter/SeriesFilterController.swift; sourceTree = "<group>"; };
+		2DBA193DA6C812D4F1E32E89 /* MoviesSubFilterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoviesSubFilterController.swift; path = ../tvos/filter/MoviesSubFilterController.swift; sourceTree = "<group>"; };
+		2DBA1A0DDB5B943D0913BADC /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		2DBA1BF7D59A99DA62389A39 /* ru */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2DBA1C23E34301A62F71288D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
-		2DBA1C31F0D7FAE41B7A6DA1 /* MyHitController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHitController.swift; sourceTree = "<group>"; };
-		2DBA1CAAB881CA3354897C6E /* SeriesSubFilterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SeriesSubFilterController.swift; path = filter/SeriesSubFilterController.swift; sourceTree = "<group>"; };
 		2DBA1CADE61812C39B20B113 /* MyHitMediaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHitMediaItem.swift; sourceTree = "<group>"; };
-		2DBA1E0716DAC95053BC500D /* MoviesSubFilterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoviesSubFilterController.swift; path = filter/MoviesSubFilterController.swift; sourceTree = "<group>"; };
-		2DBA1E22DDB2477B661704D5 /* MyHit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyHit.storyboard; sourceTree = "<group>"; };
 		2DBA1EE705E32D9E82FE90DB /* MyHitService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHitService.swift; sourceTree = "<group>"; };
 		FA7574991E5D32EA00C705C6 /* Runglish.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Runglish.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/EtvnetApp-gdyhsaliqubivtfjullxnayrebpq/Build/Products/Debug-appletvos/Runglish.framework"; sourceTree = "<group>"; };
 		FA75749B1E5D32EE00C705C6 /* Just.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Just.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/EtvnetApp-gdyhsaliqubivtfjullxnayrebpq/Build/Products/Debug-appletvos/Just.framework"; sourceTree = "<group>"; };
@@ -76,28 +72,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DBA14640350A615A2E117E3 /* tvos */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA18D44456F80C0FAFA587 /* filter */,
+				2DBA10420D7B21AB52A3987A /* MyHitController.swift */,
+				2DBA1A0DDB5B943D0913BADC /* SettingsController.swift */,
+				2DBA1749CEA76615D3EBE789 /* SearchController.swift */,
+			);
+			path = tvos;
+			sourceTree = "<group>";
+		};
 		2DBA15DCDBC3B9757D99F770 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				2DBA1A1ABE076B26B9EDE097 /* MoviesFilterController.swift */,
-				2DBA1E0716DAC95053BC500D /* MoviesSubFilterController.swift */,
-				2DBA19E62354E51BC06C8DDD /* SeriesFilterController.swift */,
-				2DBA1CAAB881CA3354897C6E /* SeriesSubFilterController.swift */,
-				2DBA10B467A5A789C8A77A1F /* filter */,
-				2DBA1E22DDB2477B661704D5 /* MyHit.storyboard */,
-				2DBA1C31F0D7FAE41B7A6DA1 /* MyHitController.swift */,
 				2DBA14B9B18174C6481EDCE0 /* MyHitDataSource.swift */,
 				2DBA1CADE61812C39B20B113 /* MyHitMediaItem.swift */,
 				2DBA1EE705E32D9E82FE90DB /* MyHitService.swift */,
 				2DBA1736298AE8897B8290ED /* MyHitServiceAdapter.swift */,
-				2DBA19C4C6C0ADA387B7D985 /* SettingsController.swift */,
 				2DBA16ECE4CC1A6F6816E11B /* MyHitSite.h */,
 				2DBA1C23E34301A62F71288D /* Info.plist */,
-				2DBA11DA6A23E1EB868C871C /* SearchController.swift */,
 				2DBA1F128983908D879A693F /* Localizable.strings */,
+				2DBA14640350A615A2E117E3 /* tvos */,
+				2DBA17AE80FF404C251ED106 /* ios */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
+		};
+		2DBA17AE80FF404C251ED106 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
+		2DBA18D44456F80C0FAFA587 /* filter */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA13298A8AD5D71A3E2BDD /* MoviesFilterController.swift */,
+				2DBA178501577C884433ECA8 /* SeriesFilterController.swift */,
+				2DBA193DA6C812D4F1E32E89 /* MoviesSubFilterController.swift */,
+				2DBA14FBB2464BCA2C767260 /* SeriesSubFilterController.swift */,
+			);
+			name = filter;
+			path = Sources/filter;
+			sourceTree = SOURCE_ROOT;
 		};
 		FAA226661E4F7E5800269BDE = {
 			isa = PBXGroup;
@@ -203,8 +222,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DBA1A6EFEC747AEEA5BA2D5 /* filter in Resources */,
-				2DBA1AABC35AEAAF35CEBC76 /* MyHit.storyboard in Resources */,
 				2DBA147EF07E35D70432D827 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -216,17 +233,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DBA198FC957EE7BE4C618BA /* MoviesFilterController.swift in Sources */,
-				2DBA1113B7718B2AEA619CE1 /* MoviesSubFilterController.swift in Sources */,
-				2DBA133875C9E59D989E7F0C /* SeriesFilterController.swift in Sources */,
-				2DBA1069A10893DBE9543745 /* SeriesSubFilterController.swift in Sources */,
-				2DBA1BAE5FFCC64AE1AE3D8C /* MyHitController.swift in Sources */,
 				2DBA1E06FF80DD41D8E53237 /* MyHitDataSource.swift in Sources */,
 				2DBA10D2D5C0A2CBD9F2D814 /* MyHitMediaItem.swift in Sources */,
 				2DBA18CEC8471A5D12E4AAFA /* MyHitService.swift in Sources */,
 				2DBA18FABCFEBF141DD3B496 /* MyHitServiceAdapter.swift in Sources */,
-				2DBA15CA693715C293454E50 /* SettingsController.swift in Sources */,
-				2DBA15217C66F503758709E9 /* SearchController.swift in Sources */,
+				2DBA168D97B4ED21276D9CF7 /* MoviesFilterController.swift in Sources */,
+				2DBA1AFEABD2158571FB81B0 /* SeriesFilterController.swift in Sources */,
+				2DBA1319790C7181BAEFE3FA /* MoviesSubFilterController.swift in Sources */,
+				2DBA17439688989E3F0F6206 /* SeriesSubFilterController.swift in Sources */,
+				2DBA112360F4D8BEFD79710B /* MyHitController.swift in Sources */,
+				2DBA1CB6B761DC1867E99CC2 /* SettingsController.swift in Sources */,
+				2DBA1FC46690E845823FDD91 /* SearchController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,10 +374,10 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rubikon.MyHitSite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -379,10 +396,10 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rubikon.MyHitSite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
