@@ -22,7 +22,7 @@ class MyHitServiceAdapter: ServiceAdapter {
 
   public override init(mobile: Bool=false) {
     super.init(mobile: mobile)
-    
+
     bookmarks.load()
     history.load()
 
@@ -34,6 +34,9 @@ class MyHitServiceAdapter: ServiceAdapter {
       pageSize = 24
       rowSize = 6
     }
+
+    playerStoryboardId = "MyHit"
+    playerBundleId = "com.rubikon.EtvnetApp"
   }
 
   override open func clone() -> ServiceAdapter {

@@ -2,12 +2,12 @@ import UIKit
 import TVSetKit
 
 class SettingsController: BaseCollectionViewController {
-  let CellIdentifier = "SettingCell"
-
-  var localizer = Localizer("com.rubikon.MyHitSite")
+  override open var CellIdentifier: String { return "SettingCell" }
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    localizer = Localizer("com.rubikon.MyHitSite")
 
     self.clearsSelectionOnViewWillAppear = false
 
@@ -34,29 +34,6 @@ class SettingsController: BaseCollectionViewController {
     ]
   }
 
-  // MARK: UICollectionViewDataSource
-
-  override func numberOfSections(in collectionView: UICollectionView) -> Int {
-    return 1
-  }
-
-  override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return items.count
-  }
-
-  override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier, for: indexPath) as! MediaNameCell
-
-    let item = items[indexPath.row]
-
-    let localizedName = localizer.localize(item.name!)
-
-    cell.configureCell(item: item, localizedName: localizedName, target: self)
-    CellHelper.shared.addGestureRecognizer(view: cell, target: self, action: #selector(self.tapped(_:)))
-
-    return cell
-  }
-
   override public func tapped(_ gesture: UITapGestureRecognizer) {
     let selectedCell = gesture.view as! MediaNameCell
 
@@ -71,8 +48,8 @@ class SettingsController: BaseCollectionViewController {
   }
 
   func buildResetHistoryController() -> UIAlertController {
-    let title = localizer.localize("HISTORY_WILL_BE_RESET")
-    let message = localizer.localize("CONFIRM_YOUR_CHOICE")
+    let title = localizer?.localize("HISTORY_WILL_BE_RESET")
+    let message = localizer?.localize("CONFIRM_YOUR_CHOICE")
 
     let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
@@ -92,8 +69,8 @@ class SettingsController: BaseCollectionViewController {
   }
 
   func buildResetQueueController() -> UIAlertController {
-    let title = localizer.localize("BOOKMARKS_WILL_BE_RESET")
-    let message = localizer.localize("CONFIRM_YOUR_CHOICE")
+    let title = localizer?.localize("BOOKMARKS_WILL_BE_RESET")
+    let message = localizer?.localize("CONFIRM_YOUR_CHOICE")
 
     let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 

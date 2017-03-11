@@ -2,8 +2,8 @@ import UIKit
 import SwiftyJSON
 import TVSetKit
 
-open class MyHitController: BaseCollectionViewController {
-  let CellIdentifier = "MyHitCell"
+open class MyHitController: MyHitCollectionViewController {
+  override open var CellIdentifier: String { return "MyHitCell" }
 
   let MainMenuItems = [
     "BOOKMARKS",
@@ -20,10 +20,10 @@ open class MyHitController: BaseCollectionViewController {
     "SETTINGS"
   ]
 
-  var localizer = Localizer(MyHitServiceAdapter.Identifiers.BundleId)
-
   override open func viewDidLoad() {
     super.viewDidLoad()
+
+    localizer = Localizer("com.rubikon.MyHitSite")
 
     self.clearsSelectionOnViewWillAppear = false
 
@@ -45,29 +45,6 @@ open class MyHitController: BaseCollectionViewController {
 
       items.append(item)
     }
-  }
-
-  // MARK: UICollectionViewDataSource
-  
-  override open func numberOfSections(in collectionView: UICollectionView) -> Int {
-    return 1
-  }
-  
-  override open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return items.count
-  }
-  
-  override open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier, for: indexPath) as! MediaNameCell
-
-    let item = items[indexPath.row]
-
-    let localizedName = localizer.localize(item.name!)
-
-    cell.configureCell(item: item, localizedName: localizedName, target: self)
-    CellHelper.shared.addGestureRecognizer(view: cell, target: self, action: #selector(self.tapped(_:)))
-
-    return cell
   }
 
   override open func tapped(_ gesture: UITapGestureRecognizer) {
@@ -101,7 +78,7 @@ open class MyHitController: BaseCollectionViewController {
 
       adapter.clear()
       adapter.requestType = requestType
-      adapter.parentName = localizer.localize(requestType!)
+      adapter.parentName = localizer?.localize(requestType!)
 
       destination.adapter = adapter
 

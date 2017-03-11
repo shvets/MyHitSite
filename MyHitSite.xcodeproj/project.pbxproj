@@ -17,6 +17,7 @@
 		2DBA18CEC8471A5D12E4AAFA /* MyHitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1EE705E32D9E82FE90DB /* MyHitService.swift */; };
 		2DBA18FABCFEBF141DD3B496 /* MyHitServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1736298AE8897B8290ED /* MyHitServiceAdapter.swift */; };
 		2DBA1AFEABD2158571FB81B0 /* SeriesFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA178501577C884433ECA8 /* SeriesFilterController.swift */; };
+		2DBA1C0E63D8851AC84DBD8C /* MyHitCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1FFC27052630897CD8E0 /* MyHitCollectionViewController.swift */; };
 		2DBA1CB6B761DC1867E99CC2 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1A0DDB5B943D0913BADC /* SettingsController.swift */; };
 		2DBA1E06FF80DD41D8E53237 /* MyHitDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA14B9B18174C6481EDCE0 /* MyHitDataSource.swift */; };
 		2DBA1FC46690E845823FDD91 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1749CEA76615D3EBE789 /* SearchController.swift */; };
@@ -44,6 +45,7 @@
 		2DBA1C23E34301A62F71288D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		2DBA1CADE61812C39B20B113 /* MyHitMediaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHitMediaItem.swift; sourceTree = "<group>"; };
 		2DBA1EE705E32D9E82FE90DB /* MyHitService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHitService.swift; sourceTree = "<group>"; };
+		2DBA1FFC27052630897CD8E0 /* MyHitCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHitCollectionViewController.swift; sourceTree = "<group>"; };
 		FA7574991E5D32EA00C705C6 /* Runglish.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Runglish.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/EtvnetApp-gdyhsaliqubivtfjullxnayrebpq/Build/Products/Debug-appletvos/Runglish.framework"; sourceTree = "<group>"; };
 		FA75749B1E5D32EE00C705C6 /* Just.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Just.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/EtvnetApp-gdyhsaliqubivtfjullxnayrebpq/Build/Products/Debug-appletvos/Just.framework"; sourceTree = "<group>"; };
 		FA75749C1E5D32EE00C705C6 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/EtvnetApp-gdyhsaliqubivtfjullxnayrebpq/Build/Products/Debug-appletvos/SwiftyJSON.framework"; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				2DBA10420D7B21AB52A3987A /* MyHitController.swift */,
 				2DBA1A0DDB5B943D0913BADC /* SettingsController.swift */,
 				2DBA1749CEA76615D3EBE789 /* SearchController.swift */,
+				2DBA1FFC27052630897CD8E0 /* MyHitCollectionViewController.swift */,
 			);
 			path = tvos;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				2DBA112360F4D8BEFD79710B /* MyHitController.swift in Sources */,
 				2DBA1CB6B761DC1867E99CC2 /* SettingsController.swift in Sources */,
 				2DBA1FC46690E845823FDD91 /* SearchController.swift in Sources */,
+				2DBA1C0E63D8851AC84DBD8C /* MyHitCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

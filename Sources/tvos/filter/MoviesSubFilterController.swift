@@ -1,14 +1,15 @@
 import UIKit
 import TVSetKit
 
-class MoviesSubFilterController: InfiniteCollectionViewController {
+class MoviesSubFilterController: MyHitCollectionViewController {
   static let SegueIdentifier = "FilterByMovie"
-  let CellIdentifier = "MovieSubFilterCell"
 
-  var localizer = Localizer("com.rubikon.MyHitSite")
+  override open var CellIdentifier: String { return "MovieSubFilterCell" }
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    localizer = Localizer("com.rubikon.MyHitSite")
 
     self.clearsSelectionOnViewWillAppear = false
 
@@ -26,7 +27,7 @@ class MoviesSubFilterController: InfiniteCollectionViewController {
 
     loadInitialData() { result in
       for item in result {
-        item.name = self.localizer.localize(item.name!)
+        item.name = self.localizer?.localize(item.name!)
       }
     }
   }
@@ -46,9 +47,9 @@ class MoviesSubFilterController: InfiniteCollectionViewController {
 
     let item = items[indexPath.row]
 
-    let localizedName = localizer.localize(item.name!)
+    let localizedName = localizer?.localize(item.name!)
 
-    cell.configureCell(item: item, localizedName: localizedName, target: self)
+    cell.configureCell(item: item, localizedName: localizedName!, target: self)
     CellHelper.shared.addGestureRecognizer(view: cell, target: self, action: #selector(self.tapped(_:)))
 
     return cell
