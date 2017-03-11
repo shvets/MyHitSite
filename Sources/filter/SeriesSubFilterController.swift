@@ -54,7 +54,7 @@ class SeriesSubFilterController: InfiniteCollectionViewController {
     return cell
   }
 
-  func tapped(_ gesture: UITapGestureRecognizer) {
+  override public func tapped(_ gesture: UITapGestureRecognizer) {
     let selectedCell = gesture.view as! MediaNameCell
 
     let controller = MediaItemsController.instantiate(adapter).getActionController()

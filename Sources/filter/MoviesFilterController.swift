@@ -61,7 +61,7 @@ class MoviesFilterController: InfiniteCollectionViewController {
     return cell
   }
 
-  func tapped(_ gesture: UITapGestureRecognizer) {
+  override public func tapped(_ gesture: UITapGestureRecognizer) {
     performSegue(withIdentifier: MoviesSubFilterController.SegueIdentifier, sender: gesture.view)
   }
 

@@ -69,8 +69,8 @@ open class MyHitController: BaseCollectionViewController {
 
     return cell
   }
-  
-  func tapped(_ gesture: UITapGestureRecognizer) {
+
+  override open func tapped(_ gesture: UITapGestureRecognizer) {
     let selectedCell = gesture.view as! MediaNameCell
 
     let requestType = getItem(for: selectedCell).name
