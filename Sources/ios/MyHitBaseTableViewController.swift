@@ -24,9 +24,9 @@ open class MyHitBaseTableViewController: InfiniteTableViewController {
   override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier, for: indexPath) as! MediaNameTableCell
 
-    if adapter.nextPageAvailable(dataCount: items.count, index: indexPath.row) {
-      loadMoreData(indexPath.row)
-    }
+//    if adapter.nextPageAvailable(dataCount: items.count, index: indexPath.row) {
+//      loadMoreData(indexPath.row)
+//    }
 
     let item = items[indexPath.row]
 

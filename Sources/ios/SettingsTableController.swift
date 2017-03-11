@@ -2,7 +2,7 @@ import UIKit
 import TVSetKit
 
 class SettingsTableController: MyHitBaseTableViewController {
-  override open var CellIdentifier: String { return "SettingCell" }
+  override open var CellIdentifier: String { return "SettingTableCell" }
 
   override func viewDidLoad() {
     super.viewDidLoad()
