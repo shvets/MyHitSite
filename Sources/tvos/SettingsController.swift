@@ -48,8 +48,8 @@ class SettingsController: BaseCollectionViewController {
   }
 
   func buildResetHistoryController() -> UIAlertController {
-    let title = localizer?.localize("HISTORY_WILL_BE_RESET")
-    let message = localizer?.localize("CONFIRM_YOUR_CHOICE")
+    let title = localizer.localize("HISTORY_WILL_BE_RESET")
+    let message = localizer.localize("CONFIRM_YOUR_CHOICE")
 
     let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
@@ -69,8 +69,8 @@ class SettingsController: BaseCollectionViewController {
   }
 
   func buildResetQueueController() -> UIAlertController {
-    let title = localizer?.localize("BOOKMARKS_WILL_BE_RESET")
-    let message = localizer?.localize("CONFIRM_YOUR_CHOICE")
+    let title = localizer.localize("BOOKMARKS_WILL_BE_RESET")
+    let message = localizer.localize("CONFIRM_YOUR_CHOICE")
 
     let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
