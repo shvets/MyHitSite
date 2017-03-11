@@ -4,7 +4,7 @@ import TVSetKit
 class SeriesFilterTableViewController: MyHitBaseTableViewController {
   static let SegueIdentifier = "FilterBySeries"
 
-  override open var CellIdentifier: String { return "SerieFilterCell" }
+  override open var CellIdentifier: String { return "SerieFilterTableCell" }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -52,26 +52,31 @@ class SeriesFilterTableViewController: MyHitBaseTableViewController {
 //    return cell
 //  }
 
-//  override public func tapped(_ gesture: UITapGestureRecognizer) {
-//    performSegue(withIdentifier: SeriesSubFilterController.SegueIdentifier, sender: gesture.view)
-//  }
-//
-//  // MARK: - Navigation
-//
-//  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//    if let identifier = segue.identifier {
-//      switch identifier {
-//      case SeriesSubFilterController.SegueIdentifier:
-//        if let destination = segue.destination as? SeriesSubFilterController,
-//           let selectedCell = sender as? MediaNameCell {
-//          adapter.requestType = "SERIES_SUB_FILTER"
-//          adapter.selectedItem = getItem(for: selectedCell)
-//
-//          destination.adapter = adapter
-//        }
-//
-//      default: break
-//      }
-//    }
-//  }
+
+  override open func navigate(from view: UITableViewCell) {
+    performSegue(withIdentifier: SeriesSubFilterController.SegueIdentifier, sender: view)
+  }
+
+  // MARK: - Navigation
+
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if let identifier = segue.identifier {
+      switch identifier {
+        case SeriesSubFilterController.SegueIdentifier:
+          if let destination = segue.destination.getActionController() as? SeriesSubFilterController,
+             let view = sender as? MediaNameTableCell {
+
+            let adapter = MyHitServiceAdapter()
+
+            adapter.requestType = "SERIES_SUB_FILTER"
+            adapter.selectedItem = getItem(for: view)
+
+            destination.adapter = adapter
+          }
+
+        default: break
+      }
+    }
+  }
+
 }

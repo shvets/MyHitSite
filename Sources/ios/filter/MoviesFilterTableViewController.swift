@@ -4,7 +4,7 @@ import TVSetKit
 class MoviesFilterTableViewController: MyHitBaseTableViewController {
   static let SegueIdentifier = "FilterByMovies"
 
-  override open var CellIdentifier: String { return "MovieFilterCell" }
+  override open var CellIdentifier: String { return "MovieFilterTableCell" }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -52,27 +52,30 @@ class MoviesFilterTableViewController: MyHitBaseTableViewController {
 //    return cell
 //  }
 
-//  override public func tapped(_ gesture: UITapGestureRecognizer) {
-//    performSegue(withIdentifier: MoviesSubFilterController.SegueIdentifier, sender: gesture.view)
-//  }
-//
-//  // MARK: - Navigation
-//
-//  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//    if let identifier = segue.identifier {
-//      switch identifier {
-//      case MoviesSubFilterController.SegueIdentifier:
-//        if let destination = segue.destination as? MoviesSubFilterController,
-//           let selectedCell = sender as? MediaNameCell {
-//          adapter.clear()
-//          adapter.requestType = "MOVIES_SUB_FILTER"
-//          adapter.selectedItem = getItem(for: selectedCell)
-//
-//          destination.adapter = adapter
-//        }
-//
-//      default: break
-//      }
-//    }
-//  }
+  override open func navigate(from view: UITableViewCell) {
+    performSegue(withIdentifier: MoviesSubFilterController.SegueIdentifier, sender: view)
+  }
+
+  // MARK: - Navigation
+
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if let identifier = segue.identifier {
+      switch identifier {
+        case MoviesSubFilterController.SegueIdentifier:
+          if let destination = segue.destination.getActionController() as? MoviesSubFilterController,
+             let view = sender as? MediaNameTableCell {
+
+            let adapter = MyHitServiceAdapter()
+
+            adapter.requestType = "MOVIES_SUB_FILTER"
+            adapter.selectedItem = getItem(for: view)
+
+            destination.adapter = adapter
+          }
+
+        default: break
+      }
+    }
+  }
+
 }

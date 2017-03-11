@@ -36,6 +36,19 @@ class SettingsTableController: MyHitBaseTableViewController {
 //    }
 //  }
 
+  override open func navigate(from view: UITableViewCell) {
+    let mediaItem = getItem(for: view)
+
+    let settingsMode = mediaItem.name
+
+    if settingsMode == "RESET_HISTORY" {
+      self.present(buildResetHistoryController(), animated: false, completion: nil)
+    }
+    else if settingsMode == "RESET_BOOKMARKS" {
+      self.present(buildResetQueueController(), animated: false, completion: nil)
+    }
+  }
+
   func buildResetHistoryController() -> UIAlertController {
     let title = localizer.localize("HISTORY_WILL_BE_RESET")
     let message = localizer.localize("CONFIRM_YOUR_CHOICE")

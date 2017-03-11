@@ -31,7 +31,7 @@ class MyHitServiceAdapter: ServiceAdapter {
     }
 
     playerStoryboardId = "MyHit"
-    playerBundleId = "com.rubikon.EtvnetApp"
+    //playerBundleId = "com.rubikon.EtvnetApp"
   }
 
   override open func clone() -> ServiceAdapter {

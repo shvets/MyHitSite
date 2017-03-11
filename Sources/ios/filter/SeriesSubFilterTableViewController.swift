@@ -4,7 +4,7 @@ import TVSetKit
 class SeriesSubFilterTableViewController: MyHitBaseTableViewController {
   static let SegueIdentifier = "FilterBySerie"
 
-  override open var CellIdentifier: String { return "SerieSubFilterCell" }
+  override open var CellIdentifier: String { return "SerieSubFilterTableCell" }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -45,20 +45,28 @@ class SeriesSubFilterTableViewController: MyHitBaseTableViewController {
 //    return cell
 //  }
 
-//  override public func tapped(_ gesture: UITapGestureRecognizer) {
-//    let selectedCell = gesture.view as! MediaNameCell
-//
-//    let controller = MediaItemsController.instantiate(adapter).getActionController()
-//    let destination = controller as! MediaItemsController
-//
-//    adapter.requestType = "SERIES"
-//    adapter.selectedItem = getItem(for: selectedCell)
-//
-//    destination.adapter = adapter
-//
-//    destination.collectionView?.collectionViewLayout = adapter.buildLayout()!
-//
-//    self.show(controller!, sender: destination)
-//  }
+  override open func navigate(from view: UITableViewCell) {
+    performSegue(withIdentifier: MediaItemsController.SegueIdentifier, sender: view)
+  }
+
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if let identifier = segue.identifier {
+      switch identifier {
+      case MediaItemsController.SegueIdentifier:
+        if let destination = segue.destination.getActionController() as? MediaItemsController,
+           let view = sender as? MediaNameTableCell {
+
+          let adapter = MyHitServiceAdapter()
+
+          adapter.requestType = "SERIES"
+          adapter.selectedItem = getItem(for: view)
+
+          destination.adapter = adapter
+        }
+
+      default: break
+      }
+    }
+  }
 
 }
