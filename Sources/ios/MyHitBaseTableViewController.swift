@@ -7,10 +7,6 @@ open class MyHitBaseTableViewController: InfiniteTableViewController {
 
   let localizer = Localizer("com.rubikon.MyHitSite")
 
-//  override open func viewDidLoad() {
-//    super.viewDidLoad()
-//  }
-
   // MARK: UITableViewDataSource
 
   override open func numberOfSections(in tableView: UITableView) -> Int {

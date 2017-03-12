@@ -25,6 +25,8 @@ open class MyHitTableViewController: MyHitBaseTableViewController {
 
     self.clearsSelectionOnViewWillAppear = false
 
+    title = localizer.localize("MyHit")
+
     adapter = MyHitServiceAdapter()
 
     self.clearsSelectionOnViewWillAppear = false

@@ -23,19 +23,6 @@ class SettingsTableController: MyHitBaseTableViewController {
     ]
   }
 
-//  override public func tapped(_ gesture: UITapGestureRecognizer) {
-//    let selectedCell = gesture.view as! MediaNameCell
-//
-//    let settingsMode = getItem(for: selectedCell).name
-//
-//    if settingsMode == "RESET_HISTORY" {
-//      self.present(buildResetHistoryController(), animated: false, completion: nil)
-//    }
-//    else if settingsMode == "RESET_BOOKMARKS" {
-//      self.present(buildResetQueueController(), animated: false, completion: nil)
-//    }
-//  }
-
   override open func navigate(from view: UITableViewCell) {
     let mediaItem = getItem(for: view)
 
