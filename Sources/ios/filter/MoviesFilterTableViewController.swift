@@ -29,7 +29,7 @@ class MoviesFilterTableViewController: MyHitBaseTableViewController {
 //    }
 
   override open func navigate(from view: UITableViewCell) {
-    performSegue(withIdentifier: MoviesSubFilterController.SegueIdentifier, sender: view)
+    performSegue(withIdentifier: MoviesSubFilterTableViewController.SegueIdentifier, sender: view)
   }
 
   // MARK: - Navigation
@@ -37,8 +37,8 @@ class MoviesFilterTableViewController: MyHitBaseTableViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let identifier = segue.identifier {
       switch identifier {
-        case MoviesSubFilterController.SegueIdentifier:
-          if let destination = segue.destination.getActionController() as? MoviesSubFilterController,
+        case MoviesSubFilterTableViewController.SegueIdentifier:
+          if let destination = segue.destination.getActionController() as? MoviesSubFilterTableViewController,
              let view = sender as? MediaNameTableCell {
 
             let adapter = MyHitServiceAdapter()

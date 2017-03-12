@@ -52,7 +52,7 @@ open class MyHitTableViewController: MyHitBaseTableViewController {
         performSegue(withIdentifier: "Settings", sender: view)
 
       case "SEARCH":
-        performSegue(withIdentifier: SearchController.SegueIdentifier, sender: view)
+        performSegue(withIdentifier: SearchTableController.SegueIdentifier, sender: view)
 
       default:
         performSegue(withIdentifier: MediaItemsController.SegueIdentifier, sender: view)

@@ -30,7 +30,7 @@ class SeriesFilterTableViewController: MyHitBaseTableViewController {
 //
 
   override open func navigate(from view: UITableViewCell) {
-    performSegue(withIdentifier: SeriesSubFilterController.SegueIdentifier, sender: view)
+    performSegue(withIdentifier: SeriesSubFilterTableViewController.SegueIdentifier, sender: view)
   }
 
   // MARK: - Navigation
@@ -38,8 +38,8 @@ class SeriesFilterTableViewController: MyHitBaseTableViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let identifier = segue.identifier {
       switch identifier {
-        case SeriesSubFilterController.SegueIdentifier:
-          if let destination = segue.destination.getActionController() as? SeriesSubFilterController,
+        case SeriesSubFilterTableViewController.SegueIdentifier:
+          if let destination = segue.destination.getActionController() as? SeriesSubFilterTableViewController,
              let view = sender as? MediaNameTableCell {
 
             let adapter = MyHitServiceAdapter()
