@@ -27,7 +27,7 @@ open class MyHitTableViewController: MyHitBaseTableViewController {
 
     title = localizer.localize("MyHit")
 
-    adapter = MyHitServiceAdapter()
+    adapter = MyHitServiceAdapter(mobile: true)
 
     self.clearsSelectionOnViewWillAppear = false
 
@@ -68,7 +68,7 @@ open class MyHitTableViewController: MyHitBaseTableViewController {
 
             let mediaItem = getItem(for: view)
 
-            let adapter = MyHitServiceAdapter()
+            let adapter = MyHitServiceAdapter(mobile: true)
 
             adapter.requestType = mediaItem.name
             adapter.parentName = localizer.localize(mediaItem.name!)
@@ -79,7 +79,7 @@ open class MyHitTableViewController: MyHitBaseTableViewController {
         case SearchTableController.SegueIdentifier:
           if let destination = segue.destination.getActionController() as? SearchTableController {
 
-            let adapter = MyHitServiceAdapter()
+            let adapter = MyHitServiceAdapter(mobile: true)
 
             adapter.requestType = "SEARCH"
             adapter.parentName = localizer.localize("SEARCH_RESULTS")

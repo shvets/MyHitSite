@@ -11,7 +11,7 @@ class SeriesFilterTableViewController: MyHitBaseTableViewController {
 
     self.clearsSelectionOnViewWillAppear = false
 
-    adapter = MyHitServiceAdapter()
+    adapter = MyHitServiceAdapter(mobile: true)
     adapter.requestType = "SERIES_FILTER"
 
     tableView?.backgroundView = activityIndicatorView
@@ -42,7 +42,7 @@ class SeriesFilterTableViewController: MyHitBaseTableViewController {
           if let destination = segue.destination.getActionController() as? SeriesSubFilterTableViewController,
              let view = sender as? MediaNameTableCell {
 
-            let adapter = MyHitServiceAdapter()
+            let adapter = MyHitServiceAdapter(mobile: true)
 
             adapter.requestType = "SERIES_SUB_FILTER"
             adapter.selectedItem = getItem(for: view)

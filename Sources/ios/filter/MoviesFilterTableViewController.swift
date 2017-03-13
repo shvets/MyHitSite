@@ -11,7 +11,7 @@ class MoviesFilterTableViewController: MyHitBaseTableViewController {
 
     self.clearsSelectionOnViewWillAppear = false
 
-    adapter = MyHitServiceAdapter()
+    adapter = MyHitServiceAdapter(mobile: true)
     adapter.requestType = "MOVIES_FILTER"
 
     tableView?.backgroundView = activityIndicatorView
@@ -41,7 +41,7 @@ class MoviesFilterTableViewController: MyHitBaseTableViewController {
           if let destination = segue.destination.getActionController() as? MoviesSubFilterTableViewController,
              let view = sender as? MediaNameTableCell {
 
-            let adapter = MyHitServiceAdapter()
+            let adapter = MyHitServiceAdapter(mobile: true)
 
             adapter.requestType = "MOVIES_SUB_FILTER"
             adapter.selectedItem = getItem(for: view)

@@ -32,7 +32,7 @@ class SeriesSubFilterTableViewController: MyHitBaseTableViewController {
         if let destination = segue.destination.getActionController() as? MediaItemsController,
            let view = sender as? MediaNameTableCell {
 
-          let adapter = MyHitServiceAdapter()
+          let adapter = MyHitServiceAdapter(mobile: true)
 
           adapter.requestType = "SERIES"
           adapter.selectedItem = getItem(for: view)

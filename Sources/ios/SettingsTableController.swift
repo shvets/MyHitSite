@@ -9,7 +9,7 @@ class SettingsTableController: MyHitBaseTableViewController {
 
     self.clearsSelectionOnViewWillAppear = false
 
-    adapter = MyHitServiceAdapter()
+    adapter = MyHitServiceAdapter(mobile: true)
 
     loadSettingsMenu()
   }
