@@ -13,7 +13,7 @@ open class SearchTableController: UIViewController, UITextFieldDelegate {
 
   public var adapter: ServiceAdapter!
 
-  var localizer = Localizer("com.rubikon.MyHitSite")
+  var localizer = Localizer(MyHitServiceAdapter.BundleId)
 
   var params = [String: Any]()
 

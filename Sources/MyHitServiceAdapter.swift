@@ -9,6 +9,9 @@ class MyHitServiceAdapter: ServiceAdapter {
   static let bookmarksFileName = NSHomeDirectory() + "/Library/Caches/myhit-bookmarks.json"
   static let historyFileName = NSHomeDirectory() + "/Library/Caches/myhit-history.json"
 
+  override open class var StoryboardId: String { return "MyHit" }
+  override open class var BundleId: String { return "com.rubikon.MyHitSite" }
+
   lazy var bookmarks = Bookmarks(bookmarksFileName)
   lazy var history = History(historyFileName)
 
@@ -29,9 +32,6 @@ class MyHitServiceAdapter: ServiceAdapter {
       pageSize = 24
       rowSize = 6
     }
-
-    playerStoryboardId = "MyHit"
-    //playerBundleId = "com.rubikon.EtvnetApp"
   }
 
   override open func clone() -> ServiceAdapter {
@@ -45,8 +45,8 @@ class MyHitServiceAdapter: ServiceAdapter {
   open func instantiateController(controllerId: String) -> UIViewController {
     return UIViewController.instantiate(
       controllerId: controllerId,
-      storyboardId: "MyHit",
-      bundleId: "com.rubikon.MyHitSite")
+      storyboardId: MyHitServiceAdapter.StoryboardId,
+      bundleId: MyHitServiceAdapter.BundleId)
   }
 
   override func load() throws -> [MediaItem] {

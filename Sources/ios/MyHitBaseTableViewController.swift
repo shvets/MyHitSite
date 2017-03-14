@@ -1,11 +1,9 @@
 import TVSetKit
 
 open class MyHitBaseTableViewController: InfiniteTableViewController {
-  open var CellIdentifier: String {
-    return ""
-  }
+  open var CellIdentifier: String { return "" }
 
-  let localizer = Localizer("com.rubikon.MyHitSite")
+  let localizer = Localizer(MyHitServiceAdapter.BundleId)
 
   // MARK: UITableViewDataSource
 
