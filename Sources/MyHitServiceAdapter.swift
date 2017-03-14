@@ -35,7 +35,7 @@ class MyHitServiceAdapter: ServiceAdapter {
   }
 
   override open func clone() -> ServiceAdapter {
-    let cloned = MyHitServiceAdapter()
+    let cloned = MyHitServiceAdapter(mobile: mobile!)
 
     cloned.clear()
 
