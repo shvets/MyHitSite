@@ -59,7 +59,12 @@ class MyHitServiceAdapter: ServiceAdapter {
     params.history = history
     params.selectedItem = selectedItem
 
-    return try dataSource.load(requestType!, params: params, pageSize: pageSize!, currentPage: currentPage)
+    if let requestType = requestType {
+      return try dataSource.load(requestType, params: params, pageSize: pageSize!, currentPage: currentPage)
+    }
+    else {
+      return []
+    }
   }
 
   override func buildLayout() -> UICollectionViewFlowLayout? {
