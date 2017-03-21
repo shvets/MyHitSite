@@ -28,19 +28,19 @@ class MoviesSubFilterTableViewController: MyHitBaseTableViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let identifier = segue.identifier {
       switch identifier {
-      case MediaItemsController.SegueIdentifier:
-        if let destination = segue.destination.getActionController() as? MediaItemsController,
-           let view = sender as? MediaNameTableCell {
+        case MediaItemsController.SegueIdentifier:
+          if let destination = segue.destination.getActionController() as? MediaItemsController,
+             let view = sender as? MediaNameTableCell {
 
-          let adapter = MyHitServiceAdapter(mobile: true)
+            let adapter = MyHitServiceAdapter(mobile: true)
 
-          adapter.requestType = "MOVIES"
-          adapter.selectedItem = getItem(for: view)
+            adapter.requestType = "MOVIES"
+            adapter.selectedItem = getItem(for: view)
 
-          destination.adapter = adapter
-        }
+            destination.adapter = adapter
+          }
 
-      default: break
+        default: break
       }
     }
   }

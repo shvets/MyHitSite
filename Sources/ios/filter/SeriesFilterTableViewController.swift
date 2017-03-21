@@ -24,11 +24,6 @@ class SeriesFilterTableViewController: MyHitBaseTableViewController {
     }
   }
 
-//    if adapter.nextPageAvailable(dataCount: items.count, index: indexPath.row) {
-//      loadMoreData(indexPath.row)
-//    }
-//
-
   override open func navigate(from view: UITableViewCell) {
     performSegue(withIdentifier: SeriesSubFilterTableViewController.SegueIdentifier, sender: view)
   }
