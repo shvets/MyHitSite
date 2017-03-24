@@ -18,55 +18,55 @@ class MyHitDataSource: DataSource {
     var request = requestType
 
     if selectedItem?.type == "serie" {
-      request = "SEASONS"
+      request = "Seasons"
     }
     else if selectedItem?.type == "season" {
-      request = "EPISODES"
+      request = "Episodes"
     }
     else if selectedItem?.type == "selection" {
-      request = "SELECTION"
+      request = "Selection"
     }
     else if selectedItem?.type == "soundtrack" {
-      request = "ALBUMS"
+      request = "Albums"
     }
     else if selectedItem?.type == "tracks" {
-      request = "TRACKS"
+      request = "Tracks"
 
       tracks = selectedItem!.tracks
     }
 
     switch request {
-      case "BOOKMARKS":
+      case "Bookmarks":
         bookmarks.load()
         result = bookmarks.getBookmarks(pageSize: pageSize, page: currentPage)
 
-      case "HISTORY":
+      case "History":
         history.load()
         result = history.getHistoryItems(pageSize: pageSize, page: currentPage)
 
-      case "ALL_MOVIES":
+      case "All Movies":
         result = try service.getAllMovies(page: currentPage)["movies"] as! [Any]
 
-      case "ALL_SERIES":
+      case "All Series":
         result = try service.getAllSeries(page: currentPage)["movies"] as! [Any]
 
-      case "MOVIES":
+      case "Movies":
         let path = selectedItem!.id
 
         result = try service.getMovies(path: path!, page: currentPage)["movies"] as! [Any]
 
-      case "SERIES":
+      case "Series":
         let path = selectedItem!.id
 
         result = try service.getSeries(path: path!, page: currentPage)["movies"] as! [Any]
 
-      case "POPULAR_MOVIES":
+      case "Popular Movies":
         result = try service.getPopularMovies(page: currentPage)["movies"] as! [Any]
 
-      case "POPULAR_SERIES":
+      case "Popular Series":
         result = try service.getPopularSeries(page: currentPage)["movies"] as! [Any]
 
-      case "SEASONS":
+      case "Seasons":
         let seasons = service.getSeasons(identifier!, parentName: selectedItem!.name!)["movies"] as! [Any]
 
         if seasons.count == 1 {
@@ -78,7 +78,7 @@ class MyHitDataSource: DataSource {
           result = seasons
         }
 
-      case "EPISODES":
+      case "Episodes":
         let seasonNumber = selectedItem?.seasonNumber ?? ""
 
         let parentName = "\(selectedItem!.parentName!) (\(selectedItem!.name!))"
@@ -86,18 +86,15 @@ class MyHitDataSource: DataSource {
         result = service.getEpisodes(identifier!, parentName: parentName, seasonNumber: seasonNumber,
             pageSize: pageSize, page: currentPage)["movies"] as! [Any]
 
-      case "SELECTIONS":
+      case "Selections":
         result = try service.getSelections(page: currentPage)["movies"] as! [Any]
 
-      case "SELECTION":
+      case "Selection":
         let selectionId = selectedItem!.id!
 
         result = try service.getSelection(path: selectionId, page: currentPage)["movies"] as! [Any]
 
-//      case "SOUNDTRACKS":
-//        result = try service.getSoundtracks(page: currentPage)
-
-      case "ALBUMS":
+      case "Albums":
         let soundtrackId = selectedItem!.id!
 
         let albums = try service.getAlbums(soundtrackId)["movies"] as! [Any]
@@ -111,25 +108,25 @@ class MyHitDataSource: DataSource {
           result = albums
         }
 
-      case "TRACKS":
+      case "Tracks":
         result = tracks
 
-      case "MOVIES_FILTER":
+      case "Movies Filter":
         result = try service.getFilters(mode: "film")
 
-      case "MOVIES_SUB_FILTER":
+      case "Movies Subfilter":
         result = selectedItem!.items
 
-      case "SERIES_FILTER":
+      case "Series Filter":
         result = try service.getFilters(mode: "serial")
 
-      case "SERIES_SUB_FILTER":
+      case "Series Subfilter":
         result = selectedItem!.items
 
-      case "SOUNDTRACKS":
+      case "Soundtracks":
         result = try service.getSoundtracks(page: currentPage)["movies"] as! [Any]
 
-      case "SEARCH":
+      case "Search":
         if !identifier!.isEmpty {
           result = try service.search(identifier!, page: currentPage)["movies"] as! [Any]
         }

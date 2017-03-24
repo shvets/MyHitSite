@@ -2,7 +2,7 @@ import UIKit
 import TVSetKit
 
 class SeriesFilterTableViewController: MyHitBaseTableViewController {
-  static let SegueIdentifier = "FilterBySeries"
+  static let SegueIdentifier = "Filter By Series"
 
   override open var CellIdentifier: String { return "SerieFilterTableCell" }
 
@@ -12,7 +12,7 @@ class SeriesFilterTableViewController: MyHitBaseTableViewController {
     self.clearsSelectionOnViewWillAppear = false
 
     adapter = MyHitServiceAdapter(mobile: true)
-    adapter.requestType = "SERIES_FILTER"
+    adapter.requestType = "Series Filter"
 
     tableView?.backgroundView = activityIndicatorView
     adapter.spinner = PlainSpinner(activityIndicatorView)
@@ -39,7 +39,7 @@ class SeriesFilterTableViewController: MyHitBaseTableViewController {
 
             let adapter = MyHitServiceAdapter(mobile: true)
 
-            adapter.requestType = "SERIES_SUB_FILTER"
+            adapter.requestType = "Series Subfilter"
             adapter.selectedItem = getItem(for: view)
 
             destination.adapter = adapter

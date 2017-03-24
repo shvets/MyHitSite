@@ -6,18 +6,18 @@ open class MyHitController: MyHitBaseCollectionViewController {
   override open var CellIdentifier: String { return "MyHitCell" }
 
   let MainMenuItems = [
-    "BOOKMARKS",
-    "HISTORY",
-    "ALL_MOVIES",
-    "POPULAR_MOVIES",
-    "ALL_SERIES",
-    "POPULAR_SERIES",
-    "SELECTIONS",
-//    "SOUNDTRACKS",
-    "FILTER_BY_MOVIES",
-    "FILTER_BY_SERIES",
-    "SEARCH",
-    "SETTINGS"
+    "Bookmarks",
+    "History",
+    "All Movies",
+    "Popular Movies",
+    "All Series",
+    "Popular Series",
+    "Selections",
+//    "Soundtracks",
+    "Filters By Movies",
+    "Filters By Series",
+    "Search",
+    "Settings"
   ]
 
   override open func viewDidLoad() {
@@ -49,16 +49,16 @@ open class MyHitController: MyHitBaseCollectionViewController {
     let mediaItem = getItem(for: view)
 
     switch mediaItem.name! {
-      case "FILTER_BY_MOVIES":
-        performSegue(withIdentifier: "FilterByMovies", sender: view)
+      case "Filters By Movies":
+        performSegue(withIdentifier: "Filter By Movies", sender: view)
 
-      case "FILTER_BY_SERIES":
-        performSegue(withIdentifier: "FilterBySeries", sender: view)
+      case "Filters By Series":
+        performSegue(withIdentifier: "Filter By Series", sender: view)
 
-      case "SETTINGS":
+      case "Settings":
         performSegue(withIdentifier: "Settings", sender: view)
 
-      case "SEARCH":
+      case "Search":
         performSegue(withIdentifier: SearchController.SegueIdentifier, sender: view)
 
       default:
@@ -89,8 +89,8 @@ open class MyHitController: MyHitBaseCollectionViewController {
 
             let adapter = MyHitServiceAdapter()
 
-            adapter.requestType = "SEARCH"
-            adapter.parentName = localizer.localize("SEARCH_RESULTS")
+            adapter.requestType = "Search"
+            adapter.parentName = localizer.localize("Search Results")
 
             destination.adapter = adapter
           }

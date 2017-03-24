@@ -2,7 +2,7 @@ import UIKit
 import TVSetKit
 
 class MoviesFilterController: MyHitBaseCollectionViewController {
-  static let SegueIdentifier = "FilterByMovies"
+  static let SegueIdentifier = "Filter By Movies"
 
   override open var CellIdentifier: String { return "MovieFilterCell" }
 
@@ -21,7 +21,7 @@ class MoviesFilterController: MyHitBaseCollectionViewController {
     collectionView?.collectionViewLayout = layout
 
     adapter = MyHitServiceAdapter()
-    adapter.requestType = "MOVIES_FILTER"
+    adapter.requestType = "Movies Filter"
 
     collectionView?.backgroundView = activityIndicatorView
     adapter.spinner = PlainSpinner(activityIndicatorView)
@@ -46,7 +46,7 @@ class MoviesFilterController: MyHitBaseCollectionViewController {
           if let destination = segue.destination as? MoviesSubFilterController,
              let selectedCell = sender as? MediaNameCell {
             adapter.clear()
-            adapter.requestType = "MOVIES_SUB_FILTER"
+            adapter.requestType = "Movies Subfilter"
             adapter.selectedItem = getItem(for: selectedCell)
 
             destination.adapter = adapter

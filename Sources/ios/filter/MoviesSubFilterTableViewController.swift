@@ -2,7 +2,7 @@ import UIKit
 import TVSetKit
 
 class MoviesSubFilterTableViewController: MyHitBaseTableViewController {
-  static let SegueIdentifier = "FilterByMovie"
+  static let SegueIdentifier = "Filter By Movie"
 
   override open var CellIdentifier: String { return "MovieSubFilterTableCell" }
 
@@ -34,7 +34,7 @@ class MoviesSubFilterTableViewController: MyHitBaseTableViewController {
 
             let adapter = MyHitServiceAdapter(mobile: true)
 
-            adapter.requestType = "MOVIES"
+            adapter.requestType = "Movies"
             adapter.selectedItem = getItem(for: view)
 
             destination.adapter = adapter

@@ -2,7 +2,7 @@ import UIKit
 import TVSetKit
 
 class SeriesSubFilterController: MyHitBaseCollectionViewController {
-  static let SegueIdentifier = "FilterBySerie"
+  static let SegueIdentifier = "Filter By Serie"
 
   override open var CellIdentifier: String { return "SerieSubFilterCell" }
 
@@ -36,7 +36,7 @@ class SeriesSubFilterController: MyHitBaseCollectionViewController {
     let controller = MediaItemsController.instantiate(adapter).getActionController()
     let destination = controller as! MediaItemsController
 
-    adapter.requestType = "SERIES"
+    adapter.requestType = "Series"
     adapter.selectedItem = getItem(for: selectedCell)
 
     destination.adapter = adapter

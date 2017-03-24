@@ -24,7 +24,7 @@ class MyHitServiceAdapter: ServiceAdapter {
     bookmarks.load()
     history.load()
 
-    if requestType == "SOUNDTRACKS" || requestType == "SEARCH" {
+    if requestType == "Soundtracks" || requestType == "Search" {
       pageSize = 25
       rowSize = 5
     }
@@ -54,7 +54,7 @@ class MyHitServiceAdapter: ServiceAdapter {
 
     var params = RequestParams()
 
-    params.identifier = requestType == "SEARCH" ? query : parentId
+    params.identifier = requestType == "Search" ? query : parentId
     params.bookmarks = bookmarks
     params.history = history
     params.selectedItem = selectedItem
@@ -70,7 +70,7 @@ class MyHitServiceAdapter: ServiceAdapter {
   override func buildLayout() -> UICollectionViewFlowLayout? {
     let layout = UICollectionViewFlowLayout()
 
-    if requestType == "SOUNDTRACKS" || requestType == "SEARCH" {
+    if requestType == "Soundtracks" || requestType == "Search" {
       layout.itemSize = CGSize(width: 210*1.3, height: 300*1.3) // 210 x 300
       layout.sectionInset = UIEdgeInsets(top: 40.0, left: 40.0, bottom: 120.0, right: 40.0)
       layout.minimumInteritemSpacing = 50.0

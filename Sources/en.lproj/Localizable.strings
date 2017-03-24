@@ -1,26 +1,25 @@
-BOOKMARKS="Bookmarks";
-HISTORY="History";
-SEARCH="Search";
-SEARCH_RESULTS="Search Results";
-SETTINGS="Settings";
-RESET_HISTORY="Reset History";
-RESET_BOOKMARKS="Reset Bookmarks";
-HISTORY_WILL_BE_RESET="History will be Reset";
-BOOKMARKS_WILL_BE_RESET="Bookmarks will be Reset";
-CONFIRM_YOUR_CHOICE="Please Confirm Your Choice";
-
-ALL_MOVIES="All Movies";
-POPULAR_MOVIES="Popular Movies";
-ALL_SERIES="All Series";
-POPULAR_SERIES="Popular Series";
-SELECTIONS="Selections";
-SOUNDTRACKS="Soundtracks";
-FILTER_BY_MOVIES="Filters by Movies";
-FILTER_BY_SERIES="Filters by Series";
-
+"Reset History" = "Reset History";
+"Reset Bookmarks" = "Reset Bookmarks";
+"History Will Be Reset" = "History Will Be Reset";
+"Bookmarks Will Be Reset" = "Bookmarks Will Be Reset";
+"Please Confirm Your Choice" = "Please Confirm Your Choice";
+"Search Results" = "Search Results";
 "Use Runglish?" = "Use Runglish?";
 "Enter Query" = "Enter Query";
+
+"Bookmarks" = "Bookmarks";
+"History" = "History";
 "Search" = "Search";
+"Settings" = "Settings";
+
+"All Movies" = "All Movies";
+"Popular Movies" = "Popular Movies";
+"All Series" = "All Series";
+"Popular Series" = "Popular Series";
+"Selections" = "Selections";
+"Soundtracks" = "Soundtracks";
+"Filters By Movies" = "Filters By Movies";
+"Filters By Series" = "Filters By Series";
 
 "Жанр" = "Genre";
 "Год" = "Year";
