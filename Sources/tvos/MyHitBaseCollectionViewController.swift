@@ -1,6 +1,6 @@
 import TVSetKit
 
-open class MyHitBaseCollectionViewController: InfiniteCollectionViewController {
+open class MyHitBaseCollectionViewController: BaseCollectionViewController {
   override open func viewDidLoad() {
     super.viewDidLoad()
 

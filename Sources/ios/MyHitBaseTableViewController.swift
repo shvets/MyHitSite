@@ -1,6 +1,6 @@
 import TVSetKit
 
-open class MyHitBaseTableViewController: InfiniteTableViewController {
+open class MyHitBaseTableViewController: BaseTableViewController {
   override open func viewDidLoad() {
     super.viewDidLoad()
 
