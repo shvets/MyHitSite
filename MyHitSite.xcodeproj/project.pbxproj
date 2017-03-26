@@ -70,7 +70,6 @@
 		FA7574A31E5D32F400C705C6 /* TVSetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVSetKit.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/EtvnetApp-gdyhsaliqubivtfjullxnayrebpq/Build/Products/Debug-appletvos/TVSetKit.framework"; sourceTree = "<group>"; };
 		FAA226701E4F7E5800269BDE /* MyHitSite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MyHitSite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA226BC1E4F7F3200269BDE /* Runglish.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Runglish.framework; path = ../Runglish/build/Debug/Runglish.framework; sourceTree = "<group>"; };
-		FAA226BD1E4F7F3200269BDE /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../WebAPI/Packages/SwiftyJSON-3.1.3/build/Debug-appletvos/SwiftyJSON.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,7 +178,6 @@
 				FA75749E1E5D32EE00C705C6 /* WebAPI.framework */,
 				FA7574991E5D32EA00C705C6 /* Runglish.framework */,
 				FAA226BC1E4F7F3200269BDE /* Runglish.framework */,
-				FAA226BD1E4F7F3200269BDE /* SwiftyJSON.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
