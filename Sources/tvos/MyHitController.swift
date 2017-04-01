@@ -16,8 +16,8 @@ open class MyHitController: MyHitBaseCollectionViewController {
 //    "Soundtracks",
     "Filters By Movies",
     "Filters By Series",
-    "Search",
-    "Settings"
+    "Settings",
+    "Search"
   ]
 
   override open func viewDidLoad() {
