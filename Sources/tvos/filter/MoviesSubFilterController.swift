@@ -21,7 +21,7 @@ class MoviesSubFilterController: MyHitBaseCollectionViewController {
     collectionView?.collectionViewLayout = layout
 
     collectionView?.backgroundView = activityIndicatorView
-    adapter.spinner = PlainSpinner(activityIndicatorView)
+    adapter.pageLoader.spinner = PlainSpinner(activityIndicatorView)
 
     loadInitialData() { result in
       for item in result {
