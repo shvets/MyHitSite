@@ -29,8 +29,8 @@
 		FA2C290C1E80AAF00090C9D5 /* MoviesSubFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C29081E80AAF00090C9D5 /* MoviesSubFilterController.swift */; };
 		FA2C290D1E80AAF00090C9D5 /* SeriesFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C29091E80AAF00090C9D5 /* SeriesFilterController.swift */; };
 		FA2C290E1E80AAF00090C9D5 /* SeriesSubFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C290A1E80AAF00090C9D5 /* SeriesSubFilterController.swift */; };
+		FA6C128B1EB04BC400DA4A90 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6C128A1EB04BC400DA4A90 /* Alamofire.framework */; };
 		FA75749A1E5D32EA00C705C6 /* Runglish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA7574991E5D32EA00C705C6 /* Runglish.framework */; };
-		FA75749F1E5D32EE00C705C6 /* Just.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA75749B1E5D32EE00C705C6 /* Just.framework */; };
 		FA7574A01E5D32EE00C705C6 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA75749C1E5D32EE00C705C6 /* SwiftyJSON.framework */; };
 		FA7574A11E5D32EE00C705C6 /* SwiftSoup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA75749D1E5D32EE00C705C6 /* SwiftSoup.framework */; };
 		FA7574A21E5D32EE00C705C6 /* WebAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA75749E1E5D32EE00C705C6 /* WebAPI.framework */; };
@@ -62,6 +62,7 @@
 		FA2C29081E80AAF00090C9D5 /* MoviesSubFilterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoviesSubFilterController.swift; path = filter/MoviesSubFilterController.swift; sourceTree = "<group>"; };
 		FA2C29091E80AAF00090C9D5 /* SeriesFilterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SeriesFilterController.swift; path = filter/SeriesFilterController.swift; sourceTree = "<group>"; };
 		FA2C290A1E80AAF00090C9D5 /* SeriesSubFilterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SeriesSubFilterController.swift; path = filter/SeriesSubFilterController.swift; sourceTree = "<group>"; };
+		FA6C128A1EB04BC400DA4A90 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/EtvnetApp-auvgeykttffxrlaelzqpbfeqnwis/Build/Products/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		FA7574991E5D32EA00C705C6 /* Runglish.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Runglish.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/EtvnetApp-gdyhsaliqubivtfjullxnayrebpq/Build/Products/Debug-appletvos/Runglish.framework"; sourceTree = "<group>"; };
 		FA75749B1E5D32EE00C705C6 /* Just.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Just.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/EtvnetApp-gdyhsaliqubivtfjullxnayrebpq/Build/Products/Debug-appletvos/Just.framework"; sourceTree = "<group>"; };
 		FA75749C1E5D32EE00C705C6 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/EtvnetApp-gdyhsaliqubivtfjullxnayrebpq/Build/Products/Debug-appletvos/SwiftyJSON.framework"; sourceTree = "<group>"; };
@@ -77,8 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA6C128B1EB04BC400DA4A90 /* Alamofire.framework in Frameworks */,
 				FA75749A1E5D32EA00C705C6 /* Runglish.framework in Frameworks */,
-				FA75749F1E5D32EE00C705C6 /* Just.framework in Frameworks */,
 				FA7574A01E5D32EE00C705C6 /* SwiftyJSON.framework in Frameworks */,
 				FA7574A11E5D32EE00C705C6 /* SwiftSoup.framework in Frameworks */,
 				FA7574A21E5D32EE00C705C6 /* WebAPI.framework in Frameworks */,
@@ -171,6 +172,7 @@
 		FAA226BB1E4F7F3200269BDE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA6C128A1EB04BC400DA4A90 /* Alamofire.framework */,
 				FA7574A31E5D32F400C705C6 /* TVSetKit.framework */,
 				FA75749B1E5D32EE00C705C6 /* Just.framework */,
 				FA75749C1E5D32EE00C705C6 /* SwiftyJSON.framework */,
