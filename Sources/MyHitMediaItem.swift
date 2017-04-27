@@ -64,10 +64,10 @@ class MyHitMediaItem: MediaItem {
     let urls: [String]?
       
     if type == "episode" {
-      urls = try service.getUrls(url: id!)
+      urls = try MyHitAPI(proxy: true).getUrls(url: id!)
     }
     else {
-      urls = try service.getUrls(path: id!)
+      urls = try MyHitAPI(proxy: true).getUrls(path: id!)
     }
 
     if let urls = urls {
