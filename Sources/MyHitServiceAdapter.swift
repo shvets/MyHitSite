@@ -18,8 +18,8 @@ class MyHitServiceAdapter: ServiceAdapter {
   var episodes: [JSON]?
   var tracks: [JSON]?
 
-  public override init(mobile: Bool=false) {
-    super.init(mobile: mobile)
+  public init(mobile: Bool=false) {
+    super.init(dataSource: MyHitDataSource(), mobile: mobile)
 
     bookmarks.load()
     history.load()
@@ -36,8 +36,6 @@ class MyHitServiceAdapter: ServiceAdapter {
     pageLoader.load = {
       return try self.load()
     }
-
-    dataSource = MyHitDataSource()
   }
 
   override open func clone() -> ServiceAdapter {
