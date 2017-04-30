@@ -65,8 +65,8 @@ open class MyHitTableViewController: MyHitBaseTableViewController {
 
             let adapter = MyHitServiceAdapter(mobile: true)
 
-            adapter.requestType = mediaItem.name
-            adapter.parentName = localizer.localize(mediaItem.name!)
+            adapter.params.requestType = mediaItem.name
+            adapter.params.parentName = localizer.localize(mediaItem.name!)
 
             destination.adapter = adapter
           }
@@ -76,8 +76,8 @@ open class MyHitTableViewController: MyHitBaseTableViewController {
 
             let adapter = MyHitServiceAdapter(mobile: true)
 
-            adapter.requestType = "Search"
-            adapter.parentName = localizer.localize("Search Results")
+            adapter.params.requestType = "Search"
+            adapter.params.parentName = localizer.localize("Search Results")
 
             destination.adapter = adapter
           }

@@ -21,7 +21,7 @@ class MoviesFilterController: MyHitBaseCollectionViewController {
     collectionView?.collectionViewLayout = layout
 
     adapter = MyHitServiceAdapter()
-    adapter.requestType = "Movies Filter"
+    adapter.params.requestType = "Movies Filter"
 
     collectionView?.backgroundView = activityIndicatorView
     adapter.pageLoader.spinner = PlainSpinner(activityIndicatorView)
@@ -46,8 +46,8 @@ class MoviesFilterController: MyHitBaseCollectionViewController {
           if let destination = segue.destination as? MoviesSubFilterController,
              let selectedCell = sender as? MediaNameCell {
             adapter.clear()
-            adapter.requestType = "Movies Subfilter"
-            adapter.selectedItem = getItem(for: selectedCell)
+            adapter.params.requestType = "Movies Subfilter"
+            adapter.params.selectedItem = getItem(for: selectedCell)
 
             destination.adapter = adapter
           }

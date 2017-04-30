@@ -36,8 +36,8 @@ class SeriesSubFilterController: MyHitBaseCollectionViewController {
     let controller = MediaItemsController.instantiate(adapter).getActionController()
     let destination = controller as! MediaItemsController
 
-    adapter.requestType = "Series"
-    adapter.selectedItem = getItem(for: selectedCell)
+    adapter.params.requestType = "Series"
+    adapter.params.selectedItem = getItem(for: selectedCell)
 
     destination.adapter = adapter
 
