@@ -38,11 +38,11 @@ class MyHitDataSource: DataSource {
     switch request {
       case "Bookmarks":
         bookmarks.load()
-        result = bookmarks.getBookmarks(pageSize: pageSize, page: currentPage)
+        result = bookmarks.getBookmarks(pageSize: 48, page: currentPage)
 
       case "History":
         history.load()
-        result = history.getHistoryItems(pageSize: pageSize, page: currentPage)
+        result = history.getHistoryItems(pageSize: 48, page: currentPage)
 
       case "All Movies":
         result = try service.getAllMovies(page: currentPage)["movies"] as! [Any]
