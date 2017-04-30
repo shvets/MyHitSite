@@ -12,7 +12,7 @@ class MoviesFilterTableViewController: MyHitBaseTableViewController {
     self.clearsSelectionOnViewWillAppear = false
 
     adapter = MyHitServiceAdapter(mobile: true)
-    adapter.params.requestType = "Movies Filter"
+    adapter.params["requestType"] = "Movies Filter"
 
     tableView?.backgroundView = activityIndicatorView
     adapter.pageLoader.spinner = PlainSpinner(activityIndicatorView)
@@ -39,8 +39,8 @@ class MoviesFilterTableViewController: MyHitBaseTableViewController {
 
             let adapter = MyHitServiceAdapter(mobile: true)
 
-            adapter.params.requestType = "Movies Subfilter"
-            adapter.params.selectedItem = getItem(for: view)
+            adapter.params["requestType"] = "Movies Subfilter"
+            adapter.params["selectedItem"] = getItem(for: view)
 
             destination.adapter = adapter
           }

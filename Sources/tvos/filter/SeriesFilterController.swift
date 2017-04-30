@@ -21,7 +21,7 @@ class SeriesFilterController: MyHitBaseCollectionViewController {
     collectionView?.collectionViewLayout = layout
 
     adapter = MyHitServiceAdapter()
-    adapter.params.requestType = "Series Filter"
+    adapter.params["requestType"] = "Series Filter"
 
     collectionView?.backgroundView = activityIndicatorView
     adapter.pageLoader.spinner = PlainSpinner(activityIndicatorView)
@@ -45,8 +45,8 @@ class SeriesFilterController: MyHitBaseCollectionViewController {
       case SeriesSubFilterController.SegueIdentifier:
         if let destination = segue.destination as? SeriesSubFilterController,
            let selectedCell = sender as? MediaNameCell {
-          adapter.params.requestType = "Series Subfilter"
-          adapter.params.selectedItem = getItem(for: selectedCell)
+          adapter.params["requestType"] = "Series Subfilter"
+          adapter.params["selectedItem"] = getItem(for: selectedCell)
 
           destination.adapter = adapter
         }

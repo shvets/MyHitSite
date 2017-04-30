@@ -12,7 +12,7 @@ class SeriesFilterTableViewController: MyHitBaseTableViewController {
     self.clearsSelectionOnViewWillAppear = false
 
     adapter = MyHitServiceAdapter(mobile: true)
-    adapter.params.requestType = "Series Filter"
+    adapter.params["requestType"] = "Series Filter"
 
     tableView?.backgroundView = activityIndicatorView
     adapter.pageLoader.spinner = PlainSpinner(activityIndicatorView)
@@ -39,8 +39,8 @@ class SeriesFilterTableViewController: MyHitBaseTableViewController {
 
             let adapter = MyHitServiceAdapter(mobile: true)
 
-            adapter.params.requestType = "Series Subfilter"
-            adapter.params.selectedItem = getItem(for: view)
+            adapter.params["requestType"] = "Series Subfilter"
+            adapter.params["selectedItem"] = getItem(for: view)
 
             destination.adapter = adapter
           }

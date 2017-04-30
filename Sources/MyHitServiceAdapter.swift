@@ -24,7 +24,7 @@ class MyHitServiceAdapter: ServiceAdapter {
     bookmarks.load()
     history.load()
 
-    if params.requestType == "Soundtracks" || params.requestType == "Search" {
+    if params["requestType"] as? String == "Soundtracks" || params["requestType"] as? String == "Search" {
       pageLoader.pageSize = 25
       pageLoader.rowSize = 5
     }
@@ -56,13 +56,13 @@ class MyHitServiceAdapter: ServiceAdapter {
   override func load() throws -> [Any] {
     var newParams = RequestParams()
 
-    newParams.identifier = params.requestType == "Search" ? params.query : params.parentId
-    newParams.bookmarks = bookmarks
-    newParams.history = history
-    newParams.selectedItem = params.selectedItem
+    newParams["identifier"] = params["requestType"] as? String == "Search" ? params["query"] as? String : params["parentId"] as? String
+    newParams["bookmarks"] = bookmarks
+    newParams["history"] = history
+    newParams["selectedItem"] = params["selectedItem"]
 
-    if let requestType = params.requestType, let dataSource = dataSource {
-      return try dataSource.load(requestType, params: newParams, pageSize: pageLoader.pageSize,
+    if let requestType = params["requestType"], let dataSource = dataSource {
+      return try dataSource.load(requestType as! String, params: newParams, pageSize: pageLoader.pageSize,
         currentPage: pageLoader.currentPage, convert: true)
     }
     else {
@@ -73,7 +73,7 @@ class MyHitServiceAdapter: ServiceAdapter {
   override func buildLayout() -> UICollectionViewFlowLayout? {
     let layout = UICollectionViewFlowLayout()
 
-    if params.requestType == "Soundtracks" || params.requestType == "Search" {
+    if params["requestType"] as! String == "Soundtracks" || params["requestType"] as! String == "Search" {
       layout.itemSize = CGSize(width: 210*1.3, height: 300*1.3) // 210 x 300
       layout.sectionInset = UIEdgeInsets(top: 40.0, left: 40.0, bottom: 120.0, right: 40.0)
       layout.minimumInteritemSpacing = 50.0
