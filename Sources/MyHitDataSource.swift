@@ -5,7 +5,7 @@ import TVSetKit
 class MyHitDataSource: DataSource {
   let service = MyHitService.shared
 
-  override open func load(_ requestType: String, params: RequestParams, pageSize: Int, currentPage: Int, convert: Bool=true) throws -> [Any] {
+  override open func load(pageSize: Int, currentPage: Int, convert: Bool=true) throws -> [Any] {
     var result: [Any] = []
 
     let identifier = params["identifier"] as? String
@@ -15,7 +15,7 @@ class MyHitDataSource: DataSource {
 
     var tracks = [JSON]()
 
-    var request = requestType
+    var request = params["requestType"] as! String
 
     if selectedItem?.type == "serie" {
       request = "Seasons"
