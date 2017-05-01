@@ -8,7 +8,6 @@ class MyHitDataSource: DataSource {
   override open func load(params: RequestParams) throws -> [Any] {
     var result: [Any] = []
 
-    let identifier = params["identifier"] as? String
     let bookmarks = params["bookmarks"] as! Bookmarks
     let history = params["history"] as! History
     let selectedItem = params["selectedItem"] as? MyHitMediaItem
@@ -69,24 +68,28 @@ class MyHitDataSource: DataSource {
         result = try service.getPopularSeries(page: currentPage)["movies"] as! [Any]
 
       case "Seasons":
-        let seasons = service.getSeasons(identifier!, parentName: selectedItem!.name!)["movies"] as! [Any]
+        if let identifier = params["parentId"] as? String {
+          let seasons = service.getSeasons(identifier, parentName: selectedItem!.name!)["movies"] as! [Any]
 
-        if seasons.count == 1 {
-          let episodes = (seasons[0] as! [String: Any])["episodes"]
+          if seasons.count == 1 {
+            let episodes = (seasons[0] as! [String: Any])["episodes"]
 
-          result = episodes as! [Any]
-        }
-        else {
-          result = seasons
+            result = episodes as! [Any]
+          }
+          else {
+            result = seasons
+          }
         }
 
       case "Episodes":
-        let seasonNumber = selectedItem?.seasonNumber ?? ""
+        if let identifier = params["parentId"] as? String {
+          let seasonNumber = selectedItem?.seasonNumber ?? ""
 
-        let parentName = "\(selectedItem!.parentName!) (\(selectedItem!.name!))"
+          let parentName = "\(selectedItem!.parentName!) (\(selectedItem!.name!))"
 
-        result = service.getEpisodes(identifier!, parentName: parentName, seasonNumber: seasonNumber,
+          result = service.getEpisodes(identifier, parentName: parentName, seasonNumber: seasonNumber,
             pageSize: pageSize!, page: currentPage)["movies"] as! [Any]
+        }
 
       case "Selections":
         result = try service.getSelections(page: currentPage)["movies"] as! [Any]
@@ -129,8 +132,10 @@ class MyHitDataSource: DataSource {
         result = try service.getSoundtracks(page: currentPage)["movies"] as! [Any]
 
       case "Search":
-        if !identifier!.isEmpty {
-          result = try service.search(identifier!, page: currentPage)["movies"] as! [Any]
+        if let query = params["query"] as? String {
+          if !query.isEmpty {
+            result = try service.search(query, page: currentPage)["movies"] as! [Any]
+          }
         }
 
       default:
