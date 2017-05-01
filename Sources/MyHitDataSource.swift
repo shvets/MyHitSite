@@ -5,7 +5,7 @@ import TVSetKit
 class MyHitDataSource: DataSource {
   let service = MyHitService.shared
 
-  override open func load(pageSize: Int, currentPage: Int, convert: Bool=true) throws -> [Any] {
+  override open func load(convert: Bool=true) throws -> [Any] {
     var result: [Any] = []
 
     let identifier = params["identifier"] as? String
@@ -16,6 +16,8 @@ class MyHitDataSource: DataSource {
     var tracks = [JSON]()
 
     var request = params["requestType"] as! String
+    let pageSize = params["pageSize"] as? Int
+    let currentPage = params["currentPage"] as! Int
 
     if selectedItem?.type == "serie" {
       request = "Seasons"
@@ -84,7 +86,7 @@ class MyHitDataSource: DataSource {
         let parentName = "\(selectedItem!.parentName!) (\(selectedItem!.name!))"
 
         result = service.getEpisodes(identifier!, parentName: parentName, seasonNumber: seasonNumber,
-            pageSize: pageSize, page: currentPage)["movies"] as! [Any]
+            pageSize: pageSize!, page: currentPage)["movies"] as! [Any]
 
       case "Selections":
         result = try service.getSelections(page: currentPage)["movies"] as! [Any]
