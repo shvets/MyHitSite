@@ -17,7 +17,7 @@ class MoviesFilterTableViewController: MyHitBaseTableViewController {
     tableView?.backgroundView = activityIndicatorView
     adapter.pageLoader.spinner = PlainSpinner(activityIndicatorView)
 
-    loadInitialData() { result in
+    loadInitialData { result in
       for item in result {
         item.name = self.localizer.localize(item.name!)
       }
