@@ -51,7 +51,7 @@ class SettingsController: MyHitBaseCollectionViewController {
 
     let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
-    let okAction = UIAlertAction(title: "OK", style: .default) {
+    let okAction = UIAlertAction(title: "OK", style: .default) { _ in
       let history = (self.adapter as! MyHitServiceAdapter).history
 
       history.clear()
@@ -72,7 +72,7 @@ class SettingsController: MyHitBaseCollectionViewController {
 
     let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
-    let okAction = UIAlertAction(title: "OK", style: .default)
+    let okAction = UIAlertAction(title: "OK", style: .default) { _ in
       let bookmarks = (self.adapter as! MyHitServiceAdapter).bookmarks
 
       bookmarks.clear()
