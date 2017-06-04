@@ -4,6 +4,6 @@ open class MyHitBaseTableViewController: BaseTableViewController {
   override open func viewDidLoad() {
     super.viewDidLoad()
 
-    localizer = Localizer(MyHitServiceAdapter.BundleId)
+    localizer = Localizer(MyHitServiceAdapter.BundleId, bundleClass: MyHitSite.self)
   }
 }
