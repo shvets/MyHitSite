@@ -23,6 +23,7 @@
 		2DBA1C660EA5F23090AA443B /* SettingsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA159CB0B77CC55CE62FB5 /* SettingsTableController.swift */; };
 		2DBA1CB6B761DC1867E99CC2 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1A0DDB5B943D0913BADC /* SettingsController.swift */; };
 		2DBA1E06FF80DD41D8E53237 /* MyHitDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA14B9B18174C6481EDCE0 /* MyHitDataSource.swift */; };
+		2DBA1F6A5632B009ED50A1E4 /* MyHitSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA130308AACD921627AA09 /* MyHitSite.swift */; };
 		FA2C290B1E80AAF00090C9D5 /* MoviesFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C29071E80AAF00090C9D5 /* MoviesFilterController.swift */; };
 		FA2C290C1E80AAF00090C9D5 /* MoviesSubFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C29081E80AAF00090C9D5 /* MoviesSubFilterController.swift */; };
 		FA2C290D1E80AAF00090C9D5 /* SeriesFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C29091E80AAF00090C9D5 /* SeriesFilterController.swift */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		2DBA10420D7B21AB52A3987A /* MyHitController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHitController.swift; sourceTree = "<group>"; };
 		2DBA109F780B6DF1EB659690 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2DBA130308AACD921627AA09 /* MyHitSite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHitSite.swift; sourceTree = "<group>"; };
 		2DBA14B9B18174C6481EDCE0 /* MyHitDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHitDataSource.swift; sourceTree = "<group>"; };
 		2DBA159CB0B77CC55CE62FB5 /* SettingsTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableController.swift; sourceTree = "<group>"; };
 		2DBA16940D6AD5C5B883B292 /* MoviesSubFilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesSubFilterTableViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				2DBA1F128983908D879A693F /* Localizable.strings */,
 				2DBA14640350A615A2E117E3 /* tvos */,
 				2DBA17AE80FF404C251ED106 /* ios */,
+				2DBA130308AACD921627AA09 /* MyHitSite.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				FA2C290E1E80AAF00090C9D5 /* SeriesSubFilterController.swift in Sources */,
 				2DBA16636A8DDB0E7C34D645 /* SeriesSubFilterTableViewController.swift in Sources */,
 				FA2C290D1E80AAF00090C9D5 /* SeriesFilterController.swift in Sources */,
+				2DBA1F6A5632B009ED50A1E4 /* MyHitSite.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
