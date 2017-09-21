@@ -27,6 +27,7 @@ open class MyHitTableViewController: MyHitBaseTableViewController {
     items.append(MediaItem(name: "All Series", imageName: "Retro TV"))
     items.append(MediaItem(name: "Popular Series", imageName: "Retro TV Filled"))
     items.append(MediaItem(name: "Selections", imageName: "Chisel Tip Marker"))
+    items.append(MediaItem(name: "Soundtracks", imageName: "Chisel Tip Marker"))
     items.append(MediaItem(name: "Filters By Movies", imageName: "Filter"))
     items.append(MediaItem(name: "Filters By Series", imageName: "Filter"))
     items.append(MediaItem(name: "Settings", imageName: "Engineering"))
@@ -43,6 +44,9 @@ open class MyHitTableViewController: MyHitBaseTableViewController {
       case "Filters By Series":
         performSegue(withIdentifier: "Filter By Series", sender: view)
 
+//      case "Soundtracks":
+//        performSegue(withIdentifier: "Soundtracks", sender: view)
+
       case "Settings":
         performSegue(withIdentifier: "Settings", sender: view)
 
@@ -57,13 +61,15 @@ open class MyHitTableViewController: MyHitBaseTableViewController {
   override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let identifier = segue.identifier {
       switch identifier {
-      case MediaItemsController.SegueIdentifier:
+        case MediaItemsController.SegueIdentifier:
           if let destination = segue.destination.getActionController() as? MediaItemsController,
              let view = sender as? MediaNameTableCell {
 
             let mediaItem = getItem(for: view)
 
             let adapter = MyHitServiceAdapter(mobile: true)
+            adapter.pageLoader.pageSize = 25
+            adapter.pageLoader.rowSize = 1
 
             adapter.params["requestType"] = mediaItem.name
             adapter.params["parentName"] = localizer.localize(mediaItem.name!)

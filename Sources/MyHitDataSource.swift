@@ -99,6 +99,9 @@ class MyHitDataSource: DataSource {
 
         result = try service.getSelection(path: selectionId, page: currentPage)["movies"] as! [Any]
 
+      case "Soundtracks":
+        result = try service.getSoundtracks(page: currentPage)["movies"] as! [Any]
+
       case "Albums":
         let soundtrackId = selectedItem!.id!
 
@@ -107,14 +110,20 @@ class MyHitDataSource: DataSource {
         if albums.count == 1 {
           let tracks = (albums[0] as! [String: Any])["tracks"]
 
-          result = tracks as! [Any]
+          for track in tracks as! [[String: Any]] {
+            let newTrack = ["name": track["name"] as! String, "id": track["id"] as! String]
+            result.append(newTrack)
+          }
         }
         else {
           result = albums
         }
 
       case "Tracks":
-        result = tracks
+        for track in tracks {
+          let newTrack = ["name": track["name"].rawString(), "id": track["id"].rawString()]
+          result.append(newTrack)
+        }
 
       case "Movies Filter":
         result = try service.getFilters(mode: "film")
@@ -128,9 +137,6 @@ class MyHitDataSource: DataSource {
       case "Series Subfilter":
         result = selectedItem!.items
 
-      case "Soundtracks":
-        result = try service.getSoundtracks(page: currentPage)["movies"] as! [Any]
-
       case "Search":
         if let query = params["query"] as? String {
           if !query.isEmpty {
@@ -142,7 +148,14 @@ class MyHitDataSource: DataSource {
         result = []
     }
 
-    return convertToMediaItems(result)
+    let convert = params["convert"] as? Bool ?? true
+
+    if convert {
+      return convertToMediaItems(result)
+    }
+    else {
+      return result
+    }
   }
 
   func convertToMediaItems(_ items: [Any]) -> [MediaItem] {

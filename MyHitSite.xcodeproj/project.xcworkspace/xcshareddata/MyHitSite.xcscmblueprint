@@ -1,19 +1,22 @@
 {
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "D94691F0D38B0968DEDB470425FF7C7EE75544C2",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "D94691F0D38B0968DEDB470425FF7C7EE75544C2" : 9223372036854775807,
     "F3D3B7EFF1017084DF8D43F57E075DC6367991FB" : 9223372036854775807,
-    "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3" : 9223372036854775807,
     "7753260C4535CFA7BC8319DE142DC7085FADE8D9" : 9223372036854775807,
+    "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3" : 9223372036854775807,
     "DF731D8DADBC775E9B4C2E38B20808181D1B8D67" : 9223372036854775807,
     "E40D1825F5562D55D3E47CE5BED1647AC3AAF6C7" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "CDAF7DBA-230D-4B59-914F-5381851A3B59",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "D94691F0D38B0968DEDB470425FF7C7EE75544C2" : "MyHitSite\/",
     "F3D3B7EFF1017084DF8D43F57E075DC6367991FB" : "WebAPI\/Packages\/SwiftSoup-1.2.0\/",
-    "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3" : "WebAPI\/Packages\/SwiftyJSON-3.1.3\/",
     "7753260C4535CFA7BC8319DE142DC7085FADE8D9" : "WebAPI\/",
+    "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3" : "WebAPI\/Packages\/SwiftyJSON-3.1.3\/",
     "DF731D8DADBC775E9B4C2E38B20808181D1B8D67" : "Runglish\/",
     "E40D1825F5562D55D3E47CE5BED1647AC3AAF6C7" : "TVSetKit\/"
   },
@@ -30,6 +33,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SwiftyJSON\/SwiftyJSON.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:shvets\/MyHitSite.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D94691F0D38B0968DEDB470425FF7C7EE75544C2"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:shvets\/Runglish.git",
