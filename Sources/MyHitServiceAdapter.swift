@@ -12,8 +12,8 @@ class MyHitServiceAdapter: ServiceAdapter {
   override open class var StoryboardId: String { return "MyHit" }
   override open class var BundleId: String { return "com.rubikon.MyHitSite" }
 
-  lazy var bookmarks = Bookmarks(bookmarksFileName)
-  lazy var history = History(historyFileName)
+    lazy var bookmarks = Bookmarks(MyHitServiceAdapter.bookmarksFileName)
+    lazy var history = History(MyHitServiceAdapter.historyFileName)
 
   var episodes: [JSON]?
   var tracks: [JSON]?
