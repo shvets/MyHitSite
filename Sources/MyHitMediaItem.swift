@@ -10,7 +10,7 @@ class MyHitMediaItem: MediaItem {
   var items = [JSON]()
 
   override init(data: JSON) {
-    super.init(data: data)
+    super.init(data: [:])
 
     self.seasonNumber = data["seasonNumber"].stringValue
     self.episodeNumber = data["episodeNumber"].stringValue
