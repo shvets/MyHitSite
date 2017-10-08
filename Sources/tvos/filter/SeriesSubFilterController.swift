@@ -25,7 +25,7 @@ class SeriesSubFilterController: MyHitBaseCollectionViewController {
 
     loadInitialData { result in
       for item in result {
-        (item as! MediaName).name = self.localizer.localize((item as! MediaName).name!)
+        item.name = self.localizer.localize(item.name!)
       }
     }
   }
