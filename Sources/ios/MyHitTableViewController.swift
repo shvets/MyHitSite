@@ -35,7 +35,7 @@ open class MyHitTableViewController: MyHitBaseTableViewController {
   }
 
   override open func navigate(from view: UITableViewCell) {
-    let mediaItem = getItem(for: view) as! MediaItem
+    let mediaItem = getItem(for: view)
 
     switch mediaItem.name! {
       case "Filters By Movies":
@@ -65,7 +65,7 @@ open class MyHitTableViewController: MyHitBaseTableViewController {
           if let destination = segue.destination.getActionController() as? MediaItemsController,
              let view = sender as? MediaNameTableCell {
 
-            let mediaItem = getItem(for: view) as! MediaItem
+            let mediaItem = getItem(for: view)
 
             let adapter = MyHitServiceAdapter(mobile: true)
             adapter.pageLoader.pageSize = 25

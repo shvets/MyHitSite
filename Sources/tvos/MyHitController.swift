@@ -46,7 +46,7 @@ open class MyHitController: MyHitBaseCollectionViewController {
   }
 
   override open func navigate(from view: UICollectionViewCell, playImmediately: Bool=false) {
-    let mediaItem = getItem(for: view) as! MediaItem
+    let mediaItem = getItem(for: view)
 
     switch mediaItem.name! {
       case "Filters By Movies":
@@ -73,7 +73,7 @@ open class MyHitController: MyHitBaseCollectionViewController {
           if let destination = segue.destination.getActionController() as? MediaItemsController,
              let view = sender as? MediaNameCell {
 
-            let mediaItem = getItem(for: view) as! MediaItem
+            let mediaItem = getItem(for: view)
             let adapter = MyHitServiceAdapter()
 
             adapter.params["requestType"] = mediaItem.name
