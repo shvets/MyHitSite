@@ -128,15 +128,15 @@ class MyHitServiceAdapter: ServiceAdapter {
     }
   }
 
-  override func addBookmark(item: MediaItem) -> Bool {
+  override func addBookmark(item: Item) -> Bool {
     return bookmarks.addBookmark(item: item)
   }
 
-  override func removeBookmark(item: MediaItem) -> Bool {
+  override func removeBookmark(item: Item) -> Bool {
     return bookmarks.removeBookmark(item: item)
   }
 
-  override func addHistoryItem(_ item: MediaItem) {
+  override func addHistoryItem(_ item: Item) {
     history.add(item: item)
   }
 
