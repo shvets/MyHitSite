@@ -158,8 +158,8 @@ class MyHitDataSource: DataSource {
     }
   }
 
-  func convertToMediaItems(_ items: [Any]) -> [MediaItem] {
-    var newItems = [MediaItem]()
+  func convertToMediaItems(_ items: [Any]) -> [Item] {
+    var newItems = [Item]()
 
     for item in items {
       var jsonItem = item as? JSON

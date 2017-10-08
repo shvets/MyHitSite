@@ -23,26 +23,21 @@ open class MyHitController: MyHitBaseCollectionViewController {
 
     self.clearsSelectionOnViewWillAppear = false
 
-//    for name in MainMenuItems {
-//      let item = MediaItem(name: name)
-//
-//      items.append(item)
-//    }
     loadData()
   }
 
   func loadData() {
-    items.append(MediaItem(name: "Bookmarks", imageName: "Star"))
-    items.append(MediaItem(name: "History", imageName: "Bookmark"))
-    items.append(MediaItem(name: "All Movies", imageName: "Retro TV"))
-    items.append(MediaItem(name: "Popular Movies", imageName: "Retro TV Filled"))
-    items.append(MediaItem(name: "All Series", imageName: "Retro TV"))
-    items.append(MediaItem(name: "Popular Series", imageName: "Retro TV Filled"))
-    items.append(MediaItem(name: "Selections", imageName: "Chisel Tip Marker"))
-    items.append(MediaItem(name: "Filters By Movies", imageName: "Filter"))
-    items.append(MediaItem(name: "Filters By Series", imageName: "Filter"))
-    items.append(MediaItem(name: "Settings", imageName: "Engineering"))
-    items.append(MediaItem(name: "Search", imageName: "Search"))
+    items.append(MediaName(name: "Bookmarks", imageName: "Star"))
+    items.append(MediaName(name: "History", imageName: "Bookmark"))
+    items.append(MediaName(name: "All Movies", imageName: "Retro TV"))
+    items.append(MediaName(name: "Popular Movies", imageName: "Retro TV Filled"))
+    items.append(MediaName(name: "All Series", imageName: "Retro TV"))
+    items.append(MediaName(name: "Popular Series", imageName: "Retro TV Filled"))
+    items.append(MediaName(name: "Selections", imageName: "Chisel Tip Marker"))
+    items.append(MediaName(name: "Filters By Movies", imageName: "Filter"))
+    items.append(MediaName(name: "Filters By Series", imageName: "Filter"))
+    items.append(MediaName(name: "Settings", imageName: "Engineering"))
+    items.append(MediaName(name: "Search", imageName: "Search"))
   }
 
   override open func navigate(from view: UICollectionViewCell, playImmediately: Bool=false) {
