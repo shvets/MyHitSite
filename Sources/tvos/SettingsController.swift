@@ -35,7 +35,7 @@ class SettingsController: MyHitBaseCollectionViewController {
   override public func tapped(_ gesture: UITapGestureRecognizer) {
     let selectedCell = gesture.view as! MediaNameCell
 
-    let settingsMode = getItem(for: selectedCell).name
+    let settingsMode = (getItem(for: selectedCell) as! MediaName).name
 
     if settingsMode == "Reset History" {
       self.present(buildResetHistoryController(), animated: false, completion: nil)
