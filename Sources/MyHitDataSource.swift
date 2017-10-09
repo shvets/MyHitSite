@@ -162,13 +162,14 @@ class MyHitDataSource: DataSource {
     var newItems = [Item]()
 
     for item in items {
-      var jsonItem = item as? JSON
+//      var jsonItem = item as? JSON
+//
+//      if jsonItem == nil {
+//        jsonItem = JSON(item)
+//      }
 
-      if jsonItem == nil {
-        jsonItem = JSON(item)
-      }
-
-      let movie = MyHitMediaItem(data: jsonItem!)
+      //let movie = MyHitMediaItem(data: jsonItem!)
+      let movie = MyHitMediaItem(data: [:])
 
       newItems += [movie]
     }

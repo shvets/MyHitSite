@@ -9,28 +9,28 @@ class MyHitMediaItem: MediaItem {
   var tracks = [JSON]()
   var items = [JSON]()
 
-  override init(data: JSON) {
-    super.init(data: [:])
-
-    self.seasonNumber = data["seasonNumber"].stringValue
-    self.episodeNumber = data["episodeNumber"].stringValue
-
-    self.tracks = []
-
-    let tracks = data["tracks"].arrayValue
-
-    for track in tracks {
-      self.tracks.append(track)
-    }
-
-    self.items = []
-
-    let items = data["items"].arrayValue
-
-    for item in items {
-      self.items.append(item)
-    }
-  }
+//  override init(data: JSON) {
+//    super.init(data: [:])
+//
+//    self.seasonNumber = data["seasonNumber"].stringValue
+//    self.episodeNumber = data["episodeNumber"].stringValue
+//
+//    self.tracks = []
+//
+//    let tracks = data["tracks"].arrayValue
+//
+//    for track in tracks {
+//      self.tracks.append(track)
+//    }
+//
+//    self.items = []
+//
+//    let items = data["items"].arrayValue
+//
+//    for item in items {
+//      self.items.append(item)
+//    }
+//  }
   
   required convenience init(from decoder: Decoder) throws {
     fatalError("init(from:) has not been implemented")
