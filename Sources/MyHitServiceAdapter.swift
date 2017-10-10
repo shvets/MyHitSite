@@ -46,13 +46,6 @@ class MyHitServiceAdapter: ServiceAdapter {
     return cloned
   }
 
-  open func instantiateController(controllerId: String) -> UIViewController {
-    return UIViewController.instantiate(
-      controllerId: controllerId,
-      storyboardId: MyHitServiceAdapter.StoryboardId,
-      bundleId: MyHitServiceAdapter.BundleId)
-  }
-
   override open func load() throws -> [Any] {
     params["bookmarks"] = bookmarks
     params["history"] = history
