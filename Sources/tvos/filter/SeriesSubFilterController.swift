@@ -31,19 +31,19 @@ class SeriesSubFilterController: MyHitBaseCollectionViewController {
   }
 
   override public func tapped(_ gesture: UITapGestureRecognizer) {
-    let selectedCell = gesture.view as! MediaNameCell
+    if let destination = MediaItemsController.instantiateController(adapter),
+       let selectedCell = gesture.view as? MediaNameCell {
+      adapter.params["requestType"] = "Series"
+      adapter.params["selectedItem"] = getItem(for: selectedCell)
 
-    let controller = MediaItemsController.instantiate(adapter).getActionController()
-    let destination = controller as! MediaItemsController
+      destination.adapter = adapter
 
-    adapter.params["requestType"] = "Series"
-    adapter.params["selectedItem"] = getItem(for: selectedCell)
+      if let layout = adapter.buildLayout() {
+        destination.collectionView?.collectionViewLayout = layout
+      }
 
-    destination.adapter = adapter
-
-    destination.collectionView?.collectionViewLayout = adapter.buildLayout()!
-
-    self.show(controller!, sender: destination)
+      self.show(destination, sender: destination)
+    }
   }
 
 }
