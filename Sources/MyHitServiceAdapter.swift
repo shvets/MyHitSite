@@ -90,20 +90,8 @@ class MyHitServiceAdapter: ServiceAdapter {
     return CGRect(x: 40, y: 40, width: 210*2.7, height: 300*2.7)
   }
 
-  override func addBookmark(item: MediaItem) -> Bool {
-    return bookmarks.addBookmark(item: item)
-  }
-
-  override func removeBookmark(item: MediaItem) -> Bool {
-    return bookmarks.removeBookmark(id: item.id!)
-  }
-
-  override func addHistoryItem(_ item: MediaItem) {
-    history.add(item: item)
-  }
-
   func getConfiguration() -> Configuration {
-    var conf = Configuration()
+    let conf = Configuration()
 
     if params["requestType"] as? String == "Soundtracks" || params["requestType"] as? String == "Search" {
       conf.pageSize = 25
