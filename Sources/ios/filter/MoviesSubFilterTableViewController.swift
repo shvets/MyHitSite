@@ -38,6 +38,7 @@ class MoviesSubFilterTableViewController: MyHitBaseTableViewController {
             adapter.params["selectedItem"] = getItem(for: view)
 
             destination.adapter = adapter
+            destination.configuration = adapter.getConfiguration()
           }
 
         default: break

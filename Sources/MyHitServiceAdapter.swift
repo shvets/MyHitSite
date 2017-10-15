@@ -25,12 +25,24 @@ class MyHitServiceAdapter: ServiceAdapter {
     history.load()
 
     if params["requestType"] as? String == "Soundtracks" || params["requestType"] as? String == "Search" {
-      pageLoader.pageSize = 25
-      pageLoader.rowSize = 5
+      if mobile {
+        pageLoader.pageSize = 25
+        pageLoader.rowSize = 1
+      }
+      else {
+        pageLoader.pageSize = 25
+        pageLoader.rowSize = 5
+      }
     }
     else {
-      pageLoader.pageSize = 24
-      pageLoader.rowSize = 6
+      if mobile {
+        pageLoader.pageSize = 24
+        pageLoader.rowSize = 1
+      }
+      else {
+        pageLoader.pageSize = 24
+        pageLoader.rowSize = 6
+      }
     }
 
     pageLoader.load = {
@@ -90,4 +102,18 @@ class MyHitServiceAdapter: ServiceAdapter {
     history.add(item: item)
   }
 
+  func getConfiguration() -> Configuration {
+    var conf = Configuration()
+
+    if params["requestType"] as? String == "Soundtracks" || params["requestType"] as? String == "Search" {
+      conf.pageSize = 25
+      conf.rowSize = 5
+    }
+    else {
+      conf.pageSize = 24
+      conf.rowSize = 6
+    }
+
+    return conf
+  }
 }

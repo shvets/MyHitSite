@@ -37,6 +37,7 @@ class SeriesSubFilterController: MyHitBaseCollectionViewController {
       adapter.params["selectedItem"] = getItem(for: selectedCell)
 
       destination.adapter = adapter
+      //destination.configuration = adapter.getConfiguration()
 
       if let layout = adapter.buildLayout() {
         destination.collectionView?.collectionViewLayout = layout
