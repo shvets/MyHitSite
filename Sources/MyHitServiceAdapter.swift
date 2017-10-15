@@ -90,18 +90,34 @@ class MyHitServiceAdapter: ServiceAdapter {
     return CGRect(x: 40, y: 40, width: 210*2.7, height: 300*2.7)
   }
 
-  func getConfiguration() -> Configuration {
-    let conf = Configuration()
-
-    if params["requestType"] as? String == "Soundtracks" || params["requestType"] as? String == "Search" {
-      conf.pageSize = 25
-      conf.rowSize = 5
+  func getConfiguration() -> [String: Any] {
+    if mobile {
+      if params["requestType"] as? String == "Soundtracks" || params["requestType"] as? String == "Search" {
+        return [
+          "pageSize": 25,
+          "rowSize": 1
+        ]
+      }
+      else {
+        return [
+          "pageSize": 24,
+          "rowSize": 1
+        ]
+      }
     }
     else {
-      conf.pageSize = 24
-      conf.rowSize = 6
+      if params["requestType"] as? String == "Soundtracks" || params["requestType"] as? String == "Search" {
+        return [
+          "pageSize": 25,
+          "rowSize": 5
+        ]
+      }
+      else {
+        return [
+          "pageSize": 24,
+          "rowSize": 6
+        ]
+      }
     }
-
-    return conf
   }
 }
