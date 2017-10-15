@@ -113,4 +113,30 @@ class MyHitMediaItem: MediaItem {
 
     return urls?[0]
   }
+
+  override func retrieveExtraInfo() throws {
+    if type == "movie" {
+      let mediaData = try service.getMediaData(pathOrUrl: id!)
+
+      var text = ""
+
+      if let intro = mediaData["Продолжительность:"] as? String {
+        text += "\(intro)\n\n"
+      }
+
+      if let genre = mediaData["Жанр:"] as? String {
+        text += "\(genre)\n\n"
+      }
+
+      if let artists = (mediaData["В ролях:"] as? String)?.description {
+        text += "\(artists)\n\n"
+      }
+
+      if let description = mediaData["description"] as? String {
+        text += "\(description)\n\n"
+      }
+
+      description = text
+    }
+  }
 }

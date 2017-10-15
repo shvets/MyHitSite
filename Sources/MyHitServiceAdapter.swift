@@ -78,32 +78,6 @@ class MyHitServiceAdapter: ServiceAdapter {
     return CGRect(x: 40, y: 40, width: 210*2.7, height: 300*2.7)
   }
 
-  override func retrieveExtraInfo(_ item: MediaItem) throws {
-    if item.type == "movie" {
-      let mediaData = try service.getMediaData(pathOrUrl: item.id!)
-
-      var text = ""
-
-      if let intro = mediaData["Продолжительность:"] as? String {
-        text += "\(intro)\n\n"
-      }
-
-      if let genre = mediaData["Жанр:"] as? String {
-        text += "\(genre)\n\n"
-      }
-
-      if let artists = (mediaData["В ролях:"] as? String)?.description {
-        text += "\(artists)\n\n"
-      }
-
-      if let description = mediaData["description"] as? String {
-        text += "\(description)\n\n"
-      }
-
-      item.description = text
-    }
-  }
-
   override func addBookmark(item: MediaItem) -> Bool {
     return bookmarks.addBookmark(item: item)
   }
