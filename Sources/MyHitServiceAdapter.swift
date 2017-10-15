@@ -78,23 +78,6 @@ class MyHitServiceAdapter: ServiceAdapter {
     return CGRect(x: 40, y: 40, width: 210*2.7, height: 300*2.7)
   }
 
-  override func getUrl(_ params: [String: Any]) throws -> String {
-    let urls: [String]?
-    
-    let id = params["id"] as! String
-    
-    let item = params["item"] as! MediaItem
-    
-    if item.type == "episode" {
-      urls = try service.getUrls(url: id)
-    }
-    else {
-      urls = try service.getUrls(path: id)
-    }
-    
-    return urls![0]
-  }
-
   override func retrieveExtraInfo(_ item: MediaItem) throws {
     if item.type == "movie" {
       let mediaData = try service.getMediaData(pathOrUrl: item.id!)

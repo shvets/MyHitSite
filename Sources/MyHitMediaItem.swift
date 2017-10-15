@@ -62,8 +62,8 @@ class MyHitMediaItem: MediaItem {
     return result
   }
   
-  override func getBitrates() throws -> [[String: Any]] {
-    var bitrates: [[String: Any]] = []
+  override func getBitrates() throws -> [[String: String]] {
+    var bitrates: [[String: String]] = []
 
     let urls: [String]?
       
@@ -88,7 +88,7 @@ class MyHitMediaItem: MediaItem {
 
     let qualityLevels = QualityLevel.availableLevels(bitrates.count)
 
-    var newBitrates: [[String: Any]] = []
+    var newBitrates: [[String: String]] = []
 
     for (index, bitrate) in bitrates.enumerated() {
       var newBitrate = bitrate
@@ -101,4 +101,16 @@ class MyHitMediaItem: MediaItem {
     return newBitrates
   }
 
+  override func getUrl(_ bitrate: [String: String]) throws -> String? {
+    let urls: [String]?
+
+    if type == "episode" {
+      urls = try service.getUrls(url: id!)
+    }
+    else {
+      urls = try service.getUrls(path: id!)
+    }
+
+    return urls?[0]
+  }
 }
