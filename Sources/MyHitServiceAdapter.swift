@@ -12,8 +12,11 @@ class MyHitServiceAdapter: ServiceAdapter {
   override open class var StoryboardId: String { return "MyHit" }
   override open class var BundleId: String { return "com.rubikon.MyHitSite" }
 
-    lazy var bookmarks = Bookmarks(MyHitServiceAdapter.bookmarksFileName)
-    lazy var history = History(MyHitServiceAdapter.historyFileName)
+  lazy var bookmarks = Bookmarks(MyHitServiceAdapter.bookmarksFileName)
+  lazy var history = History(MyHitServiceAdapter.historyFileName)
+
+  var bookmarksManager: BookmarksManager?
+  var historyManager: HistoryManager?
 
   var episodes: [JSON]?
   var tracks: [JSON]?
@@ -23,6 +26,9 @@ class MyHitServiceAdapter: ServiceAdapter {
 
     bookmarks.load()
     history.load()
+
+    bookmarksManager = BookmarksManager(bookmarks)
+    historyManager = HistoryManager(history)
 
     if params["requestType"] as? String == "Soundtracks" || params["requestType"] as? String == "Search" {
       if mobile {
@@ -91,33 +97,25 @@ class MyHitServiceAdapter: ServiceAdapter {
   }
 
   func getConfiguration() -> [String: Any] {
-    if mobile {
-      if params["requestType"] as? String == "Soundtracks" || params["requestType"] as? String == "Search" {
-        return [
-          "pageSize": 25,
-          "rowSize": 1
-        ]
-      }
-      else {
-        return [
-          "pageSize": 24,
-          "rowSize": 1
-        ]
-      }
+    var conf = [String: Any]()
+
+    if params["requestType"] as? String == "Soundtracks" || params["requestType"] as? String == "Search" {
+      conf["pageSize"] = 25
     }
     else {
-      if params["requestType"] as? String == "Soundtracks" || params["requestType"] as? String == "Search" {
-        return [
-          "pageSize": 25,
-          "rowSize": 5
-        ]
-      }
-      else {
-        return [
-          "pageSize": 24,
-          "rowSize": 6
-        ]
-      }
+      conf["pageSize"] = 24
     }
+
+    if mobile {
+      conf["rowSize"] = 1
+    }
+    else {
+      conf["rowSize"] = 6
+    }
+
+    conf["bookmarksManager"] = bookmarksManager
+    conf["historyManager"] = historyManager
+
+    return conf
   }
 }
