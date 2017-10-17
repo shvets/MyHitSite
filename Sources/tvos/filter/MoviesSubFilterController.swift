@@ -13,7 +13,7 @@ class MoviesSubFilterController: UICollectionViewController, UICollectionViewDel
 
   var adapter = MyHitServiceAdapter()
   
-  private var items: Items!
+  private var items = Items()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -22,7 +22,7 @@ class MoviesSubFilterController: UICollectionViewController, UICollectionViewDel
 
     setupLayout()
 
-    items = Items() {
+    items.pageLoader.load = {
       let adapter = MyHitServiceAdapter()
       //adapter.params["requestType"] = "Movies Filter"
 

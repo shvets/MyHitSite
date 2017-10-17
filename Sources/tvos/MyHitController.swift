@@ -6,7 +6,7 @@ open class MyHitController: UICollectionViewController, UICollectionViewDelegate
 
   let localizer = Localizer(MyHitServiceAdapter.BundleId, bundleClass: MyHitSite.self)
 
-  private var items: Items!
+  private var items = Items()
 
   override open func viewDidLoad() {
     super.viewDidLoad()
@@ -15,7 +15,7 @@ open class MyHitController: UICollectionViewController, UICollectionViewDelegate
 
     setupLayout()
 
-    items = Items() {
+    items.pageLoader.load = {
       return self.loadData()
     }
 

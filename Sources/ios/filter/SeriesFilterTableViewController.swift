@@ -11,14 +11,14 @@ class SeriesFilterTableViewController: UITableViewController {
   public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
 #endif
 
-  private var items: Items!
+  private var items = Items()
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
     self.clearsSelectionOnViewWillAppear = false
 
-    items = Items() {
+    items.pageLoader.load = {
       let adapter = MyHitServiceAdapter(mobile: true)
       adapter.params["requestType"] = "Series Filter"
 

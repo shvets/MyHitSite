@@ -13,7 +13,7 @@ class SeriesSubFilterController: UICollectionViewController, UICollectionViewDel
   public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
 #endif
 
-  private var items: Items!
+  private var items = Items()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -22,7 +22,7 @@ class SeriesSubFilterController: UICollectionViewController, UICollectionViewDel
 
     setupLayout()
 
-    items = Items() {
+    items.pageLoader.load = {
       let adapter = MyHitServiceAdapter()
       //adapter.params["requestType"] = "Movies Filter"
 

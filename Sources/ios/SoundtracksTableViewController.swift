@@ -8,14 +8,14 @@ class SoundtracksTableViewController: UITableViewController {
 
   let localizer = Localizer(MyHitServiceAdapter.BundleId, bundleClass: MyHitSite.self)
 
-  private var items: Items!
+  private var items = Items()
   
   override func viewDidLoad() {
     super.viewDidLoad()
 
     self.clearsSelectionOnViewWillAppear = false
 
-    items = Items() {
+    items.pageLoader.load = {
       let adapter = MyHitServiceAdapter(mobile: true)
 
       return try adapter.load()

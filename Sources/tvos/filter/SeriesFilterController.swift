@@ -11,7 +11,7 @@ class SeriesFilterController: UICollectionViewController, UICollectionViewDelega
   public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
 #endif
 
-  private var items: Items!
+  private var items = Items()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -20,7 +20,7 @@ class SeriesFilterController: UICollectionViewController, UICollectionViewDelega
 
     setupLayout()
 
-    items = Items() {
+    items.pageLoader.load = {
       let adapter = MyHitServiceAdapter()
       adapter.params["requestType"] = "Series Filter"
 

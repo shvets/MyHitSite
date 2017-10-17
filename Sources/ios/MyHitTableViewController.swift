@@ -7,7 +7,7 @@ open class MyHitTableViewController: UITableViewController {
 
   let localizer = Localizer(MyHitServiceAdapter.BundleId, bundleClass: MyHitSite.self)
 
-  private var items: Items!
+  private var items = Items()
 
   override open func viewDidLoad() {
     super.viewDidLoad()
@@ -18,7 +18,7 @@ open class MyHitTableViewController: UITableViewController {
 
     title = localizer.localize("Archive")
 
-    items = Items() {
+    items.pageLoader.load = {
       let adapter = MyHitServiceAdapter(mobile: true)
 
       return self.loadData()

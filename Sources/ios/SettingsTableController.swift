@@ -6,7 +6,7 @@ class SettingsTableController: UITableViewController {
 
   let localizer = Localizer(MyHitServiceAdapter.BundleId, bundleClass: MyHitSite.self)
 
-  private var items: Items!
+  private var items = Items()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -15,7 +15,7 @@ class SettingsTableController: UITableViewController {
 
     //adapter = MyHitServiceAdapter(mobile: true)
 
-    items = Items() {
+    items.pageLoader.load = {
       return self.loadSettingsMenu()
     }
 
