@@ -24,9 +24,6 @@ class MyHitServiceAdapter: ServiceAdapter {
   public init(mobile: Bool=false) {
     super.init(dataSource: MyHitDataSource(), mobile: mobile)
 
-    bookmarks.load()
-    history.load()
-
     bookmarksManager = BookmarksManager(bookmarks)
     historyManager = HistoryManager(history)
 
