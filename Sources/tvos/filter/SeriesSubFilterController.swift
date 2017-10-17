@@ -13,6 +13,7 @@ class SeriesSubFilterController: UICollectionViewController, UICollectionViewDel
   public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
 #endif
 
+  public var params = Parameters()
   private var items = Items()
 
   override func viewDidLoad() {
@@ -24,7 +25,7 @@ class SeriesSubFilterController: UICollectionViewController, UICollectionViewDel
 
     items.pageLoader.load = {
       let adapter = MyHitServiceAdapter()
-      //adapter.params["requestType"] = "Movies Filter"
+      //destination.params["requestType"] = "Movies Filter"
 
       return try adapter.load()
     }
@@ -80,7 +81,7 @@ class SeriesSubFilterController: UICollectionViewController, UICollectionViewDel
        let selectedCell = gesture.view as? MediaNameCell,
        let indexPath = collectionView?.indexPath(for: selectedCell) {
       let adapter = MyHitServiceAdapter()
-      adapter.params["requestType"] = "Series"
+      destination.params["requestType"] = "Series"
       adapter.params["selectedItem"] = items.getItem(for: indexPath)
 
       destination.adapter = adapter

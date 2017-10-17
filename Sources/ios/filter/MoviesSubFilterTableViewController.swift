@@ -75,7 +75,7 @@ class MoviesSubFilterTableViewController: UITableViewController {
 
             let adapter = MyHitServiceAdapter(mobile: true)
 
-            adapter.params["requestType"] = "Movies"
+            destination.params["requestType"] = "Movies"
             adapter.params["selectedItem"] = items.getItem(for: indexPath)
 
             destination.adapter = adapter

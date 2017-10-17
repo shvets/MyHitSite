@@ -89,7 +89,7 @@ class MoviesFilterController: UICollectionViewController, UICollectionViewDelega
             let adapter = MyHitServiceAdapter()
             
             adapter.clear()
-            adapter.params["requestType"] = "Movies Subfilter"
+            destination.params["requestType"] = "Movies Subfilter"
             adapter.params["selectedItem"] = items.getItem(for: indexPath)
 
             destination.adapter = adapter

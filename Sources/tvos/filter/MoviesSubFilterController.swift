@@ -13,6 +13,7 @@ class MoviesSubFilterController: UICollectionViewController, UICollectionViewDel
 
   var adapter = MyHitServiceAdapter()
   
+  public var params = Parameters()
   private var items = Items()
 
   override func viewDidLoad() {
@@ -24,7 +25,7 @@ class MoviesSubFilterController: UICollectionViewController, UICollectionViewDel
 
     items.pageLoader.load = {
       let adapter = MyHitServiceAdapter()
-      //adapter.params["requestType"] = "Movies Filter"
+      //destination.params["requestType"] = "Movies Filter"
 
       return try adapter.load()
     }
@@ -81,7 +82,7 @@ class MoviesSubFilterController: UICollectionViewController, UICollectionViewDel
        let indexPath = collectionView?.indexPath(for: selectedCell) {
       let adapter = MyHitServiceAdapter()
       
-      adapter.params["requestType"] = "Movies"
+      destination.params["requestType"] = "Movies"
       adapter.params["selectedItem"] = items.getItem(for: indexPath)
 
       destination.adapter = adapter

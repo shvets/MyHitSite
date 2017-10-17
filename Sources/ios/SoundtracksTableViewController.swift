@@ -61,7 +61,7 @@ class SoundtracksTableViewController: UITableViewController {
 
             let adapter = MyHitServiceAdapter(mobile: true)
 
-            adapter.params["requestType"] = "Albums"
+            destination.params["requestType"] = "Albums"
             adapter.params["selectedItem"] = items.getItem(for: indexPath)
 
             destination.adapter = adapter

@@ -72,7 +72,6 @@ class SeriesFilterTableViewController: UITableViewController {
              let view = sender as? MediaNameTableCell,
             let indexPath = tableView.indexPath(for: view) {
 
-            let adapter = MyHitServiceAdapter(mobile: true)
             destination.selectedItem = items.getItem(for: indexPath) as? MediaItem
           }
 

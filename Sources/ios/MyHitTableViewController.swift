@@ -19,8 +19,6 @@ open class MyHitTableViewController: UITableViewController {
     title = localizer.localize("Archive")
 
     items.pageLoader.load = {
-      let adapter = MyHitServiceAdapter(mobile: true)
-
       return self.loadData()
     }
 
@@ -109,8 +107,8 @@ open class MyHitTableViewController: UITableViewController {
             adapter.pageLoader.pageSize = 25
             adapter.pageLoader.rowSize = 1
 
-            adapter.params["requestType"] = mediaItem.name
-            adapter.params["parentName"] = localizer.localize(mediaItem.name!)
+            destination.params["requestType"] = mediaItem.name
+            destination.params["parentName"] = localizer.localize(mediaItem.name!)
 
             destination.adapter = adapter
             destination.configuration = adapter.getConfiguration()
@@ -121,8 +119,8 @@ open class MyHitTableViewController: UITableViewController {
 
             let adapter = MyHitServiceAdapter(mobile: true)
 
-            adapter.params["requestType"] = "Search"
-            adapter.params["parentName"] = localizer.localize("Search Results")
+            destination.params["requestType"] = "Search"
+            destination.params["parentName"] = localizer.localize("Search Results")
 
             destination.adapter = adapter
           }
