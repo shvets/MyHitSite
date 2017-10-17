@@ -1,14 +1,35 @@
 import UIKit
 import TVSetKit
 
-class SettingsController: MyHitBaseCollectionViewController {
-  override open var CellIdentifier: String { return "SettingCell" }
+class SettingsController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+  let CellIdentifier = "SettingCell"
+
+  let localizer = Localizer(MyHitServiceAdapter.BundleId, bundleClass: MyHitSite.self)
+
+  private var items: Items!
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
     self.clearsSelectionOnViewWillAppear = false
 
+    setupLayout()
+
+    items = Items() {
+      return self.loadSettingsMenu()
+    }
+
+    items.loadInitialData(collectionView)
+  }
+
+  func loadSettingsMenu() -> [Item] {
+    return [
+      Item(name: "Reset History"),
+      Item(name: "Reset Bookmarks")
+    ]
+  }
+
+  func setupLayout() {
     let layout = UICollectionViewFlowLayout()
 
     layout.itemSize = CGSize(width: 450, height: 150)
@@ -17,31 +38,62 @@ class SettingsController: MyHitBaseCollectionViewController {
     layout.minimumLineSpacing = 100.0
 
     collectionView?.collectionViewLayout = layout
-
-    adapter = MyHitServiceAdapter()
-
-    loadSettingsMenu()
   }
 
-  func loadSettingsMenu() {
-    let resetHistory = Item(name: "Reset History")
-    let resetQueue = Item(name: "Reset Bookmarks")
-
-    items = [
-      resetHistory, resetQueue
-    ]
+  func loadData() -> [Item] {
+    var items = [Item]()
+    
+    items.append(MediaName(name: "Bookmarks", imageName: "Star"))
+    items.append(MediaName(name: "History", imageName: "Bookmark"))
+    items.append(MediaName(name: "All Movies", imageName: "Retro TV"))
+    items.append(MediaName(name: "Popular Movies", imageName: "Retro TV Filled"))
+    items.append(MediaName(name: "All Series", imageName: "Retro TV"))
+    items.append(MediaName(name: "Popular Series", imageName: "Retro TV Filled"))
+    items.append(MediaName(name: "Selections", imageName: "Chisel Tip Marker"))
+    items.append(MediaName(name: "Filters By Movies", imageName: "Filter"))
+    items.append(MediaName(name: "Filters By Series", imageName: "Filter"))
+    items.append(MediaName(name: "Settings", imageName: "Engineering"))
+    items.append(MediaName(name: "Search", imageName: "Search"))
+    
+    return items
   }
 
-  override public func tapped(_ gesture: UITapGestureRecognizer) {
-    let selectedCell = gesture.view as! MediaNameCell
+  // MARK: UICollectionViewDataSource
 
-    let settingsMode = getItem(for: selectedCell).name
+  override open func numberOfSections(in collectionView: UICollectionView) -> Int {
+    return 1
+  }
 
-    if settingsMode == "Reset History" {
-      self.present(buildResetHistoryController(), animated: false, completion: nil)
+  override open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return items.count
+  }
+
+  override open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier, for: indexPath) as? MediaNameCell {
+      if let item = items[indexPath.row] as? MediaName {
+         cell.configureCell(item: item, localizedName: localizer.getLocalizedName(item.name), target: self)
+      }
+
+      CellHelper.shared.addTapGestureRecognizer(view: cell, target: self, action: #selector(self.tapped(_:)))
+
+      return cell
     }
-    else if settingsMode == "Reset Bookmarks" {
-      self.present(buildResetQueueController(), animated: false, completion: nil)
+    else {
+      return UICollectionViewCell()
+    }
+  }
+
+  @objc public func tapped(_ gesture: UITapGestureRecognizer) {
+    if let selectedCell = gesture.view as? MediaNameCell,
+       let indexPath = collectionView?.indexPath(for: selectedCell) {
+      let settingsMode = items.getItem(for: indexPath).name
+      
+      if settingsMode == "Reset History" {
+        self.present(buildResetHistoryController(), animated: false, completion: nil)
+      }
+      else if settingsMode == "Reset Bookmarks" {
+        self.present(buildResetQueueController(), animated: false, completion: nil)
+      }
     }
   }
 
@@ -51,8 +103,10 @@ class SettingsController: MyHitBaseCollectionViewController {
 
     let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
+    let adapter = MyHitServiceAdapter()
+    
     let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-      let history = (self.adapter as! MyHitServiceAdapter).history
+      let history = adapter.history
 
       history.clear()
       history.save()
@@ -72,8 +126,10 @@ class SettingsController: MyHitBaseCollectionViewController {
 
     let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
+    let adapter = MyHitServiceAdapter()
+    
     let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-      let bookmarks = (self.adapter as! MyHitServiceAdapter).bookmarks
+      let bookmarks = adapter.bookmarks
 
       bookmarks.clear()
       bookmarks.save()

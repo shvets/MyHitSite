@@ -20,6 +20,7 @@ open class MyHitTableViewController: UITableViewController {
 
     items = Items() {
       let adapter = MyHitServiceAdapter(mobile: true)
+
       return self.loadData()
     }
 

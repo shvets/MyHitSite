@@ -1,15 +1,28 @@
 import UIKit
-import SwiftyJSON
 import TVSetKit
 
-open class MyHitController: MyHitBaseCollectionViewController {
-  override open var CellIdentifier: String { return "MyHitCell" }
+open class MyHitController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+  let CellIdentifier = "MyHitCell"
 
- override open func viewDidLoad() {
+  let localizer = Localizer(MyHitServiceAdapter.BundleId, bundleClass: MyHitSite.self)
+
+  private var items: Items!
+
+  override open func viewDidLoad() {
     super.viewDidLoad()
 
     self.clearsSelectionOnViewWillAppear = false
 
+    setupLayout()
+
+    items = Items() {
+      return self.loadData()
+    }
+
+    items.loadInitialData(collectionView)
+  }
+
+  func setupLayout() {
     let layout = UICollectionViewFlowLayout()
 
     layout.itemSize = CGSize(width: 450, height: 150)
@@ -18,15 +31,10 @@ open class MyHitController: MyHitBaseCollectionViewController {
     layout.minimumLineSpacing = 100.0
 
     collectionView?.collectionViewLayout = layout
-
-    adapter = MyHitServiceAdapter()
-
-    self.clearsSelectionOnViewWillAppear = false
-
-    loadData()
   }
 
-  func loadData() {
+  func loadData() -> [Item] {
+    var items = [Item]()
     items.append(MediaName(name: "Bookmarks", imageName: "Star"))
     items.append(MediaName(name: "History", imageName: "Bookmark"))
     items.append(MediaName(name: "All Movies", imageName: "Retro TV"))
@@ -38,26 +46,61 @@ open class MyHitController: MyHitBaseCollectionViewController {
     items.append(MediaName(name: "Filters By Series", imageName: "Filter"))
     items.append(MediaName(name: "Settings", imageName: "Engineering"))
     items.append(MediaName(name: "Search", imageName: "Search"))
+  
+    return items
+  }
+  
+  // MARK: UICollectionViewDataSource
+
+  override open func numberOfSections(in collectionView: UICollectionView) -> Int {
+    return 1
   }
 
-  override open func navigate(from view: UICollectionViewCell, playImmediately: Bool=false) {
-    let mediaItem = getItem(for: view)
+  override open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return items.count
+  }
 
-    switch mediaItem.name! {
-      case "Filters By Movies":
-        performSegue(withIdentifier: "Filter By Movies", sender: view)
+  override open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier, for: indexPath) as? MediaNameCell {
+      if let item = items[indexPath.row] as? MediaName {
+         cell.configureCell(item: item, localizedName: localizer.getLocalizedName(item.name), target: self)
+      }
 
-      case "Filters By Series":
-        performSegue(withIdentifier: "Filter By Series", sender: view)
+      CellHelper.shared.addTapGestureRecognizer(view: cell, target: self, action: #selector(self.tapped(_:)))
 
-      case "Settings":
-        performSegue(withIdentifier: "Settings", sender: view)
+      return cell
+    }
+    else {
+      return UICollectionViewCell()
+    }
+  }
 
-      case "Search":
-        performSegue(withIdentifier: SearchController.SegueIdentifier, sender: view)
+  @objc func tapped(_ gesture: UITapGestureRecognizer) {
+    if let location = gesture.view as? UICollectionViewCell {
+      navigate(from: location)
+    }
+  }
 
-      default:
-        performSegue(withIdentifier: MediaItemsController.SegueIdentifier, sender: view)
+  func navigate(from view: UICollectionViewCell, playImmediately: Bool=false) {
+    if let indexPath = collectionView?.indexPath(for: view) {
+      let mediaItem = items.getItem(for: indexPath)
+
+      switch mediaItem.name! {
+        case "Filters By Movies":
+          performSegue(withIdentifier: "Filter By Movies", sender: view)
+
+        case "Filters By Series":
+          performSegue(withIdentifier: "Filter By Series", sender: view)
+
+        case "Settings":
+          performSegue(withIdentifier: "Settings", sender: view)
+
+        case "Search":
+          performSegue(withIdentifier: SearchController.SegueIdentifier, sender: view)
+
+        default:
+          performSegue(withIdentifier: MediaItemsController.SegueIdentifier, sender: view)
+      }
     }
   }
 
@@ -66,9 +109,10 @@ open class MyHitController: MyHitBaseCollectionViewController {
       switch identifier {
         case MediaItemsController.SegueIdentifier:
           if let destination = segue.destination.getActionController() as? MediaItemsController,
-             let view = sender as? MediaNameCell {
+             let view = sender as? MediaNameCell,
+             let indexPath = collectionView?.indexPath(for: view) {
 
-            let mediaItem = getItem(for: view)
+            let mediaItem = items.getItem(for: indexPath)
             let adapter = MyHitServiceAdapter()
 
             adapter.params["requestType"] = mediaItem.name

@@ -16,8 +16,6 @@
 		2DBA16636A8DDB0E7C34D645 /* SeriesSubFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA18A2F12ADCD2AA382C1D /* SeriesSubFilterTableViewController.swift */; };
 		2DBA18CEC8471A5D12E4AAFA /* MyHitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1EE705E32D9E82FE90DB /* MyHitService.swift */; };
 		2DBA18FABCFEBF141DD3B496 /* MyHitServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1736298AE8897B8290ED /* MyHitServiceAdapter.swift */; };
-		2DBA1A5361129C1A48076072 /* MyHitBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA175995AF391B1E104ABA /* MyHitBaseTableViewController.swift */; };
-		2DBA1C0E63D8851AC84DBD8C /* MyHitBaseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1FFC27052630897CD8E0 /* MyHitBaseCollectionViewController.swift */; };
 		2DBA1C0F4FBC6997A239011D /* MyHitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1A3E8C2B38386EE63489 /* MyHitTableViewController.swift */; };
 		2DBA1C39795F5735385EA422 /* MoviesSubFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA16940D6AD5C5B883B292 /* MoviesSubFilterTableViewController.swift */; };
 		2DBA1C660EA5F23090AA443B /* SettingsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA159CB0B77CC55CE62FB5 /* SettingsTableController.swift */; };
@@ -25,8 +23,6 @@
 		2DBA1E06FF80DD41D8E53237 /* MyHitDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA14B9B18174C6481EDCE0 /* MyHitDataSource.swift */; };
 		2DBA1F6A5632B009ED50A1E4 /* MyHitSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA130308AACD921627AA09 /* MyHitSite.swift */; };
 		FA27866D1F927E800088F553 /* SoundtracksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27866A1F927E800088F553 /* SoundtracksTableViewController.swift */; };
-		FA27866E1F927E800088F553 /* BaseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27866B1F927E800088F553 /* BaseCollectionViewController.swift */; };
-		FA27866F1F927E800088F553 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27866C1F927E800088F553 /* BaseTableViewController.swift */; };
 		FA2C290B1E80AAF00090C9D5 /* MoviesFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C29071E80AAF00090C9D5 /* MoviesFilterController.swift */; };
 		FA2C290C1E80AAF00090C9D5 /* MoviesSubFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C29081E80AAF00090C9D5 /* MoviesSubFilterController.swift */; };
 		FA2C290D1E80AAF00090C9D5 /* SeriesFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C29091E80AAF00090C9D5 /* SeriesFilterController.swift */; };
@@ -49,7 +45,6 @@
 		2DBA169A4047527D7A4ED28A /* SeriesFilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeriesFilterTableViewController.swift; sourceTree = "<group>"; };
 		2DBA16ECE4CC1A6F6816E11B /* MyHitSite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyHitSite.h; sourceTree = "<group>"; };
 		2DBA1736298AE8897B8290ED /* MyHitServiceAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHitServiceAdapter.swift; sourceTree = "<group>"; };
-		2DBA175995AF391B1E104ABA /* MyHitBaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHitBaseTableViewController.swift; sourceTree = "<group>"; };
 		2DBA18A2F12ADCD2AA382C1D /* SeriesSubFilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeriesSubFilterTableViewController.swift; sourceTree = "<group>"; };
 		2DBA1A0DDB5B943D0913BADC /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		2DBA1A3E8C2B38386EE63489 /* MyHitTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHitTableViewController.swift; sourceTree = "<group>"; };
@@ -58,10 +53,7 @@
 		2DBA1C23E34301A62F71288D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		2DBA1CADE61812C39B20B113 /* MyHitMediaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHitMediaItem.swift; sourceTree = "<group>"; };
 		2DBA1EE705E32D9E82FE90DB /* MyHitService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHitService.swift; sourceTree = "<group>"; };
-		2DBA1FFC27052630897CD8E0 /* MyHitBaseCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHitBaseCollectionViewController.swift; sourceTree = "<group>"; };
 		FA27866A1F927E800088F553 /* SoundtracksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SoundtracksTableViewController.swift; path = ios/SoundtracksTableViewController.swift; sourceTree = "<group>"; };
-		FA27866B1F927E800088F553 /* BaseCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewController.swift; sourceTree = "<group>"; };
-		FA27866C1F927E800088F553 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		FA2C29071E80AAF00090C9D5 /* MoviesFilterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoviesFilterController.swift; path = filter/MoviesFilterController.swift; sourceTree = "<group>"; };
 		FA2C29081E80AAF00090C9D5 /* MoviesSubFilterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoviesSubFilterController.swift; path = filter/MoviesSubFilterController.swift; sourceTree = "<group>"; };
 		FA2C29091E80AAF00090C9D5 /* SeriesFilterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SeriesFilterController.swift; path = filter/SeriesFilterController.swift; sourceTree = "<group>"; };
@@ -111,7 +103,6 @@
 				FA2C29061E80AAD90090C9D5 /* filter */,
 				2DBA10420D7B21AB52A3987A /* MyHitController.swift */,
 				2DBA1A0DDB5B943D0913BADC /* SettingsController.swift */,
-				2DBA1FFC27052630897CD8E0 /* MyHitBaseCollectionViewController.swift */,
 			);
 			path = tvos;
 			sourceTree = "<group>";
@@ -119,8 +110,6 @@
 		2DBA15DCDBC3B9757D99F770 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				FA27866B1F927E800088F553 /* BaseCollectionViewController.swift */,
-				FA27866C1F927E800088F553 /* BaseTableViewController.swift */,
 				FA27866A1F927E800088F553 /* SoundtracksTableViewController.swift */,
 				2DBA14B9B18174C6481EDCE0 /* MyHitDataSource.swift */,
 				2DBA1CADE61812C39B20B113 /* MyHitMediaItem.swift */,
@@ -139,7 +128,6 @@
 		2DBA17AE80FF404C251ED106 /* ios */ = {
 			isa = PBXGroup;
 			children = (
-				2DBA175995AF391B1E104ABA /* MyHitBaseTableViewController.swift */,
 				2DBA1A3E8C2B38386EE63489 /* MyHitTableViewController.swift */,
 				2DBA128770E3BCAFD4E5FD88 /* filter */,
 				2DBA159CB0B77CC55CE62FB5 /* SettingsTableController.swift */,
@@ -282,8 +270,6 @@
 				2DBA112360F4D8BEFD79710B /* MyHitController.swift in Sources */,
 				FA2C290B1E80AAF00090C9D5 /* MoviesFilterController.swift in Sources */,
 				2DBA1CB6B761DC1867E99CC2 /* SettingsController.swift in Sources */,
-				2DBA1C0E63D8851AC84DBD8C /* MyHitBaseCollectionViewController.swift in Sources */,
-				2DBA1A5361129C1A48076072 /* MyHitBaseTableViewController.swift in Sources */,
 				2DBA1C0F4FBC6997A239011D /* MyHitTableViewController.swift in Sources */,
 				2DBA1C660EA5F23090AA443B /* SettingsTableController.swift in Sources */,
 				2DBA1344B16D91DF00CDDA8E /* MoviesFilterTableViewController.swift in Sources */,
@@ -291,9 +277,7 @@
 				2DBA131FE337DA889A7ECC32 /* SeriesFilterTableViewController.swift in Sources */,
 				FA2C290E1E80AAF00090C9D5 /* SeriesSubFilterController.swift in Sources */,
 				2DBA16636A8DDB0E7C34D645 /* SeriesSubFilterTableViewController.swift in Sources */,
-				FA27866E1F927E800088F553 /* BaseCollectionViewController.swift in Sources */,
 				FA2C290D1E80AAF00090C9D5 /* SeriesFilterController.swift in Sources */,
-				FA27866F1F927E800088F553 /* BaseTableViewController.swift in Sources */,
 				2DBA1F6A5632B009ED50A1E4 /* MyHitSite.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
