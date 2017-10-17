@@ -1,30 +1,64 @@
 import UIKit
 import TVSetKit
 
-class MoviesFilterTableViewController: MyHitBaseTableViewController {
+class MoviesFilterTableViewController: UITableViewController {
   static let SegueIdentifier = "Filter By Movies"
+  let CellIdentifier = "MovieFilterTableCell"
 
-  override open var CellIdentifier: String { return "MovieFilterTableCell" }
+  let localizer = Localizer(MyHitServiceAdapter.BundleId, bundleClass: MyHitSite.self)
+
+#if os(iOS)
+  public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+#endif
+
+  private var items: Items!
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
     self.clearsSelectionOnViewWillAppear = false
 
-    adapter = MyHitServiceAdapter(mobile: true)
-    adapter.params["requestType"] = "Movies Filter"
+    items = Items() {
+      let adapter = MyHitServiceAdapter(mobile: true)
+      adapter.params["requestType"] = "Movies Filter"
+
+      return try adapter.load()
+    }
 
     tableView?.backgroundView = activityIndicatorView
-    adapter.pageLoader.spinner = PlainSpinner(activityIndicatorView)
+    items.pageLoader.spinner = PlainSpinner(activityIndicatorView)
 
-    loadInitialData { result in
+    items.loadInitialData(tableView) { result in
       for item in result {
         item.name = self.localizer.localize(item.name!)
       }
     }
   }
 
-  override open func navigate(from view: UITableViewCell) {
+  // MARK: UITableViewDataSource
+
+  override open func numberOfSections(in tableView: UITableView) -> Int {
+    return 1
+  }
+
+  override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return items.count
+  }
+
+  override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    if let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier, for: indexPath) as? MediaNameTableCell {
+      let item = items[indexPath.row]
+
+      cell.configureCell(item: item, localizedName: localizer.getLocalizedName(item.name))
+
+      return cell
+    }
+    else {
+      return UITableViewCell()
+    }
+  }
+
+  override open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     performSegue(withIdentifier: MoviesSubFilterTableViewController.SegueIdentifier, sender: view)
   }
 
@@ -35,14 +69,12 @@ class MoviesFilterTableViewController: MyHitBaseTableViewController {
       switch identifier {
         case MoviesSubFilterTableViewController.SegueIdentifier:
           if let destination = segue.destination.getActionController() as? MoviesSubFilterTableViewController,
-             let view = sender as? MediaNameTableCell {
+             let view = sender as? MediaNameTableCell,
+             let indexPath = tableView.indexPath(for: view) {
 
             let adapter = MyHitServiceAdapter(mobile: true)
 
-            adapter.params["requestType"] = "Movies Subfilter"
-            adapter.params["selectedItem"] = getItem(for: view)
-
-            destination.adapter = adapter
+            destination.selectedItem = items.getItem(for: indexPath) as? MediaItem
           }
 
         default: break

@@ -2,8 +2,12 @@ import UIKit
 import SwiftyJSON
 import TVSetKit
 
-open class MyHitTableViewController: MyHitBaseTableViewController {
-  override open var CellIdentifier: String { return "MyHitTableCell" }
+open class MyHitTableViewController: UITableViewController {
+  let CellIdentifier = "MyHitTableCell"
+
+  let localizer = Localizer(MyHitServiceAdapter.BundleId, bundleClass: MyHitSite.self)
+
+  private var items: Items!
 
   override open func viewDidLoad() {
     super.viewDidLoad()
@@ -12,14 +16,18 @@ open class MyHitTableViewController: MyHitBaseTableViewController {
 
     title = localizer.localize("MyHit")
 
-    adapter = MyHitServiceAdapter(mobile: true)
+    title = localizer.localize("Archive")
 
-    self.clearsSelectionOnViewWillAppear = false
+    items = Items() {
+      let adapter = MyHitServiceAdapter(mobile: true)
+      return self.loadData()
+    }
 
-    loadData()
+    items.loadInitialData(tableView)
   }
 
-  func loadData() {
+  func loadData() -> [Item] {
+    var items = [Item]()
     items.append(MediaName(name: "Bookmarks", imageName: "Star"))
     items.append(MediaName(name: "History", imageName: "Bookmark"))
     items.append(MediaName(name: "All Movies", imageName: "Retro TV"))
@@ -32,10 +40,37 @@ open class MyHitTableViewController: MyHitBaseTableViewController {
     items.append(MediaName(name: "Filters By Series", imageName: "Filter"))
     items.append(MediaName(name: "Settings", imageName: "Engineering"))
     items.append(MediaName(name: "Search", imageName: "Search"))
+
+    return items
   }
 
-  override open func navigate(from view: UITableViewCell) {
-    let mediaItem = getItem(for: view)
+ // MARK: UITableViewDataSource
+
+  override open func numberOfSections(in tableView: UITableView) -> Int {
+    return 1
+  }
+
+  override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return items.count
+  }
+
+  override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    if let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier, for: indexPath) as? MediaNameTableCell {
+      let item = items[indexPath.row]
+
+      cell.configureCell(item: item, localizedName: localizer.getLocalizedName(item.name))
+
+      return cell
+    }
+    else {
+      return UITableViewCell()
+    }
+  }
+
+  override open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    if let view = tableView.cellForRow(at: indexPath),
+       let indexPath = tableView.indexPath(for: view) {
+      let mediaItem = items.getItem(for: indexPath)
 
     switch mediaItem.name! {
       case "Filters By Movies":
@@ -56,6 +91,7 @@ open class MyHitTableViewController: MyHitBaseTableViewController {
       default:
         performSegue(withIdentifier: MediaItemsController.SegueIdentifier, sender: view)
     }
+    }
   }
 
   override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -63,9 +99,10 @@ open class MyHitTableViewController: MyHitBaseTableViewController {
       switch identifier {
         case MediaItemsController.SegueIdentifier:
           if let destination = segue.destination.getActionController() as? MediaItemsController,
-             let view = sender as? MediaNameTableCell {
+             let view = sender as? MediaNameTableCell,
+             let indexPath = tableView.indexPath(for: view) {
 
-            let mediaItem = getItem(for: view)
+            let mediaItem = items.getItem(for: indexPath)
 
             let adapter = MyHitServiceAdapter(mobile: true)
             adapter.pageLoader.pageSize = 25

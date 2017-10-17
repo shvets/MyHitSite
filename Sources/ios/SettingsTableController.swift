@@ -1,30 +1,61 @@
 import UIKit
 import TVSetKit
 
-class SettingsTableController: MyHitBaseTableViewController {
-  override open var CellIdentifier: String { return "SettingTableCell" }
+class SettingsTableController: UITableViewController {
+  let CellIdentifier = "SettingTableCell"
+
+  let localizer = Localizer(MyHitServiceAdapter.BundleId, bundleClass: MyHitSite.self)
+
+  private var items: Items!
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
     self.clearsSelectionOnViewWillAppear = false
 
-    adapter = MyHitServiceAdapter(mobile: true)
+    //adapter = MyHitServiceAdapter(mobile: true)
 
-    loadSettingsMenu()
+    items = Items() {
+      return self.loadSettingsMenu()
+    }
+
+    items.loadInitialData(tableView)
   }
 
-  func loadSettingsMenu() {
-    let resetHistory = Item(name: "Reset History")
-    let resetQueue = Item(name: "Reset Bookmarks")
-
-    items = [
-      resetHistory, resetQueue
+  func loadSettingsMenu() -> [Item] {
+    return [
+      Item(name: "Reset History"),
+      Item(name: "Reset Bookmarks")
     ]
   }
 
-  override open func navigate(from view: UITableViewCell) {
-    let mediaItem = getItem(for: view)
+ // MARK: UITableViewDataSource
+
+  override open func numberOfSections(in tableView: UITableView) -> Int {
+    return 1
+  }
+
+  override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return items.count
+  }
+
+  override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    if let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier, for: indexPath) as? MediaNameTableCell {
+      let item = items[indexPath.row]
+
+      cell.configureCell(item: item, localizedName: localizer.getLocalizedName(item.name))
+
+      return cell
+    }
+    else {
+      return UITableViewCell()
+    }
+  }
+
+  override open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    if let view = tableView.cellForRow(at: indexPath),
+       let indexPath = tableView.indexPath(for: view) {
+      let mediaItem = items.getItem(for: indexPath)
 
     let settingsMode = mediaItem.name
 
@@ -34,6 +65,7 @@ class SettingsTableController: MyHitBaseTableViewController {
     else if settingsMode == "Reset Bookmarks" {
       self.present(buildResetQueueController(), animated: false, completion: nil)
     }
+    }
   }
 
   func buildResetHistoryController() -> UIAlertController {
@@ -42,8 +74,10 @@ class SettingsTableController: MyHitBaseTableViewController {
 
     let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
+    let adapter = MyHitServiceAdapter(mobile: true)
+
     let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-      let history = (self.adapter as! MyHitServiceAdapter).history
+      let history = adapter.history
 
       history.clear()
       history.save()
@@ -63,8 +97,10 @@ class SettingsTableController: MyHitBaseTableViewController {
 
     let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
+    let adapter = MyHitServiceAdapter(mobile: true)
+
     let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-      let bookmarks = (self.adapter as! MyHitServiceAdapter).bookmarks
+      let bookmarks = adapter.bookmarks
 
       bookmarks.clear()
       bookmarks.save()
