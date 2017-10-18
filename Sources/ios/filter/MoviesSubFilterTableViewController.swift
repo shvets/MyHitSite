@@ -20,6 +20,11 @@ class MoviesSubFilterTableViewController: UITableViewController {
 
     self.clearsSelectionOnViewWillAppear = false
 
+    #if os(iOS)
+      tableView?.backgroundView = activityIndicatorView
+      items.pageLoader.spinner = PlainSpinner(activityIndicatorView)
+    #endif
+    
     items.pageLoader.load = {
       let adapter = MyHitServiceAdapter(mobile: true)
       adapter.params["requestType"] = "Movies Subfilter"
@@ -27,9 +32,6 @@ class MoviesSubFilterTableViewController: UITableViewController {
 
       return try adapter.load()
     }
-
-    tableView?.backgroundView = activityIndicatorView
-    items.pageLoader.spinner = PlainSpinner(activityIndicatorView)
 
     items.loadInitialData(tableView) { result in
       for item in result {

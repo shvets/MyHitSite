@@ -7,8 +7,8 @@ class MoviesFilterController: UICollectionViewController, UICollectionViewDelega
 
   let localizer = Localizer(MyHitServiceAdapter.BundleId, bundleClass: MyHitSite.self)
 
-#if os(iOS)
-  public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+#if os(tvOS)
+  public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
 #endif
 
   private var items = Items()
@@ -20,15 +20,17 @@ class MoviesFilterController: UICollectionViewController, UICollectionViewDelega
 
     setupLayout()
 
+    #if os(tvOS)
+      collectionView?.backgroundView = activityIndicatorView
+      items.pageLoader.spinner = PlainSpinner(activityIndicatorView)
+    #endif
+    
     items.pageLoader.load = {
       let adapter = MyHitServiceAdapter()
       adapter.params["requestType"] = "Movies Filter"
 
       return try adapter.load()
     }
-
-    collectionView?.backgroundView = activityIndicatorView
-    items.pageLoader.spinner = PlainSpinner(activityIndicatorView)
 
     items.loadInitialData(collectionView) { result in
       for item in result {
