@@ -104,8 +104,8 @@ open class MyHitTableViewController: UITableViewController {
             let mediaItem = items.getItem(for: indexPath)
 
             let adapter = MyHitServiceAdapter(mobile: true)
-            adapter.pageLoader.pageSize = 25
-            adapter.pageLoader.rowSize = 1
+//            adapter.pageLoader.pageSize = 25
+//            adapter.pageLoader.rowSize = 1
 
             destination.params["requestType"] = mediaItem.name
             destination.params["parentName"] = localizer.localize(mediaItem.name!)

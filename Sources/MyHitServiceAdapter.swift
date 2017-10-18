@@ -68,18 +68,18 @@ class MyHitServiceAdapter: ServiceAdapter {
   func buildLayout() -> UICollectionViewFlowLayout? {
     let layout = UICollectionViewFlowLayout()
 
-    if params["requestType"] as! String == "Soundtracks" || params["requestType"] as! String == "Search" {
+    //if params["requestType"] as! String == "Soundtracks" || params["requestType"] as! String == "Search" {
       layout.itemSize = CGSize(width: 210*1.3, height: 300*1.3) // 210 x 300
       layout.sectionInset = UIEdgeInsets(top: 40.0, left: 40.0, bottom: 120.0, right: 40.0)
       layout.minimumInteritemSpacing = 50.0
       layout.minimumLineSpacing = 100.0
-    }
-    else {
-      layout.itemSize = CGSize(width: 210*1.2, height: 300*1.2) // 210 x 300
-      layout.sectionInset = UIEdgeInsets(top: 40.0, left: 40.0, bottom: 120.0, right: 40.0)
-      layout.minimumInteritemSpacing = 40.0
-      layout.minimumLineSpacing = 140.0
-    }
+//    }
+//    else {
+//      layout.itemSize = CGSize(width: 210*1.2, height: 300*1.2) // 210 x 300
+//      layout.sectionInset = UIEdgeInsets(top: 40.0, left: 40.0, bottom: 120.0, right: 40.0)
+//      layout.minimumInteritemSpacing = 40.0
+//      layout.minimumLineSpacing = 140.0
+//    }
 
     layout.headerReferenceSize = CGSize(width: 500, height: 75)
 

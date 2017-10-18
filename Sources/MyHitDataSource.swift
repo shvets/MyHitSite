@@ -14,7 +14,7 @@ class MyHitDataSource: DataSource {
 
     var request = params["requestType"] as! String
     let pageSize = params["pageSize"] as? Int
-    let currentPage = params["currentPage"] as! Int
+    let currentPage = params["currentPage"] as? Int ?? 0
 
     if selectedItem?.type == "serie" {
       request = "Seasons"
