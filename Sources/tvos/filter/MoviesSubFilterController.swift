@@ -31,7 +31,7 @@ class MoviesSubFilterController: UICollectionViewController, UICollectionViewDel
     
     items.pageLoader.load = {
       let adapter = MyHitServiceAdapter()
-      destination.params["requestType"] = "Movies Subfilter"
+      adapter.params["requestType"] = "Movies Subfilter"
 
       return try adapter.load()
     }

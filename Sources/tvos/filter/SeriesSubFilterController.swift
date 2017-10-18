@@ -31,7 +31,7 @@ class SeriesSubFilterController: UICollectionViewController, UICollectionViewDel
     
     items.pageLoader.load = {
       let adapter = MyHitServiceAdapter()
-      destination.params["requestType"] = "Series Subfilter"
+      adapter.params["requestType"] = "Series Subfilter"
 
       return try adapter.load()
     }
