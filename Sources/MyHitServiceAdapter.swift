@@ -86,7 +86,7 @@ class MyHitServiceAdapter: ServiceAdapter {
     return layout
   }
 
-  override func getDetailsImageFrame() -> CGRect? {
+  func getDetailsImageFrame() -> CGRect? {
     return CGRect(x: 40, y: 40, width: 210*2.7, height: 300*2.7)
   }
 
@@ -111,6 +111,7 @@ class MyHitServiceAdapter: ServiceAdapter {
     conf["historyManager"] = historyManager
     conf["dataSource"] = dataSource
     conf["storyboardId"] = MyHitServiceAdapter.StoryboardId
+    conf["detailsImageFrame"] = getDetailsImageFrame()
 
     return conf
   }
