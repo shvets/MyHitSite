@@ -90,7 +90,7 @@ class MoviesFilterController: UICollectionViewController, UICollectionViewDelega
             
             adapter.clear()
             destination.params["requestType"] = "Movies Subfilter"
-            adapter.params["selectedItem"] = items.getItem(for: indexPath)
+            destination.params["selectedItem"] = items.getItem(for: indexPath)
 
             destination.adapter = adapter
           }

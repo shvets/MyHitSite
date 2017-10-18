@@ -86,9 +86,11 @@ class SeriesFilterController: UICollectionViewController, UICollectionViewDelega
         if let destination = segue.destination as? SeriesSubFilterController,
            let selectedCell = sender as? MediaNameCell,
            let indexPath = collectionView?.indexPath(for: selectedCell) {
+
           let adapter = MyHitServiceAdapter()
+
           destination.params["requestType"] = "Series Subfilter"
-          adapter.params["selectedItem"] = items.getItem(for: indexPath)
+          destination.params["selectedItem"] = items.getItem(for: indexPath)
 
           destination.adapter = adapter
         }

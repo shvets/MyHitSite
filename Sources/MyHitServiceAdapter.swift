@@ -15,17 +15,14 @@ class MyHitServiceAdapter: ServiceAdapter {
   lazy var bookmarks = Bookmarks(MyHitServiceAdapter.bookmarksFileName)
   lazy var history = History(MyHitServiceAdapter.historyFileName)
 
-  var bookmarksManager: BookmarksManager?
-  var historyManager: HistoryManager?
+  lazy var bookmarksManager = BookmarksManager(bookmarks)
+  lazy var historyManager = HistoryManager(history)
 
   var episodes: [JSON]?
   var tracks: [JSON]?
 
   public init(mobile: Bool=false) {
     super.init(dataSource: MyHitDataSource(), mobile: mobile)
-
-    bookmarksManager = BookmarksManager(bookmarks)
-    historyManager = HistoryManager(history)
 
     if params["requestType"] as? String == "Soundtracks" || params["requestType"] as? String == "Search" {
       if mobile {
@@ -112,6 +109,8 @@ class MyHitServiceAdapter: ServiceAdapter {
     conf["mobile"] = mobile
     conf["bookmarksManager"] = bookmarksManager
     conf["historyManager"] = historyManager
+    conf["dataSource"] = dataSource
+    conf["storyboardId"] = MyHitServiceAdapter.StoryboardId
 
     return conf
   }

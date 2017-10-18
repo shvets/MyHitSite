@@ -76,7 +76,7 @@ class SeriesSubFilterTableViewController: UITableViewController {
             let adapter = MyHitServiceAdapter(mobile: true)
 
             destination.params["requestType"] = "Series"
-            adapter.params["selectedItem"] = items.getItem(for: indexPath)
+            destination.params["selectedItem"] = items.getItem(for: indexPath)
 
             destination.adapter = adapter
             destination.configuration = adapter.getConfiguration()
