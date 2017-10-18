@@ -8,8 +8,8 @@ class MyHitDataSource: DataSource {
   override open func load(params: Parameters) throws -> [Any] {
     var result: [Any] = []
 
-    let bookmarks = params["bookmarks"] as! Bookmarks
-    let history = params["history"] as! History
+//    let bookmarks = params["bookmarks"] as! Bookmarks
+//    let history = params["history"] as! History
     let selectedItem = params["selectedItem"] as? MyHitMediaItem
 
     var tracks = [JSON]()
@@ -38,10 +38,14 @@ class MyHitDataSource: DataSource {
 
     switch request {
       case "Bookmarks":
-        result = bookmarks.getBookmarks(pageSize: 48, page: currentPage)
+        if let bookmarks = params["bookmarks"]  as? Bookmarks {
+          result = bookmarks.getBookmarks(pageSize: 60, page: currentPage)
+        }
 
       case "History":
-        result = history.getHistoryItems(pageSize: 48, page: currentPage)
+        if let history = params["history"] as? History {
+          result = history.getHistoryItems(pageSize: 60, page: currentPage)
+        }
 
       case "All Movies":
         result = try service.getAllMovies(page: currentPage)["movies"] as! [Any]
