@@ -4,6 +4,7 @@ import TVSetKit
 class SeriesSubFilterController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
   static let SegueIdentifier = "Filter By Serie"
   let CellIdentifier = "SerieSubFilterCell"
+  let StoryboardId = "MyHit"
 
   var adapter = MyHitServiceAdapter()
   
@@ -77,7 +78,7 @@ class SeriesSubFilterController: UICollectionViewController, UICollectionViewDel
   }
 
   @objc  func tapped(_ gesture: UITapGestureRecognizer) {
-    if let destination = MediaItemsController.instantiateController(adapter),
+    if let destination = MediaItemsController.instantiateController(StoryboardId),
        let selectedCell = gesture.view as? MediaNameCell,
        let indexPath = collectionView?.indexPath(for: selectedCell) {
 
@@ -86,7 +87,6 @@ class SeriesSubFilterController: UICollectionViewController, UICollectionViewDel
       destination.params["requestType"] = "Series"
       destination.params["selectedItem"] = items.getItem(for: indexPath)
 
-      destination.adapter = adapter
       destination.configuration = adapter.getConfiguration()
 
       if let layout = adapter.buildLayout() {

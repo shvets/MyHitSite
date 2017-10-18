@@ -4,6 +4,7 @@ import TVSetKit
 class MoviesSubFilterController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
   static let SegueIdentifier = "Filter By Movie"
   let CellIdentifier = "MovieSubFilterCell"
+  let StoryboardId = "MyHit"
 
   let localizer = Localizer(MyHitServiceAdapter.BundleId, bundleClass: MyHitSite.self)
 
@@ -77,7 +78,7 @@ class MoviesSubFilterController: UICollectionViewController, UICollectionViewDel
   }
 
   @objc func tapped(_ gesture: UITapGestureRecognizer) {
-    if let destination = MediaItemsController.instantiateController(adapter),
+    if let destination = MediaItemsController.instantiateController(StoryboardId),
        let selectedCell = gesture.view as? MediaNameCell,
        let indexPath = collectionView?.indexPath(for: selectedCell) {
       let adapter = MyHitServiceAdapter()
@@ -85,7 +86,6 @@ class MoviesSubFilterController: UICollectionViewController, UICollectionViewDel
       destination.params["requestType"] = "Movies"
       destination.params["selectedItem"] = items.getItem(for: indexPath)
 
-      destination.adapter = adapter
       destination.configuration = adapter.getConfiguration()
 
       if let layout = adapter.buildLayout() {
