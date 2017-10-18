@@ -65,7 +65,7 @@ class MyHitServiceAdapter: ServiceAdapter {
     return try super.load()
   }
 
-  override func buildLayout() -> UICollectionViewFlowLayout? {
+  func buildLayout() -> UICollectionViewFlowLayout? {
     let layout = UICollectionViewFlowLayout()
 
     if params["requestType"] as! String == "Soundtracks" || params["requestType"] as! String == "Search" {
@@ -112,6 +112,7 @@ class MyHitServiceAdapter: ServiceAdapter {
     conf["dataSource"] = dataSource
     conf["storyboardId"] = MyHitServiceAdapter.StoryboardId
     conf["detailsImageFrame"] = getDetailsImageFrame()
+    conf["buildLayout"] = buildLayout()
 
     return conf
   }
