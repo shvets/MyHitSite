@@ -111,6 +111,7 @@ class MyHitServiceAdapter: ServiceAdapter {
     conf["historyManager"] = historyManager
     conf["dataSource"] = dataSource
     conf["storyboardId"] = MyHitServiceAdapter.StoryboardId
+    conf["bundleId"] = MyHitServiceAdapter.BundleId
     conf["detailsImageFrame"] = getDetailsImageFrame()
     conf["buildLayout"] = buildLayout()
 
