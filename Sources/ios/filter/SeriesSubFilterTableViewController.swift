@@ -5,7 +5,9 @@ class SeriesSubFilterTableViewController: UITableViewController {
   static let SegueIdentifier = "Filter By Serie"
   let CellIdentifier = "SerieSubFilterTableCell"
 
-  let localizer = Localizer(MyHitServiceAdapter.BundleId, bundleClass: MyHitSite.self)
+  let localizer = Localizer(MyHitService.BundleId, bundleClass: MyHitSite.self)
+
+  let service = MyHitService(true)
 
 #if os(iOS)
   public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
@@ -26,11 +28,12 @@ class SeriesSubFilterTableViewController: UITableViewController {
     #endif
     
     items.pageLoader.load = {
-      let adapter = MyHitServiceAdapter(mobile: true)
-      adapter.params["requestType"] = "Series Subfilter"
-      adapter.params["selectedItem"] = self.selectedItem
+      var params = Parameters()
+      params["requestType"] = "Series Subfilter"
+      params["selectedItem"] = self.selectedItem
+      //params["pageSize"] = self.service.getConfiguration()["pageSize"] as! Int
 
-      return try adapter.load()
+      return try self.service.dataSource.load(params: params)
     }
 
     items.loadInitialData(tableView) { result in
@@ -75,12 +78,10 @@ class SeriesSubFilterTableViewController: UITableViewController {
              let view = sender as? MediaNameTableCell,
              let indexPath = tableView.indexPath(for: view) {
 
-            let adapter = MyHitServiceAdapter(mobile: true)
-
             destination.params["requestType"] = "Series"
             destination.params["selectedItem"] = items.getItem(for: indexPath)
 
-            destination.configuration = adapter.getConfiguration()
+            destination.configuration = service.getConfiguration()
           }
 
         default: break

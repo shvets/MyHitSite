@@ -5,7 +5,9 @@ class SeriesFilterController: UICollectionViewController, UICollectionViewDelega
   static let SegueIdentifier = "Filter By Series"
   let CellIdentifier = "SerieFilterCell"
 
-  let localizer = Localizer(MyHitServiceAdapter.BundleId, bundleClass: MyHitSite.self)
+  let localizer = Localizer(MyHitService.BundleId, bundleClass: MyHitSite.self)
+
+  let service = MyHitService()
 
 #if os(tvOS)
   public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
@@ -26,10 +28,11 @@ class SeriesFilterController: UICollectionViewController, UICollectionViewDelega
     #endif
     
     items.pageLoader.load = {
-      let adapter = MyHitServiceAdapter()
-      adapter.params["requestType"] = "Series Filter"
+      var params = Parameters()
+      params["requestType"] = "Series Filter"
+      //params["pageSize"] = self.service.getConfiguration()["pageSize"] as! Int
 
-      return try adapter.load()
+      return try self.service.dataSource.load(params: params)
     }
 
     items.loadInitialData(collectionView) { result in
@@ -89,12 +92,7 @@ class SeriesFilterController: UICollectionViewController, UICollectionViewDelega
            let selectedCell = sender as? MediaNameCell,
            let indexPath = collectionView?.indexPath(for: selectedCell) {
 
-          let adapter = MyHitServiceAdapter()
-
-          destination.params["requestType"] = "Series Subfilter"
           destination.params["selectedItem"] = items.getItem(for: indexPath)
-
-          destination.adapter = adapter
         }
 
       default: break

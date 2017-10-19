@@ -6,14 +6,14 @@ class MoviesSubFilterController: UICollectionViewController, UICollectionViewDel
   let CellIdentifier = "MovieSubFilterCell"
   let StoryboardId = "MyHit"
 
-  let localizer = Localizer(MyHitServiceAdapter.BundleId, bundleClass: MyHitSite.self)
+  let localizer = Localizer(MyHitService.BundleId, bundleClass: MyHitSite.self)
+
+  let service = MyHitService()
 
 #if os(tvOS)
   public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
 #endif
 
-  var adapter = MyHitServiceAdapter()
-  
   public var params = Parameters()
   private var items = Items()
 
@@ -30,10 +30,12 @@ class MoviesSubFilterController: UICollectionViewController, UICollectionViewDel
     #endif
     
     items.pageLoader.load = {
-      let adapter = MyHitServiceAdapter()
-      adapter.params["requestType"] = "Movies Subfilter"
+      var params = Parameters()
+      params["requestType"] = "Movies Subfilter"
+      //params["selectedItem"] = self.selectedItem
+      //params["pageSize"] = self.service.getConfiguration()["pageSize"] as! Int
 
-      return try adapter.load()
+      return try self.service.dataSource.load(params: params)
     }
     
     items.loadInitialData(collectionView) { result in
@@ -83,14 +85,13 @@ class MoviesSubFilterController: UICollectionViewController, UICollectionViewDel
     if let destination = MediaItemsController.instantiateController(StoryboardId),
        let selectedCell = gesture.view as? MediaNameCell,
        let indexPath = collectionView?.indexPath(for: selectedCell) {
-      let adapter = MyHitServiceAdapter()
       
       destination.params["requestType"] = "Movies"
       destination.params["selectedItem"] = items.getItem(for: indexPath)
 
-      destination.configuration = adapter.getConfiguration()
+      destination.configuration = service.getConfiguration()
 
-      if let layout = adapter.buildLayout() {
+      if let layout = service.buildLayout() {
         destination.collectionView?.collectionViewLayout = layout
       }
 

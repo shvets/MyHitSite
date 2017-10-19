@@ -4,7 +4,9 @@ import TVSetKit
 class SettingsTableController: UITableViewController {
   let CellIdentifier = "SettingTableCell"
 
-  let localizer = Localizer(MyHitServiceAdapter.BundleId, bundleClass: MyHitSite.self)
+  let localizer = Localizer(MyHitService.BundleId, bundleClass: MyHitSite.self)
+
+  let service = MyHitService(true)
 
   private var items = Items()
 
@@ -74,10 +76,8 @@ class SettingsTableController: UITableViewController {
 
     let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
-    let adapter = MyHitServiceAdapter(mobile: true)
-
     let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-      let history = adapter.history
+      let history = self.service.history
 
       history.clear()
       history.save()
@@ -97,10 +97,8 @@ class SettingsTableController: UITableViewController {
 
     let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
-    let adapter = MyHitServiceAdapter(mobile: true)
-
     let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-      let bookmarks = adapter.bookmarks
+      let bookmarks = self.service.bookmarks
 
       bookmarks.clear()
       bookmarks.save()

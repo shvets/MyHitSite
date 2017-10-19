@@ -4,7 +4,9 @@ import TVSetKit
 open class MyHitController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
   let CellIdentifier = "MyHitCell"
 
-  let localizer = Localizer(MyHitServiceAdapter.BundleId, bundleClass: MyHitSite.self)
+  let localizer = Localizer(MyHitService.BundleId, bundleClass: MyHitSite.self)
+
+  let service = MyHitService()
 
   private var items = Items()
 
@@ -35,6 +37,7 @@ open class MyHitController: UICollectionViewController, UICollectionViewDelegate
 
   func loadData() -> [Item] {
     var items = [Item]()
+
     items.append(MediaName(name: "Bookmarks", imageName: "Star"))
     items.append(MediaName(name: "History", imageName: "Bookmark"))
     items.append(MediaName(name: "All Movies", imageName: "Retro TV"))
@@ -113,13 +116,12 @@ open class MyHitController: UICollectionViewController, UICollectionViewDelegate
              let indexPath = collectionView?.indexPath(for: view) {
 
             let mediaItem = items.getItem(for: indexPath)
-            let adapter = MyHitServiceAdapter()
 
             destination.params["requestType"] = mediaItem.name
             destination.params["parentName"] = localizer.localize(mediaItem.name!)
-            destination.configuration = adapter.getConfiguration()
+            destination.configuration = service.getConfiguration()
 
-            destination.collectionView?.collectionViewLayout = adapter.buildLayout()!
+            destination.collectionView?.collectionViewLayout = service.buildLayout()!
           }
 
         case SearchController.SegueIdentifier:

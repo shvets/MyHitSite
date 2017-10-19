@@ -4,7 +4,9 @@ import TVSetKit
 class SettingsController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
   let CellIdentifier = "SettingCell"
 
-  let localizer = Localizer(MyHitServiceAdapter.BundleId, bundleClass: MyHitSite.self)
+  let localizer = Localizer(MyHitService.BundleId, bundleClass: MyHitSite.self)
+
+  let service = MyHitService()
 
   private var items = Items()
 
@@ -102,11 +104,9 @@ class SettingsController: UICollectionViewController, UICollectionViewDelegateFl
     let message = localizer.localize("Please Confirm Your Choice")
 
     let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-
-    let adapter = MyHitServiceAdapter()
     
     let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-      let history = adapter.history
+      let history = self.service.history
 
       history.clear()
       history.save()
@@ -125,11 +125,9 @@ class SettingsController: UICollectionViewController, UICollectionViewDelegateFl
     let message = localizer.localize("Please Confirm Your Choice")
 
     let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-
-    let adapter = MyHitServiceAdapter()
     
     let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-      let bookmarks = adapter.bookmarks
+      let bookmarks = self.service.bookmarks
 
       bookmarks.clear()
       bookmarks.save()

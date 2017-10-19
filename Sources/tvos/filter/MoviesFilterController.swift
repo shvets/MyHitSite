@@ -5,7 +5,9 @@ class MoviesFilterController: UICollectionViewController, UICollectionViewDelega
   static let SegueIdentifier = "Filter By Movies"
   let CellIdentifier = "MovieFilterCell"
 
-  let localizer = Localizer(MyHitServiceAdapter.BundleId, bundleClass: MyHitSite.self)
+  let localizer = Localizer(MyHitService.BundleId, bundleClass: MyHitSite.self)
+
+  let service = MyHitService()
 
 #if os(tvOS)
   public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
@@ -26,10 +28,11 @@ class MoviesFilterController: UICollectionViewController, UICollectionViewDelega
     #endif
     
     items.pageLoader.load = {
-      let adapter = MyHitServiceAdapter()
-      adapter.params["requestType"] = "Movies Filter"
+      var params = Parameters()
+      params["requestType"] = "Movies Filter"
+      //params["pageSize"] = self.service.getConfiguration()["pageSize"] as! Int
 
-      return try adapter.load()
+      return try self.service.dataSource.load(params: params)
     }
 
     items.loadInitialData(collectionView) { result in
@@ -88,13 +91,9 @@ class MoviesFilterController: UICollectionViewController, UICollectionViewDelega
           if let destination = segue.destination as? MoviesSubFilterController,
              let selectedCell = sender as? MediaNameCell,
              let indexPath = collectionView?.indexPath(for: selectedCell) {
-            let adapter = MyHitServiceAdapter()
-            
-            adapter.clear()
+            //adapter.clear()
             destination.params["requestType"] = "Movies Subfilter"
             destination.params["selectedItem"] = items.getItem(for: indexPath)
-
-            destination.adapter = adapter
           }
 
         default: break

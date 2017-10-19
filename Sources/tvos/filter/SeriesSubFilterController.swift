@@ -5,10 +5,10 @@ class SeriesSubFilterController: UICollectionViewController, UICollectionViewDel
   static let SegueIdentifier = "Filter By Serie"
   let CellIdentifier = "SerieSubFilterCell"
   let StoryboardId = "MyHit"
-
-  var adapter = MyHitServiceAdapter()
   
-  let localizer = Localizer(MyHitServiceAdapter.BundleId, bundleClass: MyHitSite.self)
+  let localizer = Localizer(MyHitService.BundleId, bundleClass: MyHitSite.self)
+
+  let service = MyHitService()
 
 #if os(tvOS)
   public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
@@ -30,10 +30,12 @@ class SeriesSubFilterController: UICollectionViewController, UICollectionViewDel
     #endif
     
     items.pageLoader.load = {
-      let adapter = MyHitServiceAdapter()
-      adapter.params["requestType"] = "Series Subfilter"
+      var params = Parameters()
+      params["requestType"] = "Series Subfilter"
+      //params["selectedItem"] = self.selectedItem
+      //params["pageSize"] = self.service.getConfiguration()["pageSize"] as! Int
 
-      return try adapter.load()
+      return try self.service.dataSource.load(params: params)
     }
 
     items.loadInitialData(collectionView) { result in
@@ -84,14 +86,12 @@ class SeriesSubFilterController: UICollectionViewController, UICollectionViewDel
        let selectedCell = gesture.view as? MediaNameCell,
        let indexPath = collectionView?.indexPath(for: selectedCell) {
 
-      let adapter = MyHitServiceAdapter()
-
       destination.params["requestType"] = "Series"
       destination.params["selectedItem"] = items.getItem(for: indexPath)
 
-      destination.configuration = adapter.getConfiguration()
+      destination.configuration = service.getConfiguration()
 
-      if let layout = adapter.buildLayout() {
+      if let layout = service.buildLayout() {
         destination.collectionView?.collectionViewLayout = layout
       }
 

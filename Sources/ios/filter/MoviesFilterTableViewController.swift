@@ -5,7 +5,9 @@ class MoviesFilterTableViewController: UITableViewController {
   static let SegueIdentifier = "Filter By Movies"
   let CellIdentifier = "MovieFilterTableCell"
 
-  let localizer = Localizer(MyHitServiceAdapter.BundleId, bundleClass: MyHitSite.self)
+  let localizer = Localizer(MyHitService.BundleId, bundleClass: MyHitSite.self)
+
+  let service = MyHitService(true)
 
 #if os(iOS)
   public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
@@ -24,10 +26,11 @@ class MoviesFilterTableViewController: UITableViewController {
     #endif
     
     items.pageLoader.load = {
-      let adapter = MyHitServiceAdapter(mobile: true)
-      adapter.params["requestType"] = "Movies Filter"
+      var params = Parameters()
+      params["requestType"] = "Movies Filter"
+      //params["pageSize"] = self.service.getConfiguration()["pageSize"] as! Int
 
-      return try adapter.load()
+      return try self.service.dataSource.load(params: params)
     }
 
     items.loadInitialData(tableView) { result in

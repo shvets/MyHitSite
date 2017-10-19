@@ -5,7 +5,9 @@ import TVSetKit
 open class MyHitTableViewController: UITableViewController {
   let CellIdentifier = "MyHitTableCell"
 
-  let localizer = Localizer(MyHitServiceAdapter.BundleId, bundleClass: MyHitSite.self)
+  let localizer = Localizer(MyHitService.BundleId, bundleClass: MyHitSite.self)
+
+  let service = MyHitService(true)
 
   private var items = Items()
 
@@ -27,6 +29,7 @@ open class MyHitTableViewController: UITableViewController {
 
   func loadData() -> [Item] {
     var items = [Item]()
+
     items.append(MediaName(name: "Bookmarks", imageName: "Star"))
     items.append(MediaName(name: "History", imageName: "Bookmark"))
     items.append(MediaName(name: "All Movies", imageName: "Retro TV"))
@@ -103,25 +106,21 @@ open class MyHitTableViewController: UITableViewController {
 
             let mediaItem = items.getItem(for: indexPath)
 
-            let adapter = MyHitServiceAdapter(mobile: true)
 //            adapter.pageLoader.pageSize = 25
 //            adapter.pageLoader.rowSize = 1
 
             destination.params["requestType"] = mediaItem.name
             destination.params["parentName"] = localizer.localize(mediaItem.name!)
 
-            destination.configuration = adapter.getConfiguration()
+            destination.configuration = service.getConfiguration()
           }
 
         case SearchTableController.SegueIdentifier:
           if let destination = segue.destination.getActionController() as? SearchTableController {
-
-            let adapter = MyHitServiceAdapter(mobile: true)
-
             destination.params["requestType"] = "Search"
             destination.params["parentName"] = localizer.localize("Search Results")
 
-            destination.configuration = adapter.getConfiguration()
+            destination.configuration = service.getConfiguration()
           }
 
         default: break

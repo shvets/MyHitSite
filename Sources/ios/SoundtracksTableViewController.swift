@@ -4,9 +4,10 @@ import TVSetKit
 class SoundtracksTableViewController: UITableViewController {
   static let SegueIdentifier = "Soundtracks"
   let CellIdentifier =  "SoundtrackTableCell"
-  //override open var BundleId: String { return MyHitServiceAdapter.BundleId }
 
-  let localizer = Localizer(MyHitServiceAdapter.BundleId, bundleClass: MyHitSite.self)
+  let localizer = Localizer(MyHitService.BundleId, bundleClass: MyHitSite.self)
+
+  let service = MyHitService(true)
 
   private var items = Items()
   
@@ -16,9 +17,11 @@ class SoundtracksTableViewController: UITableViewController {
     self.clearsSelectionOnViewWillAppear = false
 
     items.pageLoader.load = {
-      let adapter = MyHitServiceAdapter(mobile: true)
+      var params = Parameters()
+      params["requestType"] = "Soundtracks"
+      //params["pageSize"] = self.service.getConfiguration()["pageSize"] as! Int
 
-      return try adapter.load()
+      return try self.service.dataSource.load(params: params)
     }
 
     items.loadInitialData(tableView)
@@ -59,12 +62,10 @@ class SoundtracksTableViewController: UITableViewController {
              let view = sender as? MediaNameTableCell,
              let indexPath = tableView.indexPath(for: view) {
 
-            let adapter = MyHitServiceAdapter(mobile: true)
-
             destination.params["requestType"] = "Albums"
             destination.params["selectedItem"] = items.getItem(for: indexPath)
 
-            destination.configuration = adapter.getConfiguration()
+            destination.configuration = service.getConfiguration()
           }
 
         default: break
