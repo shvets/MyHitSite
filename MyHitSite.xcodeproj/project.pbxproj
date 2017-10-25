@@ -11,6 +11,7 @@
 		2DBA112360F4D8BEFD79710B /* MyHitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA10420D7B21AB52A3987A /* MyHitController.swift */; };
 		2DBA131FE337DA889A7ECC32 /* SeriesFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA169A4047527D7A4ED28A /* SeriesFilterTableViewController.swift */; };
 		2DBA1344B16D91DF00CDDA8E /* MoviesFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1C210BBC39D6B5A3BA4C /* MoviesFilterTableViewController.swift */; };
+		2DBA13D05CBD781098813BD2 /* MyHitMediaItemsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA18748272364B3BF23B46 /* MyHitMediaItemsController.swift */; };
 		2DBA147EF07E35D70432D827 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2DBA1F128983908D879A693F /* Localizable.strings */; };
 		2DBA165CEBADA69144B80ED1 /* MyHitSite.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DBA16ECE4CC1A6F6816E11B /* MyHitSite.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2DBA16636A8DDB0E7C34D645 /* SeriesSubFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA18A2F12ADCD2AA382C1D /* SeriesSubFilterTableViewController.swift */; };
@@ -43,6 +44,7 @@
 		2DBA16940D6AD5C5B883B292 /* MoviesSubFilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesSubFilterTableViewController.swift; sourceTree = "<group>"; };
 		2DBA169A4047527D7A4ED28A /* SeriesFilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeriesFilterTableViewController.swift; sourceTree = "<group>"; };
 		2DBA16ECE4CC1A6F6816E11B /* MyHitSite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyHitSite.h; sourceTree = "<group>"; };
+		2DBA18748272364B3BF23B46 /* MyHitMediaItemsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHitMediaItemsController.swift; sourceTree = "<group>"; };
 		2DBA18A2F12ADCD2AA382C1D /* SeriesSubFilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeriesSubFilterTableViewController.swift; sourceTree = "<group>"; };
 		2DBA1A0DDB5B943D0913BADC /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		2DBA1A3E8C2B38386EE63489 /* MyHitTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHitTableViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				2DBA14640350A615A2E117E3 /* tvos */,
 				2DBA17AE80FF404C251ED106 /* ios */,
 				2DBA130308AACD921627AA09 /* MyHitSite.swift */,
+				2DBA18748272364B3BF23B46 /* MyHitMediaItemsController.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				2DBA16636A8DDB0E7C34D645 /* SeriesSubFilterTableViewController.swift in Sources */,
 				FA2C290D1E80AAF00090C9D5 /* SeriesFilterController.swift in Sources */,
 				2DBA1F6A5632B009ED50A1E4 /* MyHitSite.swift in Sources */,
+				2DBA13D05CBD781098813BD2 /* MyHitMediaItemsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
