@@ -4,24 +4,15 @@ import AudioPlayer
 open class MyHitMediaItemsController: MediaItemsController {
   override open func navigate(from view: UICollectionViewCell, playImmediately: Bool=false) {
     if let indexPath = collectionView?.indexPath(for: view),
-       let mediaItem = items.getItem(for: indexPath) as? MediaItem {
+       let mediaItem = items.getItem(for: indexPath) as? MyHitMediaItem {
 
       if mediaItem.isContainer() {
         if mediaItem.isAudioContainer() {
-          if mediaItem.hasMultipleVersions() {
-            performSegue(withIdentifier: AudioVersionsController.SegueIdentifier, sender: view)
-          }
-          else {
-            performSegue(withIdentifier: AudioItemsController.SegueIdentifier, sender: view)
-          }
+          performSegue(withIdentifier: AudioItemsController.SegueIdentifier, sender: view)
         }
         else {
           if let destination = MediaItemsController.instantiateController(configuration?["storyboardId"] as! String) {
            destination.configuration = configuration
-
-           for (key, value) in self.params {
-             destination.params[key] = value
-           }
 
            destination.params["selectedItem"] = mediaItem
            destination.params["parentId"] = mediaItem.id
@@ -73,10 +64,6 @@ open class MyHitMediaItemsController: MediaItemsController {
               var items: [AudioItem] = []
 
               var newParams = Parameters()
-
-              for (key, value) in self.params {
-                newParams[key] = value
-              }
 
               newParams["requestType"] = "Tracks"
               newParams["selectedItem"] = mediaItem

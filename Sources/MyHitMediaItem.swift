@@ -36,11 +36,11 @@ class MyHitMediaItem: MediaItem {
     fatalError("init(from:) has not been implemented")
   }
   
-  override func isContainer() -> Bool {
+  func isContainer() -> Bool {
     return type == "serie" || type == "season" || type == "soundtrack" || type == "selection" || type == "tracks"
   }
   
-  override func isAudioContainer() -> Bool {
+  func isAudioContainer() -> Bool {
     var result = false
     
     if type == "soundtrack" {
