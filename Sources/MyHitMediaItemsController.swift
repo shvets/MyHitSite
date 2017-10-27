@@ -2,41 +2,41 @@ import TVSetKit
 import AudioPlayer
 
 open class MyHitMediaItemsController: MediaItemsController {
-//  override open func navigate(from view: UICollectionViewCell, playImmediately: Bool=false) {
-//    if let indexPath = collectionView?.indexPath(for: view),
-//       let mediaItem = items.getItem(for: indexPath) as? MyHitMediaItem {
-//
-//      if mediaItem.isContainer() {
-//        if mediaItem.isAudioContainer() {
-//          performSegue(withIdentifier: AudioItemsController.SegueIdentifier, sender: view)
-//        }
-//        else {
-//          if let destination = MediaItemsController.instantiateController(configuration?["storyboardId"] as! String) {
-//           destination.configuration = configuration
-//
-//           destination.params["selectedItem"] = mediaItem
-//           destination.params["parentId"] = mediaItem.id
-//           destination.params["parentName"] = mediaItem.name
-//           destination.params["isContainer"] = true
-//
-//           if !mobile {
-//             if let layout = configuration?["buildLayout"] {
-//               destination.collectionView?.collectionViewLayout = layout as! UICollectionViewLayout
-//             }
-//
-//             present(destination, animated: true)
-//           }
-//           else {
-//             navigationController?.pushViewController(destination, animated: true)
-//           }
-//         }
-//        }
-//      }
-//      else {
-//        super.navigate(from: view, playImmediately: playImmediately)
-//      }
-//    }
-//  }
+  override open func navigate(from view: UICollectionViewCell, playImmediately: Bool=false) {
+    if let indexPath = collectionView?.indexPath(for: view),
+       let mediaItem = items.getItem(for: indexPath) as? MyHitMediaItem {
+
+      if mediaItem.isContainer() {
+        if mediaItem.isAudioContainer() {
+          performSegue(withIdentifier: AudioItemsController.SegueIdentifier, sender: view)
+        }
+        else {
+          if let destination = MediaItemsController.instantiateController(configuration?["storyboardId"] as! String) {
+           destination.configuration = configuration
+
+           destination.params["selectedItem"] = mediaItem
+           destination.params["parentId"] = mediaItem.id
+           destination.params["parentName"] = mediaItem.name
+           destination.params["isContainer"] = true
+
+           if !mobile {
+             if let layout = configuration?["buildLayout"] {
+               destination.collectionView?.collectionViewLayout = layout as! UICollectionViewLayout
+             }
+
+             present(destination, animated: true)
+           }
+           else {
+             navigationController?.pushViewController(destination, animated: true)
+           }
+         }
+        }
+      }
+      else {
+        super.navigate(from: view, playImmediately: playImmediately)
+      }
+    }
+  }
 
   // MARK: Navigation
 
