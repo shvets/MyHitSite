@@ -30,7 +30,7 @@ class SeriesSubFilterController: UICollectionViewController, UICollectionViewDel
 
     #if os(tvOS)
       collectionView?.backgroundView = activityIndicatorView
-      pageLoader.spinner = PlainSpinner(activityIndicatorView)
+      //pageLoader.spinner = PlainSpinner(activityIndicatorView)
     #endif
     
     pageLoader.load = {

@@ -27,7 +27,7 @@ class SeriesFilterController: UICollectionViewController, UICollectionViewDelega
 
     #if os(tvOS)
       collectionView?.backgroundView = activityIndicatorView
-      items.pageLoader.spinner = PlainSpinner(activityIndicatorView)
+      //items.pageLoader.spinner = PlainSpinner(activityIndicatorView)
     #endif
     
     pageLoader.load = {
