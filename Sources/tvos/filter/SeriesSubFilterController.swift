@@ -38,9 +38,15 @@ class SeriesSubFilterController: UICollectionViewController, UICollectionViewDel
       return try self.service.dataSource.load(params: params)
     }
 
-    items.loadInitialData(collectionView) { result in
-      for item in result {
-        item.name = self.localizer.localize(item.name!)
+    items.pageLoader.loadData { result in
+      if let items = result as? [Item] {
+        self.items.items = items
+
+        for item in items {
+          item.name = self.localizer.localize(item.name!)
+        }
+
+        self.collectionView?.reloadData()
       }
     }
   }
