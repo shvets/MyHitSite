@@ -1,18 +1,21 @@
 import UIKit
 import TVSetKit
+import PageLoader
 
 class SeriesFilterTableViewController: UITableViewController {
   static let SegueIdentifier = "Filter By Series"
   let CellIdentifier = "SerieFilterTableCell"
 
   let localizer = Localizer(MyHitService.BundleId, bundleClass: MyHitSite.self)
-
+  
+  #if os(iOS)
+  public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+  #endif
+  
   let service = MyHitService(true)
 
-#if os(iOS)
-  public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-#endif
-
+  let pageLoader = PageLoader()
+  
   private var items = Items()
 
   override func viewDidLoad() {
@@ -22,10 +25,10 @@ class SeriesFilterTableViewController: UITableViewController {
 
     #if os(iOS)
       tableView?.backgroundView = activityIndicatorView
-      items.pageLoader.spinner = PlainSpinner(activityIndicatorView)
+      //pageLoader.spinner = PlainSpinner(activityIndicatorView)
     #endif
     
-    items.pageLoader.load = {
+    pageLoader.load = {
       var params = Parameters()
       params["requestType"] = "Series Filter"
       //params["pageSize"] = self.service.getConfiguration()["pageSize"] as! Int
@@ -33,7 +36,7 @@ class SeriesFilterTableViewController: UITableViewController {
       return try self.service.dataSource.load(params: params)
     }
 
-    items.pageLoader.loadData { result in
+    pageLoader.loadData { result in
       if let items = result as? [Item] {
         self.items.items = items
 

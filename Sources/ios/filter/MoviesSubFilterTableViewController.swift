@@ -1,22 +1,25 @@
 import UIKit
 import TVSetKit
+import PageLoader
 
 class MoviesSubFilterTableViewController: UITableViewController {
   static let SegueIdentifier = "Filter By Movie"
   let CellIdentifier = "MovieSubFilterTableCell"
 
   let localizer = Localizer(MyHitService.BundleId, bundleClass: MyHitSite.self)
-
+  
+  #if os(iOS)
+  public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+  #endif
+  
   let service = MyHitService(true)
 
-#if os(iOS)
-  public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-#endif
-
-  var selectedItem: MediaItem?
-
+  let pageLoader = PageLoader()
+  
   private var items = Items()
 
+  var selectedItem: MediaItem?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -24,10 +27,10 @@ class MoviesSubFilterTableViewController: UITableViewController {
 
     #if os(iOS)
       tableView?.backgroundView = activityIndicatorView
-      items.pageLoader.spinner = PlainSpinner(activityIndicatorView)
+      //pageLoader.spinner = PlainSpinner(activityIndicatorView)
     #endif
     
-    items.pageLoader.load = {
+    pageLoader.load = {
       var params = Parameters()
       params["requestType"] = "Movies Subfilter"
       params["selectedItem"] = self.selectedItem
@@ -36,7 +39,7 @@ class MoviesSubFilterTableViewController: UITableViewController {
       return try self.service.dataSource.load(params: params)
     }
 
-    items.pageLoader.loadData { result in
+    pageLoader.loadData { result in
       if let items = result as? [Item] {
         self.items.items = items
 

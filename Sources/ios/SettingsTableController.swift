@@ -1,5 +1,6 @@
 import UIKit
 import TVSetKit
+import PageLoader
 
 class SettingsTableController: UITableViewController {
   let CellIdentifier = "SettingTableCell"
@@ -7,7 +8,7 @@ class SettingsTableController: UITableViewController {
   let localizer = Localizer(MyHitService.BundleId, bundleClass: MyHitSite.self)
 
   let service = MyHitService(true)
-
+  let pageLoader = PageLoader()
   private var items = Items()
 
   override func viewDidLoad() {
@@ -17,11 +18,11 @@ class SettingsTableController: UITableViewController {
 
     //adapter = MyHitServiceAdapter(mobile: true)
 
-    items.pageLoader.load = {
+    pageLoader.load = {
       return self.loadSettingsMenu()
     }
 
-    self.items.pageLoader.loadData { result in
+    pageLoader.loadData { result in
       if let items = result as? [Item] {
         self.items.items = items
 

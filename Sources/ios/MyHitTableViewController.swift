@@ -1,6 +1,7 @@
 import UIKit
 import SwiftyJSON
 import TVSetKit
+import PageLoader
 
 open class MyHitTableViewController: UITableViewController {
   let CellIdentifier = "MyHitTableCell"
@@ -8,7 +9,7 @@ open class MyHitTableViewController: UITableViewController {
   let localizer = Localizer(MyHitService.BundleId, bundleClass: MyHitSite.self)
 
   let service = MyHitService(true)
-
+  let pageLoader = PageLoader()
   private var items = Items()
 
   override open func viewDidLoad() {
@@ -20,11 +21,11 @@ open class MyHitTableViewController: UITableViewController {
 
     title = localizer.localize("Archive")
 
-    items.pageLoader.load = {
+    pageLoader.load = {
       return self.loadData()
     }
 
-    self.items.pageLoader.loadData { result in
+    pageLoader.loadData { result in
       if let items = result as? [Item] {
         self.items.items = items
 

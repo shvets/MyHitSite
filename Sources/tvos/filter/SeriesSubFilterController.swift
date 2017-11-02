@@ -1,5 +1,6 @@
 import UIKit
 import TVSetKit
+import PageLoader
 
 class SeriesSubFilterController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
   static let SegueIdentifier = "Filter By Serie"
@@ -7,16 +8,19 @@ class SeriesSubFilterController: UICollectionViewController, UICollectionViewDel
   let StoryboardId = "MyHit"
   
   let localizer = Localizer(MyHitService.BundleId, bundleClass: MyHitSite.self)
-
+  
+  #if os(tvOS)
+  public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+  #endif
+  
   let service = MyHitService()
 
-#if os(tvOS)
-  public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-#endif
+  let pageLoader = PageLoader()
 
-  public var params = Parameters()
   private var items = Items()
 
+  public var params = Parameters()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -26,10 +30,10 @@ class SeriesSubFilterController: UICollectionViewController, UICollectionViewDel
 
     #if os(tvOS)
       collectionView?.backgroundView = activityIndicatorView
-      items.pageLoader.spinner = PlainSpinner(activityIndicatorView)
+      pageLoader.spinner = PlainSpinner(activityIndicatorView)
     #endif
     
-    items.pageLoader.load = {
+    pageLoader.load = {
       var params = Parameters()
       params["requestType"] = "Series Subfilter"
       //params["selectedItem"] = self.selectedItem
@@ -38,7 +42,7 @@ class SeriesSubFilterController: UICollectionViewController, UICollectionViewDel
       return try self.service.dataSource.load(params: params)
     }
 
-    items.pageLoader.loadData { result in
+    pageLoader.loadData { result in
       if let items = result as? [Item] {
         self.items.items = items
 

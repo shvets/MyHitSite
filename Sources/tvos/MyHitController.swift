@@ -1,5 +1,6 @@
 import UIKit
 import TVSetKit
+import PageLoader
 
 open class MyHitController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
   let CellIdentifier = "MyHitCell"
@@ -7,7 +8,7 @@ open class MyHitController: UICollectionViewController, UICollectionViewDelegate
   let localizer = Localizer(MyHitService.BundleId, bundleClass: MyHitSite.self)
 
   let service = MyHitService()
-
+  let pageLoader = PageLoader()
   private var items = Items()
 
   override open func viewDidLoad() {
@@ -17,11 +18,11 @@ open class MyHitController: UICollectionViewController, UICollectionViewDelegate
 
     setupLayout()
 
-    items.pageLoader.load = {
+    pageLoader.load = {
       return self.loadData()
     }
 
-    items.pageLoader.loadData { result in
+    pageLoader.loadData { result in
       if let items = result as? [Item] {
         self.items.items = items
 

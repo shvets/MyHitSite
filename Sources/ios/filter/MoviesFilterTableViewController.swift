@@ -1,5 +1,6 @@
 import UIKit
 import TVSetKit
+import PageLoader
 
 class MoviesFilterTableViewController: UITableViewController {
   static let SegueIdentifier = "Filter By Movies"
@@ -7,12 +8,14 @@ class MoviesFilterTableViewController: UITableViewController {
 
   let localizer = Localizer(MyHitService.BundleId, bundleClass: MyHitSite.self)
 
+  #if os(iOS)
+  public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+  #endif
+  
   let service = MyHitService(true)
 
-#if os(iOS)
-  public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-#endif
-
+  let pageLoader = PageLoader()
+  
   private var items = Items()
 
   override func viewDidLoad() {
@@ -22,10 +25,10 @@ class MoviesFilterTableViewController: UITableViewController {
 
     #if os(iOS)
       tableView?.backgroundView = activityIndicatorView
-      items.pageLoader.spinner = PlainSpinner(activityIndicatorView)
+      //pageLoader.spinner = PlainSpinner(activityIndicatorView)
     #endif
     
-    items.pageLoader.load = {
+    pageLoader.load = {
       var params = Parameters()
       params["requestType"] = "Movies Filter"
       //params["pageSize"] = self.service.getConfiguration()["pageSize"] as! Int
@@ -33,7 +36,7 @@ class MoviesFilterTableViewController: UITableViewController {
       return try self.service.dataSource.load(params: params)
     }
 
-    items.pageLoader.loadData { result in
+    pageLoader.loadData { result in
       if let items = result as? [Item] {
         self.items.items = items
 

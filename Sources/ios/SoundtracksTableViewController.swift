@@ -1,5 +1,6 @@
 import UIKit
 import TVSetKit
+import PageLoader
 
 class SoundtracksTableViewController: UITableViewController {
   static let SegueIdentifier = "Soundtracks"
@@ -8,7 +9,7 @@ class SoundtracksTableViewController: UITableViewController {
   let localizer = Localizer(MyHitService.BundleId, bundleClass: MyHitSite.self)
 
   let service = MyHitService(true)
-
+  let pageLoader = PageLoader()
   private var items = Items()
   
   override func viewDidLoad() {
@@ -16,7 +17,7 @@ class SoundtracksTableViewController: UITableViewController {
 
     self.clearsSelectionOnViewWillAppear = false
 
-    items.pageLoader.load = {
+    pageLoader.load = {
       var params = Parameters()
       params["requestType"] = "Soundtracks"
       //params["pageSize"] = self.service.getConfiguration()["pageSize"] as! Int
@@ -24,7 +25,7 @@ class SoundtracksTableViewController: UITableViewController {
       return try self.service.dataSource.load(params: params)
     }
 
-    self.items.pageLoader.loadData { result in
+    pageLoader.loadData { result in
       if let items = result as? [Item] {
         self.items.items = items
 

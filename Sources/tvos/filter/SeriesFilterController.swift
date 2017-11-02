@@ -1,5 +1,6 @@
 import UIKit
 import TVSetKit
+import PageLoader
 
 class SeriesFilterController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
   static let SegueIdentifier = "Filter By Series"
@@ -7,12 +8,14 @@ class SeriesFilterController: UICollectionViewController, UICollectionViewDelega
 
   let localizer = Localizer(MyHitService.BundleId, bundleClass: MyHitSite.self)
 
+  #if os(tvOS)
+  public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+  #endif
+  
   let service = MyHitService()
 
-#if os(tvOS)
-  public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-#endif
-
+  let pageLoader = PageLoader()
+  
   private var items = Items()
 
   override func viewDidLoad() {
@@ -27,7 +30,7 @@ class SeriesFilterController: UICollectionViewController, UICollectionViewDelega
       items.pageLoader.spinner = PlainSpinner(activityIndicatorView)
     #endif
     
-    items.pageLoader.load = {
+    pageLoader.load = {
       var params = Parameters()
       params["requestType"] = "Series Filter"
       //params["pageSize"] = self.service.getConfiguration()["pageSize"] as! Int
@@ -35,7 +38,7 @@ class SeriesFilterController: UICollectionViewController, UICollectionViewDelega
       return try self.service.dataSource.load(params: params)
     }
 
-    items.pageLoader.loadData { result in
+    pageLoader.loadData { result in
       if let items = result as? [Item] {
         self.items.items = items
 
