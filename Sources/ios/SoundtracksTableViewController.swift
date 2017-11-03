@@ -17,7 +17,7 @@ class SoundtracksTableViewController: UITableViewController {
 
     self.clearsSelectionOnViewWillAppear = false
 
-    pageLoader.load = {
+    func load() throws -> [Any] {
       var params = Parameters()
       params["requestType"] = "Soundtracks"
       //params["pageSize"] = self.service.getConfiguration()["pageSize"] as! Int
@@ -25,7 +25,7 @@ class SoundtracksTableViewController: UITableViewController {
       return try self.service.dataSource.load(params: params)
     }
 
-    pageLoader.loadData { result in
+    pageLoader.loadData(onLoad: load) { result in
       if let items = result as? [Item] {
         self.items.items = items
 

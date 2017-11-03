@@ -21,11 +21,7 @@ open class MyHitTableViewController: UITableViewController {
 
     title = localizer.localize("Archive")
 
-    pageLoader.load = {
-      return self.loadData()
-    }
-
-    pageLoader.loadData { result in
+    pageLoader.loadData(onLoad: loadData) { result in
       if let items = result as? [Item] {
         self.items.items = items
 
@@ -34,7 +30,7 @@ open class MyHitTableViewController: UITableViewController {
     }
   }
 
-  func loadData() -> [Item] {
+  func loadData() throws -> [Any] {
     var items = [Item]()
 
     items.append(MediaName(name: "Bookmarks", imageName: "Star"))

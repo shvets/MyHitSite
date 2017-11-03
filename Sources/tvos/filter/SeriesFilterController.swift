@@ -30,7 +30,7 @@ class SeriesFilterController: UICollectionViewController, UICollectionViewDelega
       //items.pageLoader.spinner = PlainSpinner(activityIndicatorView)
     #endif
     
-    pageLoader.load = {
+    func load() throws -> [Any] {
       var params = Parameters()
       params["requestType"] = "Series Filter"
       //params["pageSize"] = self.service.getConfiguration()["pageSize"] as! Int
@@ -38,7 +38,7 @@ class SeriesFilterController: UICollectionViewController, UICollectionViewDelega
       return try self.service.dataSource.load(params: params)
     }
 
-    pageLoader.loadData { result in
+    pageLoader.loadData(onLoad: load) { result in
       if let items = result as? [Item] {
         self.items.items = items
 

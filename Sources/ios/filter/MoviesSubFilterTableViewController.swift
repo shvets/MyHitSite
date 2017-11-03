@@ -30,7 +30,7 @@ class MoviesSubFilterTableViewController: UITableViewController {
       pageLoader.spinner = BaseSpinner(activityIndicatorView)
     #endif
     
-    pageLoader.load = {
+    func load() throws -> [Any] {
       var params = Parameters()
       params["requestType"] = "Movies Subfilter"
       params["selectedItem"] = self.selectedItem
@@ -39,7 +39,7 @@ class MoviesSubFilterTableViewController: UITableViewController {
       return try self.service.dataSource.load(params: params)
     }
 
-    pageLoader.loadData { result in
+    pageLoader.loadData(onLoad: load) { result in
       if let items = result as? [Item] {
         self.items.items = items
 

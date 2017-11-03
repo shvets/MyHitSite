@@ -18,11 +18,7 @@ open class MyHitController: UICollectionViewController, UICollectionViewDelegate
 
     setupLayout()
 
-    pageLoader.load = {
-      return self.loadData()
-    }
-
-    pageLoader.loadData { result in
+    pageLoader.loadData(onLoad: loadData) { result in
       if let items = result as? [Item] {
         self.items.items = items
 
@@ -42,7 +38,7 @@ open class MyHitController: UICollectionViewController, UICollectionViewDelegate
     collectionView?.collectionViewLayout = layout
   }
 
-  func loadData() -> [Item] {
+  func loadData() throws -> [Any] {
     var items = [Item]()
 
     items.append(MediaName(name: "Bookmarks", imageName: "Star"))
