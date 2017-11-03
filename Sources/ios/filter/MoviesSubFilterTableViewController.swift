@@ -27,7 +27,7 @@ class MoviesSubFilterTableViewController: UITableViewController {
 
     #if os(iOS)
       tableView?.backgroundView = activityIndicatorView
-      //pageLoader.spinner = PlainSpinner(activityIndicatorView)
+      pageLoader.spinner = BaseSpinner(activityIndicatorView)
     #endif
     
     pageLoader.load = {
