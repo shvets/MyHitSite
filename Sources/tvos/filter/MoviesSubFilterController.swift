@@ -30,7 +30,7 @@ class MoviesSubFilterController: UICollectionViewController, UICollectionViewDel
 
     #if os(tvOS)
       collectionView?.backgroundView = activityIndicatorView
-      pageLoader.spinner = BaseSpinner(activityIndicatorView)
+      pageLoader.spinner = PlainSpinner(activityIndicatorView)
     #endif
     
     func load() throws -> [Any] {

@@ -26,7 +26,7 @@ class MoviesFilterController: UICollectionViewController, UICollectionViewDelega
 
     #if os(tvOS)
       collectionView?.backgroundView = activityIndicatorView
-      pageLoader.spinner = BaseSpinner(activityIndicatorView)
+      pageLoader.spinner = PlainSpinner(activityIndicatorView)
     #endif
     
     func load() throws -> [Any] {
