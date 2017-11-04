@@ -49,26 +49,26 @@ class MyHitDataSource: DataSource {
       }
 
       case "All Movies":
-        items = Observable.just(try service.getAllMovies(page: currentPage)["movies"] as! [Any])
+        items = Observable.just(adjustItems(try service.getAllMovies(page: currentPage)["movies"] as! [Any]))
 
       case "All Series":
-        items = Observable.just(try service.getAllSeries(page: currentPage)["movies"] as! [Any])
+        items = Observable.just(adjustItems(try service.getAllSeries(page: currentPage)["movies"] as! [Any]))
 
       case "Movies":
         let path = selectedItem!.id
 
-        items = Observable.just(try service.getMovies(path: path!, page: currentPage)["movies"] as! [Any])
+        items = Observable.just(adjustItems(try service.getMovies(path: path!, page: currentPage)["movies"] as! [Any]))
 
       case "Series":
         let path = selectedItem!.id
 
-        items = Observable.just(try service.getSeries(path: path!, page: currentPage)["movies"] as! [Any])
+        items = Observable.just(adjustItems(try service.getSeries(path: path!, page: currentPage)["movies"] as! [Any]))
 
       case "Popular Movies":
-        items = Observable.just(try service.getPopularMovies(page: currentPage)["movies"] as! [Any])
+        items = Observable.just(adjustItems(try service.getPopularMovies(page: currentPage)["movies"] as! [Any]))
 
       case "Popular Series":
-        items = Observable.just(try service.getPopularSeries(page: currentPage)["movies"] as! [Any])
+        items = Observable.just(adjustItems(try service.getPopularSeries(page: currentPage)["movies"] as! [Any]))
 
       case "Seasons":
         if let identifier = params["parentId"] as? String {
@@ -77,10 +77,10 @@ class MyHitDataSource: DataSource {
           if seasons.count == 1 {
             let episodes = (seasons[0] as! [String: Any])["episodes"]
 
-            items = Observable.just(episodes as! [Any])
+            items = Observable.just(adjustItems(episodes as! [Any]))
           }
           else {
-            items = Observable.just(seasons)
+            items = Observable.just(adjustItems(seasons))
           }
         }
 
@@ -90,8 +90,8 @@ class MyHitDataSource: DataSource {
 
           let parentName = "\(selectedItem!.parentName!) (\(selectedItem!.name!))"
 
-          items = Observable.just(service.getEpisodes(identifier, parentName: parentName, seasonNumber: seasonNumber,
-            pageSize: pageSize!, page: currentPage)["movies"] as! [Any])
+          items = Observable.just(adjustItems(service.getEpisodes(identifier, parentName: parentName, seasonNumber: seasonNumber,
+            pageSize: pageSize!, page: currentPage)["movies"] as! [Any]))
         }
 
       case "Selections":
@@ -100,10 +100,10 @@ class MyHitDataSource: DataSource {
       case "Selection":
         let selectionId = selectedItem!.id!
 
-        items = Observable.just(try service.getSelection(path: selectionId, page: currentPage)["movies"] as! [Any])
+        items = Observable.just(adjustItems(try service.getSelection(path: selectionId, page: currentPage)["movies"] as! [Any]))
 
       case "Soundtracks":
-        items = Observable.just(try service.getSoundtracks(page: currentPage)["movies"] as! [Any])
+        items = Observable.just(adjustItems(try service.getSoundtracks(page: currentPage)["movies"] as! [Any]))
 
       case "Albums":
         let soundtrackId = selectedItem!.id!
@@ -134,16 +134,16 @@ class MyHitDataSource: DataSource {
             list.append(newTrack as! [String : String])
         }
 
-        items = Observable.just(list)
+        items = Observable.just(adjustItems(list))
 
       case "Movies Filter":
-        items = Observable.just(try service.getFilters(mode: "film"))
+        items = Observable.just(adjustItems(try service.getFilters(mode: "film")))
 
       case "Movies Subfilter":
         items = Observable.just(selectedItem!.items)
 
       case "Series Filter":
-        items = Observable.just(try service.getFilters(mode: "serial"))
+        items = Observable.just(adjustItems(try service.getFilters(mode: "serial")))
 
       case "Series Subfilter":
         items = Observable.just(selectedItem!.items)
@@ -151,7 +151,7 @@ class MyHitDataSource: DataSource {
       case "Search":
         if let query = params["query"] as? String {
           if !query.isEmpty {
-            items = Observable.just(try service.search(query, page: currentPage)["movies"] as! [Any])
+            items = Observable.just(adjustItems(try service.search(query, page: currentPage)["movies"] as! [Any]))
           }
         }
 
@@ -159,17 +159,10 @@ class MyHitDataSource: DataSource {
         items = Observable.just([])
     }
 
-    let convert = params["convert"] as? Bool ?? true
-
-//    if convert {
-//      return convertToMediaItems(items)
-//    }
-//    else {
-      return items
-    //}
+    return items
   }
 
-  func convertToMediaItems(_ items: [Any]) -> [Item] {
+  func adjustItems(_ items: [Any]) -> [Item] {
     var newItems = [Item]()
 
     for item in items {
