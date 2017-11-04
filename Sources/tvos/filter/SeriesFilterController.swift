@@ -35,7 +35,7 @@ class SeriesFilterController: UICollectionViewController, UICollectionViewDelega
       params["requestType"] = "Series Filter"
       //params["pageSize"] = self.service.getConfiguration()["pageSize"] as! Int
 
-      return try self.service.dataSource.load(params: params)
+      return try self.service.dataSource.loadAndWait(params: params)
     }
 
     pageLoader.loadData(onLoad: load) { result in

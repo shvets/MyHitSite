@@ -69,7 +69,7 @@ open class MyHitMediaItemsController: MediaItemsController {
               newParams["selectedItem"] = mediaItem
               newParams["convert"] = false
 
-              if let data = try self.dataSource?.load(params: newParams) {
+              if let data = try self.dataSource?.loadAndWait(params: newParams) {
                 if let mediaItems = data as? [[String: String]] {
                   for mediaItem in mediaItems {
                     items.append(AudioItem(name: mediaItem["name"]!, id: mediaItem["id"]!))
