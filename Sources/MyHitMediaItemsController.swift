@@ -60,7 +60,7 @@ open class MyHitMediaItemsController: MediaItemsController {
               }
             }
 
-            destination.pageLoader.load = {
+            destination.loadAudioItems = {
               var items: [AudioItem] = []
 
               var newParams = Parameters()
