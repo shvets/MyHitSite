@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
     'com.rubikon.MyHitSite' => ['Sources/**/*.{storyboard,strings}']
   }
 
-  s.dependency 'SwiftyJSON', '~> 4.0.0'
+  s.dependency 'SwiftyJSON', '~> 4.1.0'
   s.dependency 'WebAPI', '~> 1.0.13'
   s.dependency 'Runglish', '~> 1.0.0'
   s.dependency 'AudioPlayer', '~> 1.0.7'
