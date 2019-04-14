@@ -9,7 +9,7 @@ class MoviesSubFilterTableViewController: UITableViewController {
   let localizer = Localizer(MyHitService.BundleId, bundleClass: MyHitSite.self)
   
   #if os(iOS)
-  public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+  public let activityIndicatorView = UIActivityIndicatorView(style: .gray)
   #endif
   
   let service = MyHitService(true)
