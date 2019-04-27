@@ -8,7 +8,7 @@ class MoviesFilterController: UICollectionViewController, UICollectionViewDelega
   let localizer = Localizer(MyHitService.BundleId, bundleClass: MyHitSite.self)
 
 #if os(tvOS)
-  public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+    public let activityIndicatorView = UIActivityIndicatorView(style: .whiteLarge)
 #endif
 
   let service = MyHitService()
